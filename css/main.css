@@ -1,0 +1,67 @@
+/* tamaño de las cajas del juego de cajas */
+.content-caja{
+    padding: 20px;
+}
+
+
+.img-caja img {
+    max-width: 100%;
+    height: auto;
+   
+}
+
+.img-caja {
+    transition: 1s;
+    cursor: pointer;
+}
+
+.img-caja:hover {
+    color: #6C55F9;
+    transform: scale(1.2);
+    transition: .5s;
+}
+
+.img-caja .caja-black {
+    display: block;
+    transition: 1s;
+}
+
+.img-caja .caja {
+    display: none;
+    transition: 1s;
+}
+
+.img-caja:hover .caja-black{
+   display: none;
+   transition: .5s;
+}
+
+.img-caja:hover .caja{
+    display: block;
+    transition: .5s;
+}
+
+#juego .col-md-3 {
+    padding-right: 0px;
+    padding-left: 0px;
+}
+
+#juego .page-banner {
+    height: auto;
+}
+
+.padding-caja {
+    padding: 20px 160px;
+}
+
+.numCaja {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    font-weight: 800;
+}
+
