@@ -1188,7 +1188,7 @@ a.text-dark:hover, a.text-dark:focus {
 
 .form-control {
   padding: 8px 15px;
-  height: calc(1.5em + 1.375rem + 2px);
+  /* height: calc(1.5em + 1.375rem + 2px); */
   border-color: #d6dbd9;
 }
 
@@ -1398,7 +1398,7 @@ a.text-dark:hover, a.text-dark:focus {
   margin-top: 16px;
   margin-bottom: 16px;
   height: 320px;
-  background-color: #F6F5FC;
+  background-color: #f8ffba;
   color: #645F88;
   border-radius: 12px;
 }

@@ -65,3 +65,31 @@
     font-weight: 800;
 }
 
+.dropdown-menu .dropdown-item:hover{
+background-color: #e6e6e6;
+}
+
+.btn-line{
+    color: #645F88;
+}
+
+input[type="color"] {
+    width: 70px;
+    height: 40px;
+    border-radius: 0.25rem;
+    overflow: hidden;
+    border: 1px solid rgb(70, 70, 70, 00);
+    padding: 5px;
+    cursor: pointer;
+    background-color: #fff;
+}
+
+input[type="color"]::-webkit-color-swatch {
+    border: none;
+    border-radius: 10%;
+    padding: 0;
+  }
+  
+ 
+
+

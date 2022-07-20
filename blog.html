@@ -68,15 +68,61 @@
   </header>
 
   <div class="container mt-5" id="juego">
+
+
     <div class="page-banner">
+
+
+
+      <div class="text-right">
+        <div class="btn-group" style="margin-right: 10px; margin-top: 10px;">
+          <select class="form-control selectDifficulty" name="" placeholder="Dificultad" data-toggle="tooltip"
+            title="Dificultad" id="" style="width: 160px; border: 0px; background-color: #fff; color: #333;">
+            <option value="6">Facil</option>
+            <option value="8">Medio</option>
+            <option value="12">Dificil</option>
+          </select>
+        </div>
+
+        <div class="btn-group" style="margin-right: 10px; margin-top: 10px;">
+
+          <input style="cursor: pointer;" value="#c5e3ff" name="textColor" type="color" data-color="text"
+            list="listacoloresperfil" />
+          <datalist id="listacoloresperfil">
+            <option value="#506EB0">
+            <option value="#ffbaba">
+            <option value="#ffedba">
+            <option value="#f8ffba">
+            <option value="#baffd4">
+
+            <option value="#bafff0">
+            <option value="#baf1ff">
+            <option value="#baddff">
+            <option value="#bac7ff">
+            <option value="#d0baff">
+
+            <option value="#ffbafa">
+            <option value="#ffbae0">
+            <option value="#ffbaba">
+            <option value="#e0e0e0">
+            <option value="#c5e3ff">
+
+          </datalist>
+
+        </div>
+      </div>
+
+
+
+
       <div class="row">
         <div class="col-md-12 mt-5 text-center">
           <h2>Toca la caja para abrirla</h2>
-          <button type="button" class="btn btn-primary iniciar">Iniciar</button>
+          <button type="button" class="btn btn-lg btn-primary iniciar">Iniciar</button>
         </div>
       </div>
       <div class="row padding-caja numberCajas justify-content-center align-items-center h-100">
-        <div class="col-md-3">
+        <div class="col-md-3" style="display: none;">
           <div class="content-caja">
             <div class="img-caja" style="position: relative;">
               <img class="caja" src="img/caja.png" alt="">
@@ -86,7 +132,7 @@
           </div>
         </div>
 
-        <div class="col-md-3">
+        <!--         <div class="col-md-3">
           <div class="content-caja">
             <div class="img-caja" style="position: relative;">
               <img class="caja" src="img/caja.png" alt="">
@@ -114,43 +160,51 @@
               <span class="numCaja h2 ">4</span>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>
+
 
   <script>
 
 
     let numberCajas = document.querySelector(".numberCajas");
     let iniciar = document.querySelector(".iniciar");
+    let selectDifficulty = document.querySelector(".selectDifficulty");
+
+
     iniciar.addEventListener("click", () => {
-      for (let i = 0; i < 8; i++) {
 
-        numberCajas.insertAdjacentHTML("beforeend", ` <div class="col-md-3">  <div class="content-caja">
-          <div class="img-caja" style="position: relative;">
-            <img class="caja" src="img/caja.png" alt="">
-            <img class="caja-black" src="img/caja-black.png" alt="">
-            <span class="numCaja h2 ">`+ [i + 1] + `</span>
-          </div> </div>
+      console.log(selectDifficulty.value);
+      for (let i = 0; i < selectDifficulty.value; i++) {
+
+        numberCajas.insertAdjacentHTML("beforeend", `  <div class="col-md-3">
+          <div class="content-caja">
+            <div class="img-caja" style="position: relative;">
+              <img class="caja" src="img/caja.png" alt="">
+              <img class="caja-black" src="img/caja-black.png" alt="">
+              <span class="numCaja h2 ">`+ [i + 1] + `</span>
+            </div>
+          </div>
         </div>`);
+      }
 
+      let contentCaja = document.querySelectorAll(".content-caja");
+      let contador = 0;
+
+      for (let i = 0; i < contentCaja.length; i++) {
+        let caja = contentCaja[i].querySelector(".img-caja");
+        caja.addEventListener("click", () => {
+
+
+
+
+        });
       }
     });
 
-    let contentCaja = document.querySelectorAll(".content-caja");
 
-    let contador = 0;
-
-
-    for (let i = 0; i < contentCaja.length; i++) {
-      let caja = contentCaja[i].querySelector(".img-caja");
-
-      caja.addEventListener("click", () => {
-        console.log(contador++);
-
-      });
-    }
 
 
   </script>
