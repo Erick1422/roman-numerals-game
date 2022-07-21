@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,17 +11,20 @@
 
   <title>DigiGram - Free Agency Template</title>
 
-  <link rel="stylesheet" href="../assets/vendor/animate/animate.css">
+  <link rel="stylesheet" href="assets/vendor/animate/animate.css">
 
-  <link rel="stylesheet" href="../assets/css/bootstrap.css">
+  <link rel="stylesheet" href="assets/css/bootstrap.css">
 
-  <link rel="stylesheet" href="../assets/css/maicons.css">
+  <link rel="stylesheet" href="css/main.css">
 
-  <link rel="stylesheet" href="../assets/vendor/owl-carousel/css/owl.carousel.css">
+  <link rel="stylesheet" href="assets/css/maicons.css">
 
-  <link rel="stylesheet" href="../assets/css/theme.css">
+  <link rel="stylesheet" href="assets/vendor/owl-carousel/css/owl.carousel.css">
+
+  <link rel="stylesheet" href="assets/css/theme.css">
 
 </head>
+
 <body>
 
   <!-- Back to top button -->
@@ -31,7 +35,8 @@
       <div class="container">
         <a href="index.html" class="navbar-brand">Digi<span class="text-primary">Gram.</span></a>
 
-        <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent"
+          aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
 
@@ -60,23 +65,200 @@
         </div>
       </div>
     </nav>
+  </header>
 
-    <div class="container mt-5">
-      <div class="page-banner">
-        <div class="row justify-content-center align-items-center h-100">
-          <div class="col-md-6">
-            <nav aria-label="Breadcrumb">
-              <ul class="breadcrumb justify-content-center py-0 bg-transparent">
-                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                <li class="breadcrumb-item active">News</li>
-              </ul>
-            </nav>
-            <h1 class="text-center">News</h1>
+  <div class="container mt-5" id="juego">
+
+
+    <div class="page-banner text-code">
+
+      <div class="menu-options" style="">
+        <div class="row justify-content-center align-items-center">
+          <div class="col-md-8 text-left">
+            <h5 class="text-code nameUser" style="margin-bottom: 0px;"></h5>
+          </div>
+          <div class="col-md-4 text-right">
+            <div class="btn-group">
+              <select class="form-control selectDifficulty" name="" placeholder="Dificultad" data-toggle="tooltip"
+                title="Dificultad" id="" style="width: 160px; border: 0px; background-color: #fff; color: #333;">
+                <option value="6">Facil</option>
+                <option value="8">Medio</option>
+                <option value="12">Dificil</option>
+              </select>
+            </div>
+
+            <div class="btn-group">
+              <input class="inputColor" style="cursor: pointer;" value="#c5e3ff" name="textColor" type="color"
+                data-color="text" list="listacoloresperfil" data-toggle="tooltip" title="Temas de color" />
+              <datalist class="optionColors" id="listacoloresperfil">
+                <option value="#f5f5f5">
+                <option value="#ffbaba">
+                <option value="#ffedba">
+                <option value="#f8ffba">
+                <option value="#baffd4">
+                <option value="#bafff0">
+                <option value="#baf1ff">
+                <option value="#baddff">
+                <option value="#bac7ff">
+                <option value="#d0baff">
+                <option value="#ffbafa">
+                <option value="#ffbae0">
+                <option value="#ffbaba">
+                <option value="#e0e0e0">
+                <option value="#c5e3ff">
+              </datalist>
+            </div>
           </div>
         </div>
+
+      </div>
+
+
+
+
+      <div class="row ContentPlay justify-content-center align-items-center" style="margin-top: 200px;">
+        <div class="col-md-8 text-center">
+          <h2 class="mb-5">Juego: Abre la caja.</h2>
+          <div class="mb-3 validation" style="display: flex; justify-content: center;">
+            <input type="text" class="form-control inputUser text-center input-lg" placeholder="Nombres" maxlength="19"
+              required>
+          </div>
+          <button type="button" class="btn btn-primary iniciar">Iniciar</button>
+        </div>
+      </div>
+      <div class="row padding-caja numberCajas justify-content-center align-items-center h-100">
+        <div class="col-md-3" style="display: none;">
+          <div class="content-caja">
+            <div class="img-caja" style="position: relative;">
+              <img class="caja" src="img/caja.png" alt="">
+              <img class="caja-black" src="img/caja-black.png" alt="">
+              <span class="numCaja h2 ">1</span>
+            </div>
+          </div>
+        </div>
+
+        <!--         <div class="col-md-3">
+          <div class="content-caja">
+            <div class="img-caja" style="position: relative;">
+              <img class="caja" src="img/caja.png" alt="">
+              <img class="caja-black" src="img/caja-black.png" alt="">
+              <span class="numCaja h2 ">2</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="content-caja">
+            <div class="img-caja" style="position: relative;">
+              <img class="caja" src="img/caja.png" alt="">
+              <img class="caja-black" src="img/caja-black.png" alt="">
+              <span class="numCaja h2 ">3</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="content-caja">
+            <div class="img-caja" style="position: relative;">
+              <img class="caja" src="img/caja.png" alt="">
+              <img class="caja-black" src="img/caja-black.png" alt="">
+              <span class="numCaja h2 ">4</span>
+            </div>
+          </div>
+        </div> -->
       </div>
     </div>
-  </header>
+  </div>
+
+
+  <script>
+
+
+    let numberCajas = document.querySelector(".numberCajas");
+    let iniciar = document.querySelector(".iniciar");
+    let selectDifficulty = document.querySelector(".selectDifficulty");
+    let pageBanner = document.querySelector(".page-banner");
+    let inputColor = document.querySelector(".inputColor");
+    let inputUser = document.querySelector(".inputUser");
+    let nameUser = document.querySelector(".nameUser");
+    let ContentPlay = document.querySelector(".ContentPlay");
+
+
+    //Evento que asigna el color de fondo del juego
+    inputColor.addEventListener("change", () => {
+      pageBanner.style.backgroundColor = inputColor.value;
+    });
+
+    // evento que genera el número de cajas
+
+    iniciar.addEventListener("click", () => {
+
+      function errorValidation(input, message) {
+
+      }
+
+      if (inputUser.value == "") {
+        console.log("vacio")
+      } else {
+        console.log("no vacio")
+
+        ContentPlay.style.display = ("none");
+        selectDifficulty.style.display = ("none");
+        nameUser.textContent = inputUser.value;
+
+        console.log(selectDifficulty.value);
+        for (let i = 0; i < selectDifficulty.value; i++) {
+
+          numberCajas.insertAdjacentHTML("beforeend", `  <div class="col-md-3">
+          <div class="content-caja">
+            <div class="img-caja" style="position: relative;">
+              <img class="caja" src="img/caja.png" alt="">
+              <img class="caja-black" src="img/caja-black.png" alt="">
+              <span class="numCaja h2 ">`+ [i + 1] + `</span>
+            </div>
+          </div>
+        </div>`);
+        }
+      }
+      let contentCaja = document.querySelectorAll(".content-caja");
+      let contador = 0;
+
+      for (let i = 0; i < contentCaja.length; i++) {
+        let caja = contentCaja[i].querySelector(".img-caja");
+        caja.addEventListener("click", () => {
+          console.log("evento" + i)
+        });
+      }
+    });
+
+
+    function launchFullScreen(element) {
+      if (element.requestFullScreen) {
+        element.requestFullScreen();
+      } else if (element.mozRequestFullScreen) {
+        element.mozRequestFullScreen();
+      } else if (element.webkitRequestFullScreen) {
+        element.webkitRequestFullScreen();
+      }
+    }
+    // Lanza en pantalla completa en navegadores que lo soporten
+    function cancelFullScreen() {
+      if (document.cancelFullScreen) {
+        document.cancelFullScreen();
+      } else if (document.mozCancelFullScreen) {
+        document.mozCancelFullScreen();
+      } else if (document.webkitCancelFullScreen) {
+        document.webkitCancelFullScreen();
+      }
+    }
+
+
+
+
+  </script>
+
+  <button onclick="launchFullScreen(document.documentElement);"> Entrar en pantalla completa </button>
+  <button onclick="cancelFullScreen();"> Salir de pantalla completa </button>
 
   <main>
     <div class="page-section">
@@ -86,7 +268,7 @@
             <div class="card-blog">
               <div class="header">
                 <div class="avatar">
-                  <img src="../assets/img/person/person_1.jpg" alt="">
+                  <img src="assets/img/person/person_1.jpg" alt="">
                 </div>
                 <div class="entry-footer">
                   <div class="post-author">Sam Newman</div>
@@ -106,7 +288,7 @@
             <div class="card-blog">
               <div class="header">
                 <div class="avatar">
-                  <img src="../assets/img/person/person_2.jpg" alt="">
+                  <img src="assets/img/person/person_2.jpg" alt="">
                 </div>
                 <div class="entry-footer">
                   <div class="post-author">Sam Newman</div>
@@ -126,7 +308,7 @@
             <div class="card-blog">
               <div class="header">
                 <div class="avatar">
-                  <img src="../assets/img/person/person_3.jpg" alt="">
+                  <img src="assets/img/person/person_3.jpg" alt="">
                 </div>
                 <div class="entry-footer">
                   <div class="post-author">Sam Newman</div>
@@ -147,7 +329,7 @@
             <div class="card-blog">
               <div class="header">
                 <div class="avatar">
-                  <img src="../assets/img/person/person_1.jpg" alt="">
+                  <img src="assets/img/person/person_1.jpg" alt="">
                 </div>
                 <div class="entry-footer">
                   <div class="post-author">Sam Newman</div>
@@ -167,7 +349,7 @@
             <div class="card-blog">
               <div class="header">
                 <div class="avatar">
-                  <img src="../assets/img/person/person_2.jpg" alt="">
+                  <img src="assets/img/person/person_2.jpg" alt="">
                 </div>
                 <div class="entry-footer">
                   <div class="post-author">Sam Newman</div>
@@ -187,7 +369,7 @@
             <div class="card-blog">
               <div class="header">
                 <div class="avatar">
-                  <img src="../assets/img/person/person_3.jpg" alt="">
+                  <img src="assets/img/person/person_3.jpg" alt="">
                 </div>
                 <div class="entry-footer">
                   <div class="post-author">Sam Newman</div>
@@ -208,7 +390,7 @@
             <div class="card-blog">
               <div class="header">
                 <div class="avatar">
-                  <img src="../assets/img/person/person_1.jpg" alt="">
+                  <img src="assets/img/person/person_1.jpg" alt="">
                 </div>
                 <div class="entry-footer">
                   <div class="post-author">Sam Newman</div>
@@ -228,7 +410,7 @@
             <div class="card-blog">
               <div class="header">
                 <div class="avatar">
-                  <img src="../assets/img/person/person_2.jpg" alt="">
+                  <img src="assets/img/person/person_2.jpg" alt="">
                 </div>
                 <div class="entry-footer">
                   <div class="post-author">Sam Newman</div>
@@ -248,7 +430,7 @@
             <div class="card-blog">
               <div class="header">
                 <div class="avatar">
-                  <img src="../assets/img/person/person_3.jpg" alt="">
+                  <img src="assets/img/person/person_3.jpg" alt="">
                 </div>
                 <div class="entry-footer">
                   <div class="post-author">Sam Newman</div>
@@ -284,7 +466,7 @@
           </div>
 
         </div>
-  
+
       </div>
     </div>
   </main>
@@ -296,7 +478,7 @@
           <h3>Digi<span class="text-primary">Gram.</span></h3>
           <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
 
-          <p><a href="#" >digigram@mail.com</a></p>
+          <p><a href="#">digigram@mail.com</a></p>
           <p><a href="#">+00 1122 3344 5566</a></p>
         </div>
         <div class="col-lg-3 py-3">
@@ -351,21 +533,24 @@
   </footer> <!-- .page-footer -->
 
 
-  <script src="../assets/js/jquery-3.5.1.min.js"></script>
+  <script src="assets/js/jquery-3.5.1.min.js"></script>
 
-  <script src="../assets/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/bootstrap.bundle.min.js"></script>
 
-  <script src="../assets/vendor/wow/wow.min.js"></script>
+  <script src="assets/vendor/wow/wow.min.js"></script>
 
-  <script src="../assets/vendor/owl-carousel/js/owl.carousel.min.js"></script>
+  <script src="assets/vendor/owl-carousel/js/owl.carousel.min.js"></script>
 
-  <script src="../assets/vendor/waypoints/jquery.waypoints.min.js"></script>
+  <script src="assets/vendor/waypoints/jquery.waypoints.min.js"></script>
 
-  <script src="../assets/vendor/animateNumber/jquery.animateNumber.min.js"></script>
+  <script src="assets/vendor/animateNumber/jquery.animateNumber.min.js"></script>
 
-  <script src="../assets/js/google-maps.js"></script>
+  <script src="assets/js/google-maps.js"></script>
 
-  <script src="../assets/js/theme.js"></script>
+  <script src="assets/js/theme.js"></script>
+
+
 
 </body>
+
 </html>

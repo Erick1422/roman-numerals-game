@@ -1,0 +1,116 @@
+/* tamaño de las cajas del juego de cajas */
+.content-caja {
+    padding: 20px;
+}
+
+
+.img-caja img {
+    max-width: 100%;
+    height: auto;
+
+}
+
+.img-caja {
+    transition: 1s;
+    cursor: pointer;
+}
+
+.img-caja:hover {
+    color: #6C55F9;
+    transform: scale(1.2);
+    transition: .5s;
+}
+
+.img-caja .caja-black {
+    display: block;
+    transition: 1s;
+}
+
+.img-caja .caja {
+    display: none;
+    transition: 1s;
+}
+
+.img-caja:hover .caja-black {
+    display: none;
+    transition: .5s;
+}
+
+.img-caja:hover .caja {
+    display: block;
+    transition: .5s;
+}
+
+#juego .col-md-3 {
+    padding-right: 0px;
+    padding-left: 0px;
+}
+
+#juego .page-banner {
+    height: auto;
+}
+
+.padding-caja {
+    padding: 20px 160px;
+}
+
+.numCaja {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    font-weight: 800;
+}
+
+.dropdown-menu .dropdown-item:hover {
+    background-color: #e6e6e6;
+}
+
+.btn-line {
+    color: #645F88;
+}
+
+input[type="color"] {
+    width: 70px;
+    height: 40px;
+    border-radius: 0.25rem;
+    overflow: hidden;
+    border: 1px solid rgb(70, 70, 70, 00);
+    padding: 5px;
+    cursor: pointer;
+    background-color: #fff;
+}
+
+input[type="color"]::-webkit-color-swatch {
+    border: none;
+    border-radius: 10%;
+    padding: 0;
+}
+
+/*menu de opciones parte superior del contenedor del juego*/
+
+.menu-options {
+    background-color: #ededed;
+    padding: 10px;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+}
+
+/*texto stylo code*/
+
+.text-code {
+    Font-family: Consolas, monaco, monospace;
+    line-height: 1.2;
+
+}
+
+
+.inputUser.form-control {
+    width: 200px;
+    background-color: transparent;
+    border: 1px solid #645F88;
+    border-color: #645F88;
+}
