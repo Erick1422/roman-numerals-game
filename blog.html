@@ -70,55 +70,60 @@
   <div class="container mt-5" id="juego">
 
 
-    <div class="page-banner">
+    <div class="page-banner text-code">
 
+      <div class="menu-options" style="">
+        <div class="row justify-content-center align-items-center">
+          <div class="col-md-8 text-left">
+            <h5 class="text-code nameUser" style="margin-bottom: 0px;"></h5>
+          </div>
+          <div class="col-md-4 text-right">
+            <div class="btn-group">
+              <select class="form-control selectDifficulty" name="" placeholder="Dificultad" data-toggle="tooltip"
+                title="Dificultad" id="" style="width: 160px; border: 0px; background-color: #fff; color: #333;">
+                <option value="6">Facil</option>
+                <option value="8">Medio</option>
+                <option value="12">Dificil</option>
+              </select>
+            </div>
 
-
-      <div class="text-right">
-        <div class="btn-group" style="margin-right: 10px; margin-top: 10px;">
-          <select class="form-control selectDifficulty" name="" placeholder="Dificultad" data-toggle="tooltip"
-            title="Dificultad" id="" style="width: 160px; border: 0px; background-color: #fff; color: #333;">
-            <option value="6">Facil</option>
-            <option value="8">Medio</option>
-            <option value="12">Dificil</option>
-          </select>
+            <div class="btn-group">
+              <input class="inputColor" style="cursor: pointer;" value="#c5e3ff" name="textColor" type="color"
+                data-color="text" list="listacoloresperfil" data-toggle="tooltip" title="Temas de color" />
+              <datalist class="optionColors" id="listacoloresperfil">
+                <option value="#f5f5f5">
+                <option value="#ffbaba">
+                <option value="#ffedba">
+                <option value="#f8ffba">
+                <option value="#baffd4">
+                <option value="#bafff0">
+                <option value="#baf1ff">
+                <option value="#baddff">
+                <option value="#bac7ff">
+                <option value="#d0baff">
+                <option value="#ffbafa">
+                <option value="#ffbae0">
+                <option value="#ffbaba">
+                <option value="#e0e0e0">
+                <option value="#c5e3ff">
+              </datalist>
+            </div>
+          </div>
         </div>
 
-        <div class="btn-group" style="margin-right: 10px; margin-top: 10px;">
-
-          <input style="cursor: pointer;" value="#c5e3ff" name="textColor" type="color" data-color="text"
-            list="listacoloresperfil" />
-          <datalist id="listacoloresperfil">
-            <option value="#506EB0">
-            <option value="#ffbaba">
-            <option value="#ffedba">
-            <option value="#f8ffba">
-            <option value="#baffd4">
-
-            <option value="#bafff0">
-            <option value="#baf1ff">
-            <option value="#baddff">
-            <option value="#bac7ff">
-            <option value="#d0baff">
-
-            <option value="#ffbafa">
-            <option value="#ffbae0">
-            <option value="#ffbaba">
-            <option value="#e0e0e0">
-            <option value="#c5e3ff">
-
-          </datalist>
-
-        </div>
       </div>
 
 
 
 
-      <div class="row">
-        <div class="col-md-12 mt-5 text-center">
-          <h2>Toca la caja para abrirla</h2>
-          <button type="button" class="btn btn-lg btn-primary iniciar">Iniciar</button>
+      <div class="row ContentPlay justify-content-center align-items-center" style="margin-top: 200px;">
+        <div class="col-md-8 text-center">
+          <h2 class="mb-5">Juego: Abre la caja.</h2>
+          <div class="mb-3 validation" style="display: flex; justify-content: center;">
+            <input type="text" class="form-control inputUser text-center input-lg" placeholder="Nombres" maxlength="19"
+              required>
+          </div>
+          <button type="button" class="btn btn-primary iniciar">Iniciar</button>
         </div>
       </div>
       <div class="row padding-caja numberCajas justify-content-center align-items-center h-100">
@@ -172,14 +177,39 @@
     let numberCajas = document.querySelector(".numberCajas");
     let iniciar = document.querySelector(".iniciar");
     let selectDifficulty = document.querySelector(".selectDifficulty");
+    let pageBanner = document.querySelector(".page-banner");
+    let inputColor = document.querySelector(".inputColor");
+    let inputUser = document.querySelector(".inputUser");
+    let nameUser = document.querySelector(".nameUser");
+    let ContentPlay = document.querySelector(".ContentPlay");
 
+
+    //Evento que asigna el color de fondo del juego
+    inputColor.addEventListener("change", () => {
+      pageBanner.style.backgroundColor = inputColor.value;
+    });
+
+    // evento que genera el número de cajas
 
     iniciar.addEventListener("click", () => {
 
-      console.log(selectDifficulty.value);
-      for (let i = 0; i < selectDifficulty.value; i++) {
+      function errorValidation(input, message) {
 
-        numberCajas.insertAdjacentHTML("beforeend", `  <div class="col-md-3">
+      }
+
+      if (inputUser.value == "") {
+        console.log("vacio")
+      } else {
+        console.log("no vacio")
+
+        ContentPlay.style.display = ("none");
+        selectDifficulty.style.display = ("none");
+        nameUser.textContent = inputUser.value;
+
+        console.log(selectDifficulty.value);
+        for (let i = 0; i < selectDifficulty.value; i++) {
+
+          numberCajas.insertAdjacentHTML("beforeend", `  <div class="col-md-3">
           <div class="content-caja">
             <div class="img-caja" style="position: relative;">
               <img class="caja" src="img/caja.png" alt="">
@@ -188,27 +218,47 @@
             </div>
           </div>
         </div>`);
+        }
       }
-
       let contentCaja = document.querySelectorAll(".content-caja");
       let contador = 0;
 
       for (let i = 0; i < contentCaja.length; i++) {
         let caja = contentCaja[i].querySelector(".img-caja");
         caja.addEventListener("click", () => {
-
-
-
-
+          console.log("evento" + i)
         });
       }
     });
+
+
+    function launchFullScreen(element) {
+      if (element.requestFullScreen) {
+        element.requestFullScreen();
+      } else if (element.mozRequestFullScreen) {
+        element.mozRequestFullScreen();
+      } else if (element.webkitRequestFullScreen) {
+        element.webkitRequestFullScreen();
+      }
+    }
+    // Lanza en pantalla completa en navegadores que lo soporten
+    function cancelFullScreen() {
+      if (document.cancelFullScreen) {
+        document.cancelFullScreen();
+      } else if (document.mozCancelFullScreen) {
+        document.mozCancelFullScreen();
+      } else if (document.webkitCancelFullScreen) {
+        document.webkitCancelFullScreen();
+      }
+    }
 
 
 
 
   </script>
 
+  <button onclick="launchFullScreen(document.documentElement);"> Entrar en pantalla completa </button>
+  <button onclick="cancelFullScreen();"> Salir de pantalla completa </button>
 
   <main>
     <div class="page-section">

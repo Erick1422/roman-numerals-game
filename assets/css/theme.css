@@ -1397,10 +1397,12 @@ a.text-dark:hover, a.text-dark:focus {
   position: relative;
   margin-top: 16px;
   margin-bottom: 16px;
-  height: 320px;
-  background-color: #f8ffba;
+  min-height: 700px;
+ /*  height: 320px; */
+  background-color: #c5e3ff;
   color: #645F88;
   border-radius: 12px;
+  border: 1px solid #c0c0c0;
 }
 
 .page-banner.home-banner {

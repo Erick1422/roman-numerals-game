@@ -1,5 +1,5 @@
 /* tamaño de las cajas del juego de cajas */
-.content-caja{
+.content-caja {
     padding: 20px;
 }
 
@@ -7,7 +7,7 @@
 .img-caja img {
     max-width: 100%;
     height: auto;
-   
+
 }
 
 .img-caja {
@@ -31,12 +31,12 @@
     transition: 1s;
 }
 
-.img-caja:hover .caja-black{
-   display: none;
-   transition: .5s;
+.img-caja:hover .caja-black {
+    display: none;
+    transition: .5s;
 }
 
-.img-caja:hover .caja{
+.img-caja:hover .caja {
     display: block;
     transition: .5s;
 }
@@ -65,11 +65,11 @@
     font-weight: 800;
 }
 
-.dropdown-menu .dropdown-item:hover{
-background-color: #e6e6e6;
+.dropdown-menu .dropdown-item:hover {
+    background-color: #e6e6e6;
 }
 
-.btn-line{
+.btn-line {
     color: #645F88;
 }
 
@@ -88,8 +88,29 @@ input[type="color"]::-webkit-color-swatch {
     border: none;
     border-radius: 10%;
     padding: 0;
-  }
-  
- 
+}
+
+/*menu de opciones parte superior del contenedor del juego*/
+
+.menu-options {
+    background-color: #ededed;
+    padding: 10px;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+}
+
+/*texto stylo code*/
+
+.text-code {
+    Font-family: Consolas, monaco, monospace;
+    line-height: 1.2;
+
+}
 
 
+.inputUser.form-control {
+    width: 200px;
+    background-color: transparent;
+    border: 1px solid #645F88;
+    border-color: #645F88;
+}
