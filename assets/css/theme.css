@@ -1395,9 +1395,9 @@ a.text-dark:hover, a.text-dark:focus {
 
 .page-banner {
   position: relative;
-  margin-top: 16px;
+  /* margin-top: 16px; */
   margin-bottom: 16px;
-  min-height: 700px;
+  min-height: 555px;
  /*  height: 320px; */
   background-color: #c5e3ff;
   color: #645F88;

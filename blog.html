@@ -23,6 +23,8 @@
 
   <link rel="stylesheet" href="assets/css/theme.css">
 
+  <link rel="stylesheet" href="icons/icofont/icofont.min.css">
+
 </head>
 
 <body>
@@ -67,24 +69,41 @@
     </nav>
   </header>
 
-  <div class="container mt-5" id="juego">
 
 
-    <div class="page-banner text-code">
+  <div class="container mt-4" id="juego">
+
+    <div class="row">
+      <div class="col-md-12">
+        <h3>Abre la Caja - Números Romanos</h3>
+      </div>
+      <nav aria-label="Breadcrumb">
+        <ul class="breadcrumb justify-content-center py-0 bg-transparent">
+          <li class="breadcrumb-item"><a href="index.html">Inicio</a></li>
+          <li class="breadcrumb-item"><a href="index.html">Juegos</a></li>
+          <li class="breadcrumb-item active">Abre la Caja</li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="page-banner text-code mx-auto">
 
       <div class="menu-options" style="">
         <div class="row justify-content-center align-items-center">
-          <div class="col-md-8 text-left">
+          <div class="col-md-7 text-left">
             <h5 class="text-code nameUser" style="margin-bottom: 0px;"></h5>
           </div>
-          <div class="col-md-4 text-right">
+          <div class="col-md-5 text-right">
             <div class="btn-group">
               <select class="form-control selectDifficulty" name="" placeholder="Dificultad" data-toggle="tooltip"
                 title="Dificultad" id="" style="width: 160px; border: 0px; background-color: #fff; color: #333;">
                 <option value="6">Facil</option>
-                <option value="8">Medio</option>
+                <option value="8">Mediana</option>
                 <option value="12">Dificil</option>
               </select>
+              <h6 style="margin-bottom: 0px; display: none;" class="containerValorDifficulty mr-2"><span
+                  style="font-weight: 600; ">Dificultad:
+                </span><span class="valorDifficulty">Facil</span></h6>
             </div>
 
             <div class="btn-group">
@@ -116,9 +135,9 @@
 
 
 
-      <div class="row ContentPlay justify-content-center align-items-center" style="margin-top: 200px;">
+      <div class="row ContentPlay justify-content-center align-items-center" style="margin-top: 140px;">
         <div class="col-md-8 text-center">
-          <h2 class="mb-5">Juego: Abre la caja.</h2>
+          <h2 class="mb-4">Juego: Abre la caja.</h2>
           <div class="mb-3 validation" style="display: flex; justify-content: center;">
             <input type="text" class="form-control inputUser text-center input-lg" placeholder="Nombres" maxlength="19"
               required>
@@ -127,6 +146,7 @@
         </div>
       </div>
       <div class="row padding-caja numberCajas justify-content-center align-items-center h-100">
+
         <div class="col-md-3" style="display: none;">
           <div class="content-caja">
             <div class="img-caja" style="position: relative;">
@@ -167,6 +187,44 @@
           </div>
         </div> -->
       </div>
+
+      <div class="menu-footer">
+        <div class="text-right">
+          <div class="btn-group dropup">
+            <a href="" class="iconsFooterGame" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="icofont-gear-alt"></i></a>
+            <div class="dropdown-menu dropdown-menu-right">
+              <!-- Dropdown menu links -->
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item" href="#">Something else here</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Separated link</a>
+            </div>
+          </div>
+
+          <div class="btn-group ml-2">
+            <a href="" class="iconsFooterGame" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="icofont-volume-bar"></i></a>
+          </div>
+
+          <div class="btn-group ml-2">
+            <a href="" class="iconsFooterGame" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="icofont-volume-mute"></i></a>
+          </div>
+
+          <div class="btn-group ml-2">
+            <a href="" class="iconsFooterGame" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="icofont-expand"></i></a>
+          </div>
+
+
+
+
+        </div>
+
+      </div>
+
     </div>
   </div>
 
@@ -177,6 +235,8 @@
     let numberCajas = document.querySelector(".numberCajas");
     let iniciar = document.querySelector(".iniciar");
     let selectDifficulty = document.querySelector(".selectDifficulty");
+    let valorDifficulty = document.querySelector(".valorDifficulty");
+    let containerValorDifficulty = document.querySelector(".containerValorDifficulty");
     let pageBanner = document.querySelector(".page-banner");
     let inputColor = document.querySelector(".inputColor");
     let inputUser = document.querySelector(".inputUser");
@@ -204,9 +264,21 @@
 
         ContentPlay.style.display = ("none");
         selectDifficulty.style.display = ("none");
+        containerValorDifficulty.style.display = "block";
         nameUser.textContent = inputUser.value;
 
-        console.log(selectDifficulty.value);
+        if (selectDifficulty.value == 6) {
+          valorDifficulty.textContent = "Facil";
+        } else if (selectDifficulty.value == 8) {
+          valorDifficulty.textContent = "Madiana";
+        } else {
+          valorDifficulty.textContent = "Dificil";
+        }
+
+        numberCajas.insertAdjacentHTML("beforeend", ` <div class="col-md-12 text-center">
+          <h2>Toca una caja para abrirla</h2>
+        </div>`);
+
         for (let i = 0; i < selectDifficulty.value; i++) {
 
           numberCajas.insertAdjacentHTML("beforeend", `  <div class="col-md-3">
@@ -554,3 +626,11 @@
 </body>
 
 </html>
+
+<style>
+  @media (min-width: 1200px) {
+    .container {
+      max-width: 1030px;
+    }
+  }
+</style>

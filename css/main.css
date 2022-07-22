@@ -51,7 +51,7 @@
 }
 
 .padding-caja {
-    padding: 20px 160px;
+    padding: 40px 160px 50px 160px;
 }
 
 .numCaja {
@@ -90,7 +90,7 @@ input[type="color"]::-webkit-color-swatch {
     padding: 0;
 }
 
-/*menu de opciones parte superior del contenedor del juego*/
+/*menu de opciones parte superior y de la parte inferior del contenedor del juego*/
 
 .menu-options {
     background-color: #ededed;
@@ -98,6 +98,23 @@ input[type="color"]::-webkit-color-swatch {
     border-top-left-radius: 12px;
     border-top-right-radius: 12px;
 }
+
+
+.menu-footer {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    right: 0px;
+    left: auto;
+    padding: 10px;
+}
+
+/* tamaño de los iconos del footer Juego*/
+.iconsFooterGame {
+    font-size: 30px;
+    color: #645F88;
+}
+
 
 /*texto stylo code*/
 
@@ -113,4 +130,9 @@ input[type="color"]::-webkit-color-swatch {
     background-color: transparent;
     border: 1px solid #645F88;
     border-color: #645F88;
+}
+
+/*activacion de contenedores*/
+.active {
+    display: none;
 }
