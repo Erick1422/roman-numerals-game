@@ -97,6 +97,9 @@ input[type="color"]::-webkit-color-swatch {
     padding: 10px;
     border-top-left-radius: 12px;
     border-top-right-radius: 12px;
+    z-index: 100;
+    position: absolute;
+    width: 100%;
 }
 
 
@@ -107,6 +110,11 @@ input[type="color"]::-webkit-color-swatch {
     right: 0px;
     left: auto;
     padding: 10px;
+    color: #333333;
+}
+
+.menu-footer i{
+    color: #333333;
 }
 
 
@@ -121,6 +129,20 @@ input[type="color"]::-webkit-color-swatch {
   .btn-menu:focus, .btn-menu.focus {
     outline: 0;
     box-shadow: 0 0 0 0rem transparent;
+  }
+
+   .option-dropdown-item:focus, .option-dropdown-item.focus {
+    outline: 0;
+    box-shadow: 0 0 0 0rem transparent;
+  }
+
+  .btn-menu i:hover{
+border-bottom: 3px solid #6C55F9;
+  }
+
+  .btn-menu-desabled{
+    cursor: none;
+    pointer-events: none;
   }
 
 /* tamaño de los iconos del footer Juego*/
@@ -152,7 +174,7 @@ input[type="color"]::-webkit-color-swatch {
 }
 
 /*style para la pantalla completa*/
-.pantalla-completa {
+/* .pantalla-completa {
     overflow-y: scroll;
     overflow-x: hidden;
   }
@@ -160,4 +182,65 @@ input[type="color"]::-webkit-color-swatch {
   .menus-fixed {
     position: fixed;
     width: 100%;
+  } */
+
+
+  /* Error name */
+  .controlForm small {
+    width: 100%;
+    color: #cc0000;
+    display: none;
+    align-items: center;
+    font-weight: 400;
+    position: relative;
   }
+
+  .controlForm.error small {
+    display: block;
+  }
+
+  .controlForm small::before {
+    font-family: IcoFont;
+    content: "\ef1a";
+    font-size: 18px;
+    right: 8px;
+    margin-top: -3px;
+    margin-right: 5px;
+  }
+
+  .errorInput {
+    border: 1px solid #cc0000;
+  }
+
+/* fondo opaco */
+  
+.opaco {
+    position: absolute;
+    width: 100%;
+    min-height: 100%;
+    top: initial;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 10;
+    transition: all 0.4s ease;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+  }
+
+  .modal-shoppingCart {
+    position: fixed;
+    z-index: 10000;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+/*     visibility: hidden;
+    opacity: 0; */
+    z-index: 100000;
+    transition: .2s ease-in-out;
+}

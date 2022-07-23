@@ -89,126 +89,130 @@
 
 
 
-    <div class="page-banner text-code mx-auto" id="scrollCompleta">
+    <div class="page-banner text-code mx-auto" id="scrollCompleta" style="position: relative;">
 
-      <div class="menu-options-completa">
-        <div class="menu-options">
+      <div class="addOpaco">
+      </div>
 
-          <div class="row justify-content-center align-items-center">
-
-            <div class="col-md-7 text-left">
-              <h5 class="text-code nameUser" style="margin-bottom: 0px;"></h5>
+      <div class="modal-shoppingCart" style="position: absolute;">
+        <div class="modal-dialog modal-dialog-scrollable" style="width: 900px;">
+          <div class="modal-content">
+            <div class="modal-header align-middle">
+              <h5 class="modal-title" title="text-center">Seleccione la opcion correcta</h5>
+              <a id="closess" type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></a>
             </div>
-            <div class="col-md-5 text-right">
-              <div class="btn-group">
-                <select class="form-control selectDifficulty" name="" placeholder="Dificultad" data-toggle="tooltip"
-                  title="Dificultad" id="" style="width: 160px; border: 0px; background-color: #fff; color: #333;">
-                  <option value="6">Facil</option>
-                  <option value="8">Mediana</option>
-                  <option value="12">Dificil</option>
-                </select>
-                <h6 style="margin-bottom: 0px; display: none;" class="containerValorDifficulty mr-2"><span
-                    style="font-weight: 600; ">Dificultad:
-                  </span><span class="valorDifficulty">Facil</span></h6>
-              </div>
+            <a href="/register-selection" class="box-img-modal">
+              <img class="cover" src="/resources/images/modals/vender-online.png" alt="">
+            </a>
+      
+            <form id="formDataSubscription" action="/user/user-profile-data/photoProfile" method="POST"
+              enctype="multipart/form-data">
+              <div class="modal-body">
 
-              <div class="btn-group">
-                <input class="inputColor" style="cursor: pointer;" value="#c5e3ff" name="textColor" type="color"
-                  data-color="text" list="listacoloresperfil" data-toggle="tooltip" title="Temas de color" />
-                <datalist class="optionColors" id="listacoloresperfil">
-                  <option value="#f5f5f5">
-                  <option value="#ffbaba">
-                  <option value="#ffedba">
-                  <option value="#f8ffba">
-                  <option value="#baffd4">
-                  <option value="#bafff0">
-                  <option value="#baf1ff">
-                  <option value="#baddff">
-                  <option value="#bac7ff">
-                  <option value="#d0baff">
-                  <option value="#ffbafa">
-                  <option value="#ffbae0">
-                  <option value="#ffbaba">
-                  <option value="#e0e0e0">
-                  <option value="#c5e3ff">
-                </datalist>
               </div>
-            </div>
+      
+              <div class="modal-footer">
+                <div class="container text-center">
+                  <button type="submit" class="btn btn-primary" data-dismiss="modal">Volver</button>
+                </div>
+              </div>
+            </form>
           </div>
         </div>
+
 
       </div>
 
 
-      <div class="row ContentPlay justify-content-center align-items-center" style="margin-top: 140px;">
+      <div class="menu-options" style="z-index: 1000;">
+
+        <div class="row justify-content-center align-items-center" style="z-index: 1000;">
+
+          <div class="col-md-7 text-left">
+            <h5 class="text-code nameUser" style="margin-bottom: 0px;"></h5>
+          </div>
+          <div class="col-md-5 text-right">
+            <div class="btn-group">
+              <select class="form-control selectDifficulty" name="" placeholder="Dificultad" data-toggle="tooltip"
+                title="Dificultad" id="" style="width: 160px; border: 0px; background-color: #fff; color: #333;">
+                <option value="6">Facil</option>
+                <option value="8">Mediana</option>
+                <option value="12">Dificil</option>
+              </select>
+              <h6 style="margin-bottom: 0px; display: none;" class="containerValorDifficulty mr-2"><span
+                  style="font-weight: 600; ">Dificultad:
+                </span><span class="valorDifficulty">Facil</span></h6>
+            </div>
+
+            <div class="btn-group">
+              <input class="inputColor" style="cursor: pointer;" value="#c5e3ff" name="textColor" type="color"
+                data-color="text" list="listacoloresperfil" data-toggle="tooltip" title="Temas de color" />
+              <datalist class="optionColors" id="listacoloresperfil">
+                <option value="#f5f5f5">
+                <option value="#ffbaba">
+                <option value="#ffedba">
+                <option value="#f8ffba">
+                <option value="#baffd4">
+                <option value="#bafff0">
+                <option value="#baf1ff">
+                <option value="#baddff">
+                <option value="#bac7ff">
+                <option value="#d0baff">
+                <option value="#ffbafa">
+                <option value="#ffbae0">
+                <option value="#ffbaba">
+                <option value="#e0e0e0">
+                <option value="#c5e3ff">
+              </datalist>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="row ContentPlay justify-content-center align-items-center" style="margin-top: 180px;">
         <div class="col-md-8 text-center">
           <h2 class="mb-4">Juego: Abre la caja.</h2>
           <div class="mb-3 validation" style="display: flex; justify-content: center;">
             <input type="text" class="form-control inputUser text-center input-lg" placeholder="Nombres" maxlength="19"
               required>
+
+          </div>
+          <div class="controlForm validateName" id="iddColor">
+            <small class="mb-4">message error</small>
           </div>
           <button type="button" class="btn btn-primary iniciar">Iniciar</button>
         </div>
       </div>
-      <div class="row padding-caja numberCajas justify-content-center align-items-center h-100">
 
-        <div class="col-md-3" style="display: none;">
-          <div class="content-caja">
-            <div class="img-caja" style="position: relative;">
-              <img class="caja" src="img/caja.png" alt="">
-              <img class="caja-black" src="img/caja-black.png" alt="">
-              <span class="numCaja h2 ">1</span>
-            </div>
+      <div class="col-md-3" style="display: none;">
+        <div class="content-caja">
+          <div class="img-caja" style="position: relative;">
+            <img class="caja" src="img/caja.png" alt="">
+            <img class="caja-black" src="img/caja-black.png" alt="">
+            <span class="numCaja h2 ">1</span>
           </div>
         </div>
-
-        <!--         <div class="col-md-3">
-          <div class="content-caja">
-            <div class="img-caja" style="position: relative;">
-              <img class="caja" src="img/caja.png" alt="">
-              <img class="caja-black" src="img/caja-black.png" alt="">
-              <span class="numCaja h2 ">2</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-3">
-          <div class="content-caja">
-            <div class="img-caja" style="position: relative;">
-              <img class="caja" src="img/caja.png" alt="">
-              <img class="caja-black" src="img/caja-black.png" alt="">
-              <span class="numCaja h2 ">3</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-3">
-          <div class="content-caja">
-            <div class="img-caja" style="position: relative;">
-              <img class="caja" src="img/caja.png" alt="">
-              <img class="caja-black" src="img/caja-black.png" alt="">
-              <span class="numCaja h2 ">4</span>
-            </div>
-          </div>
-        </div> -->
       </div>
 
-      <div class="menu-footer">
+      <div class="menu-footer" style="z-index: 100000;">
         <div class="text-right">
           <div class="btn-group dropup">
-            <a href="" class="iconsFooterGame" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-              style="padding: 0px 10px;">
-              <i class="icofont-gear-alt"></i></a>
-            <div class="dropdown-menu dropdown-menu-right">
+            <button type="button" class="btn-menu iconsFooterGame btnOptions" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false" style="padding: 0px 10px;">
+              <i class="icofont-gear-alt"></i></button>
+            <div class="dropdown-menu dropdown-menu-right menuPrueva">
               <!-- Dropdown menu links -->
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <a class="dropdown-item" href="#">Something else here</a>
+              <a class="dropdown-item reiniciarJuego" href="#" style="display: none;">Volver a empezar</a>
+              <a class="dropdown-item" href="#">MáS juegos</a>
+              <button type="button" class="dropdown-item option-dropdown-item  btnReanudar">Reanudar</button>
+              <!--  <a class="dropdown-item" href="#">Something else here</a> -->
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">Separated link</a>
+              <a class="dropdown-item" href="#">Ir al inicio</a>
             </div>
 
-            <div class="sonidoin" style=" padding: 0px 10px;">
+            <div class="sonidoin" style="padding: 0px 10px;">
               <button type="button" class="btn-menu iconsFooterGame noSound">
                 <i class="icofont-volume-down"></i></button>
             </div>
@@ -219,25 +223,17 @@
             </div>
 
             <div class="completa" style="padding: 0px 10px;">
-              <a href="#" class="btn-menu iconsFooterGame completePantalla">
-                <i class="icofont-expand"></i></a>
+              <button type="button" class="btn-menu iconsFooterGame completePantalla">
+                <i class="icofont-expand"></i></button>
             </div>
 
             <div class="contraer" style="padding: 0px 10px; display: none;">
-              <a href="#scrollCompleta" class="btn-menu iconsFooterGame contraerPantalla">
-                <i class="icofont-expand"></i></a>
+              <button type="button" class="btn-menu iconsFooterGame contraerPantalla">
+                <i class="icofont-expand"></i></button>
             </div>
 
           </div>
-
-
-
-
-
-
-
         </div>
-
       </div>
 
     </div>

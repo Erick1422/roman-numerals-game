@@ -290,3 +290,139 @@
     }
     
 </script>
+
+
+
+<style>
+  :root {
+      --lightgray: #e6e6e6;
+      --white: #fff;
+      --black: rgba(0, 0, 0, 0.5);
+  }
+
+  /* MODAL
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+  .modal-shoppingCart {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+      visibility: hidden;
+      opacity: 0;
+      z-index: 100000;
+      transition: .2s ease-in-out;
+  }
+
+  .opacity-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: var(--black);
+      visibility: hidden;
+      opacity: 0;
+      transition: .3s ease-in-out;
+      pointer-events: auto;
+  }
+
+  .modal-shoppingCart.is-visible,
+  .opacity-modal.is-visible {
+      visibility: visible;
+      opacity: 1;
+      width: 100vw;
+      height: 100vh;
+
+  }
+
+  .modal-dialog {
+      position: relative;
+      max-width: 500px;
+      min-width: 400px;
+      max-height: 80vh;
+      border-radius: 0.55rem;
+      background: var(--white);
+      overflow: auto;
+      transform: scale(0);
+      transition: .3s ease-in-out;
+  }
+
+  .modal-dialog.is-visible-dialog {
+      transform: scale(1);
+      transition: .3s ease-in-out;
+  }
+
+  /*---- a elegir y borrar-------*/
+  .modal-header {
+      background: var(--lightgray);
+  }
+
+  .box-img-modal img {
+      width: 100%;
+      height: 200px;
+  }
+
+  .content-img img{
+      width: 100px;
+      height: 100px;
+  }
+
+  #btn-cancelar:hover {
+      color: #f28033;
+      text-decoration: underline;
+  }
+
+  .error-add-shopping-cart {
+      color: #cc0000;
+      background-color: #ffeae6;
+      font-size: 14px;
+      border-radius: 5px;
+      padding: 10px;
+  }
+
+  .blur-modal-content {
+      filter: grayscale(1);
+      opacity: .7;
+  }
+</style>
+
+<script>
+  let closess = document.getElementById('closess');
+  let modal = document.querySelector('.modal-shoppingCart');
+  let modalOpaco = document.querySelector('.opacity-modal');
+  let dialog = document.querySelector('.modal-dialog');
+  let openSubscription = document.getElementById("openSubscription");
+  let btnCancelar = document.getElementById("btn-cancelar");
+  let btnGoShoppingCart = document.getElementById('btnGoShoppingCart');
+  let bodyShoppingCart = document.getElementById('bodyShoppingCart');
+  let spanErrorAdd = document.getElementById('spanErrorAdd');
+  let modalTitleShoppingCar = document.getElementById('modalTitleShoppingCar')
+
+  btnGoShoppingCart.addEventListener('click', () => {
+      closeModalShoppingCart();
+  })
+
+  btnCancelar.addEventListener("click", () => {
+      closeModalShoppingCart()
+  });
+
+  modalOpaco.addEventListener("click", () => {
+      closeModalShoppingCart()
+  });
+
+  closess.addEventListener("click", () => {
+      closeModalShoppingCart()
+  });
+
+  function closeModalShoppingCart() {
+      modal.classList.remove("is-visible");
+      modalOpaco.classList.remove("is-visible");
+      dialog.classList.remove("is-visible-dialog");
+  }
+</script>

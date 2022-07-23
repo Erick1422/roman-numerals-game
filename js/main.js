@@ -1,5 +1,6 @@
 
-let numberCajas = document.querySelector(".numberCajas");
+
+
 let iniciar = document.querySelector(".iniciar");
 let selectDifficulty = document.querySelector(".selectDifficulty");
 let valorDifficulty = document.querySelector(".valorDifficulty");
@@ -9,12 +10,14 @@ let inputColor = document.querySelector(".inputColor");
 let inputUser = document.querySelector(".inputUser");
 let nameUser = document.querySelector(".nameUser");
 let ContentPlay = document.querySelector(".ContentPlay");
-/* var sonidoCaja = document.createElement("iframe");
-sonidoCaja.setAttribute("src", "sounds/caja.mp3");
-var sonido = document.createElement("iframe");
-sonido.setAttribute("src", "sounds/inicio.mp3"); */
 const audioInicio = new Audio("sounds/inicio.mp3");
 const audioCaja = new Audio("sounds/caja.mp3");
+let validateName = document.querySelector(".validateName");
+let addOpaco = document.querySelector(".addOpaco");
+let btnOptions = document.querySelector(".btnOptions");
+let btnReanudar = document.querySelector(".btnReanudar");
+let reiniciarJuego = document.querySelector(".reiniciarJuego");
+
 
 
 //Evento que asigna el color de fondo del juego
@@ -38,9 +41,12 @@ iniciar.addEventListener("click", () => {
 
     if (inputUser.value == "") {
         console.log("vacio")
+        errorSecondary(validateName, "Completa el campo");
     } else {
+        reiniciarJuego.style.display = "block";
         audioInicio.play();
         console.log("no vacio")
+        successSecondary(validateName);
 
         ContentPlay.style.display = ("none");
         selectDifficulty.style.display = ("none");
@@ -54,6 +60,10 @@ iniciar.addEventListener("click", () => {
         } else {
             valorDifficulty.textContent = "Dificil";
         }
+
+        ContentPlay.insertAdjacentHTML("afterend", `  <div class="row padding-caja numberCajas justify-content-center align-items-center h-100" style="margin-top:60px">     </div>`);
+
+        let numberCajas = document.querySelector(".numberCajas");
 
         numberCajas.insertAdjacentHTML("beforeend", ` <div class="col-md-12 text-center">
           <h2>Toca una caja para abrirla</h2>
@@ -71,23 +81,42 @@ iniciar.addEventListener("click", () => {
           </div>
         </div>`);
         }
-    }
-    let contentCaja = document.querySelectorAll(".content-caja");
-    let contador = 0;
 
-    for (let i = 0; i < contentCaja.length; i++) {
-        let caja = contentCaja[i].querySelector(".img-caja");
+        let contentCaja = document.querySelectorAll(".content-caja");
+        let contador = 0;
 
-
-
-        caja.addEventListener("click", () => {
-            audioCaja.play();
-        });
+        for (let i = 0; i < contentCaja.length; i++) {
+            let caja = contentCaja[i].querySelector(".img-caja");
 
 
+
+            caja.addEventListener("click", () => {
+                audioCaja.play();
+            });
+
+        }
+
+
+
+        reiniciarJuego.addEventListener("click", () => {
+
+            if (numberCajas) {
+                numberCajas.remove();
+                ContentPlay.style.display = ("flex");
+                selectDifficulty.style.display = ("flex");
+                containerValorDifficulty.style.display = "none";
+                reiniciarJuego.style.display = "none";
+                addOpaco.classList.remove("opaco");
+
+            }
+        })
 
     }
 });
+
+
+
+
 
 let sonidoin = document.querySelector(".sonidoin");
 let sonidooff = document.querySelector(".sonidooff");
@@ -115,40 +144,91 @@ yesSound.addEventListener("click", () => {
 
 });
 
+
 completePantalla.addEventListener("click", () => {
     var scrollCompleta = document.getElementById("scrollCompleta");
-    var menuOptionsCompleta = document.querySelector(".menu-options-completa");
-    var menuFooter = document.querySelector(".menu-footer");
-    if (scrollCompleta.requestFullScreen) {
-        scrollCompleta.requestFullScreen();
-    } else if (scrollCompleta.mozRequestFullScreen) {
-        scrollCompleta.mozRequestFullScreen();
-    } else if (scrollCompleta.webkitRequestFullScreen) {
-        scrollCompleta.webkitRequestFullScreen();
+
+    if (scrollCompleta.requestFullscreen) {
+        scrollCompleta.requestFullscreen();
+
     }
-    scrollCompleta.classList.add("pantalla-completa");
-    menuFooter.classList.add("menus-fixed");
-  //  menuOptionsCompleta.classList.add("menus-fixed");
     completa.style.display = "none";
     contraer.style.display = "block";
+
+
 });
 
 contraerPantalla.addEventListener("click", () => {
-    var scrollCompleta = document.getElementById("scrollCompleta");
-    var menuOptionsCompleta = document.querySelector(".menu-options-completa");
-    var menuFooter = document.querySelector(".menu-footer");
-    if (document.cancelFullScreen) {
-        document.cancelFullScreen();
-    } else if (document.mozCancelFullScreen) {
-        document.mozCancelFullScreen();
-    } else if (document.webkitCancelFullScreen) {
-        document.webkitCancelFullScreen();
+
+    if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen();
+    } else {
+        if (document.exitFullscreen) {
+            document.exitFullscreen();
+        }
     }
-    scrollCompleta.classList.remove("pantalla-completa");
-    menuFooter.classList.remove("menus-fixed");
-   // menuOptionsCompleta.classList.remove("menus-fixed");
     completa.style.display = "block";
     contraer.style.display = "none";
+
 });
 
+
+let menuPrueva = document.querySelector(".menuPrueva");
+
+addOpaco.addEventListener("click", () => {
+    addOpaco.classList.remove("opaco");
+});
+
+
+btnOptions.addEventListener("click", () => {
+    addOpaco.classList.add("opaco");
+})
+
+
+
+
+
+
+
+
+    document.addEventListener('keydown', (event) => {
+        const keyName = event.key;
+        if (keyName == "Escape") {
+            completa.style.display = "block";
+            contraer.style.display = "none";
+        }
+
+    });
+
+
+
+
+
+
+
+
+btnReanudar.addEventListener("click", () => {
+    addOpaco.classList.remove("opaco");
+});
+
+
+
+
+
+
+
+
+//successSecondary(validateName);
+
+function errorSecondary(id, message) {
+    id.classList.add("error");
+    let small = id.querySelector('small');
+    small.innerText = message;
+}
+
+function successSecondary(id, input) {
+    id.classList.remove("error");
+    let small = id.querySelector('small');
+    small.innerText = "";
+}
 
