@@ -86,53 +86,58 @@
       </nav>
     </div>
 
-    <div class="page-banner text-code mx-auto">
 
-      <div class="menu-options" style="">
-        <div class="row justify-content-center align-items-center">
-          <div class="col-md-7 text-left">
-            <h5 class="text-code nameUser" style="margin-bottom: 0px;"></h5>
-          </div>
-          <div class="col-md-5 text-right">
-            <div class="btn-group">
-              <select class="form-control selectDifficulty" name="" placeholder="Dificultad" data-toggle="tooltip"
-                title="Dificultad" id="" style="width: 160px; border: 0px; background-color: #fff; color: #333;">
-                <option value="6">Facil</option>
-                <option value="8">Mediana</option>
-                <option value="12">Dificil</option>
-              </select>
-              <h6 style="margin-bottom: 0px; display: none;" class="containerValorDifficulty mr-2"><span
-                  style="font-weight: 600; ">Dificultad:
-                </span><span class="valorDifficulty">Facil</span></h6>
+
+
+    <div class="page-banner text-code mx-auto" id="scrollCompleta">
+
+      <div class="menu-options-completa">
+        <div class="menu-options">
+
+          <div class="row justify-content-center align-items-center">
+
+            <div class="col-md-7 text-left">
+              <h5 class="text-code nameUser" style="margin-bottom: 0px;"></h5>
             </div>
+            <div class="col-md-5 text-right">
+              <div class="btn-group">
+                <select class="form-control selectDifficulty" name="" placeholder="Dificultad" data-toggle="tooltip"
+                  title="Dificultad" id="" style="width: 160px; border: 0px; background-color: #fff; color: #333;">
+                  <option value="6">Facil</option>
+                  <option value="8">Mediana</option>
+                  <option value="12">Dificil</option>
+                </select>
+                <h6 style="margin-bottom: 0px; display: none;" class="containerValorDifficulty mr-2"><span
+                    style="font-weight: 600; ">Dificultad:
+                  </span><span class="valorDifficulty">Facil</span></h6>
+              </div>
 
-            <div class="btn-group">
-              <input class="inputColor" style="cursor: pointer;" value="#c5e3ff" name="textColor" type="color"
-                data-color="text" list="listacoloresperfil" data-toggle="tooltip" title="Temas de color" />
-              <datalist class="optionColors" id="listacoloresperfil">
-                <option value="#f5f5f5">
-                <option value="#ffbaba">
-                <option value="#ffedba">
-                <option value="#f8ffba">
-                <option value="#baffd4">
-                <option value="#bafff0">
-                <option value="#baf1ff">
-                <option value="#baddff">
-                <option value="#bac7ff">
-                <option value="#d0baff">
-                <option value="#ffbafa">
-                <option value="#ffbae0">
-                <option value="#ffbaba">
-                <option value="#e0e0e0">
-                <option value="#c5e3ff">
-              </datalist>
+              <div class="btn-group">
+                <input class="inputColor" style="cursor: pointer;" value="#c5e3ff" name="textColor" type="color"
+                  data-color="text" list="listacoloresperfil" data-toggle="tooltip" title="Temas de color" />
+                <datalist class="optionColors" id="listacoloresperfil">
+                  <option value="#f5f5f5">
+                  <option value="#ffbaba">
+                  <option value="#ffedba">
+                  <option value="#f8ffba">
+                  <option value="#baffd4">
+                  <option value="#bafff0">
+                  <option value="#baf1ff">
+                  <option value="#baddff">
+                  <option value="#bac7ff">
+                  <option value="#d0baff">
+                  <option value="#ffbafa">
+                  <option value="#ffbae0">
+                  <option value="#ffbaba">
+                  <option value="#e0e0e0">
+                  <option value="#c5e3ff">
+                </datalist>
+              </div>
             </div>
           </div>
         </div>
 
       </div>
-
-
 
 
       <div class="row ContentPlay justify-content-center align-items-center" style="margin-top: 140px;">
@@ -191,7 +196,8 @@
       <div class="menu-footer">
         <div class="text-right">
           <div class="btn-group dropup">
-            <a href="" class="iconsFooterGame" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a href="" class="iconsFooterGame" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+              style="padding: 0px 10px;">
               <i class="icofont-gear-alt"></i></a>
             <div class="dropdown-menu dropdown-menu-right">
               <!-- Dropdown menu links -->
@@ -201,22 +207,31 @@
               <div class="dropdown-divider"></div>
               <a class="dropdown-item" href="#">Separated link</a>
             </div>
+
+            <div class="sonidoin" style=" padding: 0px 10px;">
+              <button type="button" class="btn-menu iconsFooterGame noSound">
+                <i class="icofont-volume-down"></i></button>
+            </div>
+
+            <div class="sonidooff" style="padding: 0px 10px;display: none;">
+              <button type="button" class="btn-menu iconsFooterGame yesSound">
+                <i class="icofont-volume-off"></i></button>
+            </div>
+
+            <div class="completa" style="padding: 0px 10px;">
+              <a href="#" class="btn-menu iconsFooterGame completePantalla">
+                <i class="icofont-expand"></i></a>
+            </div>
+
+            <div class="contraer" style="padding: 0px 10px; display: none;">
+              <a href="#scrollCompleta" class="btn-menu iconsFooterGame contraerPantalla">
+                <i class="icofont-expand"></i></a>
+            </div>
+
           </div>
 
-          <div class="btn-group ml-2">
-            <a href="" class="iconsFooterGame" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <i class="icofont-volume-bar"></i></a>
-          </div>
 
-          <div class="btn-group ml-2">
-            <a href="" class="iconsFooterGame" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <i class="icofont-volume-mute"></i></a>
-          </div>
 
-          <div class="btn-group ml-2">
-            <a href="" class="iconsFooterGame" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <i class="icofont-expand"></i></a>
-          </div>
 
 
 
@@ -232,105 +247,11 @@
   <script>
 
 
-    let numberCajas = document.querySelector(".numberCajas");
-    let iniciar = document.querySelector(".iniciar");
-    let selectDifficulty = document.querySelector(".selectDifficulty");
-    let valorDifficulty = document.querySelector(".valorDifficulty");
-    let containerValorDifficulty = document.querySelector(".containerValorDifficulty");
-    let pageBanner = document.querySelector(".page-banner");
-    let inputColor = document.querySelector(".inputColor");
-    let inputUser = document.querySelector(".inputUser");
-    let nameUser = document.querySelector(".nameUser");
-    let ContentPlay = document.querySelector(".ContentPlay");
-
-
-    //Evento que asigna el color de fondo del juego
-    inputColor.addEventListener("change", () => {
-      pageBanner.style.backgroundColor = inputColor.value;
-    });
-
-    // evento que genera el número de cajas
-
-    iniciar.addEventListener("click", () => {
-
-      function errorValidation(input, message) {
-
-      }
-
-      if (inputUser.value == "") {
-        console.log("vacio")
-      } else {
-        console.log("no vacio")
-
-        ContentPlay.style.display = ("none");
-        selectDifficulty.style.display = ("none");
-        containerValorDifficulty.style.display = "block";
-        nameUser.textContent = inputUser.value;
-
-        if (selectDifficulty.value == 6) {
-          valorDifficulty.textContent = "Facil";
-        } else if (selectDifficulty.value == 8) {
-          valorDifficulty.textContent = "Madiana";
-        } else {
-          valorDifficulty.textContent = "Dificil";
-        }
-
-        numberCajas.insertAdjacentHTML("beforeend", ` <div class="col-md-12 text-center">
-          <h2>Toca una caja para abrirla</h2>
-        </div>`);
-
-        for (let i = 0; i < selectDifficulty.value; i++) {
-
-          numberCajas.insertAdjacentHTML("beforeend", `  <div class="col-md-3">
-          <div class="content-caja">
-            <div class="img-caja" style="position: relative;">
-              <img class="caja" src="img/caja.png" alt="">
-              <img class="caja-black" src="img/caja-black.png" alt="">
-              <span class="numCaja h2 ">`+ [i + 1] + `</span>
-            </div>
-          </div>
-        </div>`);
-        }
-      }
-      let contentCaja = document.querySelectorAll(".content-caja");
-      let contador = 0;
-
-      for (let i = 0; i < contentCaja.length; i++) {
-        let caja = contentCaja[i].querySelector(".img-caja");
-        caja.addEventListener("click", () => {
-          console.log("evento" + i)
-        });
-      }
-    });
-
-
-    function launchFullScreen(element) {
-      if (element.requestFullScreen) {
-        element.requestFullScreen();
-      } else if (element.mozRequestFullScreen) {
-        element.mozRequestFullScreen();
-      } else if (element.webkitRequestFullScreen) {
-        element.webkitRequestFullScreen();
-      }
-    }
-    // Lanza en pantalla completa en navegadores que lo soporten
-    function cancelFullScreen() {
-      if (document.cancelFullScreen) {
-        document.cancelFullScreen();
-      } else if (document.mozCancelFullScreen) {
-        document.mozCancelFullScreen();
-      } else if (document.webkitCancelFullScreen) {
-        document.webkitCancelFullScreen();
-      }
-    }
-
 
 
 
   </script>
 
-  <button onclick="launchFullScreen(document.documentElement);"> Entrar en pantalla completa </button>
-  <button onclick="cancelFullScreen();"> Salir de pantalla completa </button>
 
   <main>
     <div class="page-section">
@@ -620,6 +541,8 @@
   <script src="assets/js/google-maps.js"></script>
 
   <script src="assets/js/theme.js"></script>
+
+  <script src="js/main.js"></script>
 
 
 
