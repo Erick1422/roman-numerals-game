@@ -1939,9 +1939,9 @@ pre code {
 }
 
 .table .thead-dark th {
-  color: #fff;
-  background-color: #343a40;
-  border-color: #454d55;
+  color: #6C55F9;
+  background-color: #dbdbdb;
+  border-color: #dbdbdb;
 }
 
 .table .thead-light th {
@@ -6069,8 +6069,8 @@ a.close.disabled {
   align-items: flex-start;
   -ms-flex-pack: justify;
   justify-content: space-between;
-  padding: 1rem 1rem;
-  border-bottom: 1px solid #dee2e6;
+  padding: 1rem 1rem;/* 
+  border-bottom: 1px solid #dee2e6; */
   border-top-left-radius: calc(0.3rem - 1px);
   border-top-right-radius: calc(0.3rem - 1px);
 }
@@ -6101,8 +6101,8 @@ a.close.disabled {
   align-items: center;
   -ms-flex-pack: end;
   justify-content: flex-end;
-  padding: 0.75rem;
-  border-top: 1px solid #dee2e6;
+  padding: 0.75rem;/* 
+  border-top: 1px solid #dee2e6; */
   border-bottom-right-radius: calc(0.3rem - 1px);
   border-bottom-left-radius: calc(0.3rem - 1px);
 }
@@ -8281,6 +8281,10 @@ button.bg-dark:focus {
 .mb-5,
 .my-5 {
   margin-bottom: 3rem !important;
+}
+.mb-6,
+.my-6 {
+  margin-bottom: 4rem !important;
 }
 
 .ml-5,

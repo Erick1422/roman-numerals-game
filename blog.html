@@ -27,7 +27,7 @@
 
 </head>
 
-<body>
+<body class="text-code">
 
   <!-- Back to top button -->
   <div class="back-to-top"></div>
@@ -35,7 +35,7 @@
   <header>
     <nav class="navbar navbar-expand-lg navbar-light shadow-sm">
       <div class="container">
-        <a href="index.html" class="navbar-brand">Digi<span class="text-primary">Gram.</span></a>
+        <a href="index.html" class="navbar-brand">Números <span class="text-white">Romanos.</span></a>
 
         <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent"
           aria-expanded="false" aria-label="Toggle navigation">
@@ -45,13 +45,13 @@
         <div class="navbar-collapse collapse" id="navbarContent">
           <ul class="navbar-nav ml-lg-4 pt-3 pt-lg-0">
             <li class="nav-item">
-              <a href="index.html" class="nav-link">Home</a>
+              <a href="index.html" class="nav-link">Inicio</a>
             </li>
             <li class="nav-item">
-              <a href="about.html" class="nav-link">About</a>
+              <a href="about.html" class="nav-link">Juegos</a>
             </li>
             <li class="nav-item">
-              <a href="services.html" class="nav-link">Services</a>
+              <a href="services.html" class="nav-link">Nuestros Equipos</a>
             </li>
             <li class="nav-item active">
               <a href="blog.html" class="nav-link">News</a>
@@ -62,7 +62,7 @@
           </ul>
 
           <div class="ml-auto">
-            <a href="#" class="btn btn-outline rounded-pill">Get a Quote</a>
+            <a href="#" class="btn btn-outline rounded-pill"><i class="icofont-brand-whatsapp" style="font-size: 20px;"></i>&nbsp;Compartir</a>
           </div>
         </div>
       </div>
@@ -71,7 +71,9 @@
 
 
 
-  <div class="container mt-4" id="juego">
+
+
+  <div class="container mt-4 mb-5" id="juego">
 
     <div class="row">
       <div class="col-md-12">
@@ -81,7 +83,7 @@
         <ul class="breadcrumb justify-content-center py-0 bg-transparent">
           <li class="breadcrumb-item"><a href="index.html">Inicio</a></li>
           <li class="breadcrumb-item"><a href="index.html">Juegos</a></li>
-          <li class="breadcrumb-item active">Abre la Caja</li>
+          <li class="breadcrumb-item">Abre la Caja</li>
         </ul>
       </nav>
     </div>
@@ -89,38 +91,8 @@
 
 
 
-    <div class="page-banner text-code mx-auto" id="scrollCompleta" style="position: relative;">
-
+    <div class="page-banner mx-auto" id="scrollCompleta" style="position: relative;">
       <div class="addOpaco">
-      </div>
-
-      <div class="modal-shoppingCart" style="position: absolute;">
-        <div class="modal-dialog modal-dialog-scrollable" style="width: 900px;">
-          <div class="modal-content">
-            <div class="modal-header align-middle">
-              <h5 class="modal-title" title="text-center">Seleccione la opcion correcta</h5>
-              <a id="closess" type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></a>
-            </div>
-            <a href="/register-selection" class="box-img-modal">
-              <img class="cover" src="/resources/images/modals/vender-online.png" alt="">
-            </a>
-      
-            <form id="formDataSubscription" action="/user/user-profile-data/photoProfile" method="POST"
-              enctype="multipart/form-data">
-              <div class="modal-body">
-
-              </div>
-      
-              <div class="modal-footer">
-                <div class="container text-center">
-                  <button type="submit" class="btn btn-primary" data-dismiss="modal">Volver</button>
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
-
-
       </div>
 
 
@@ -169,8 +141,6 @@
         </div>
       </div>
 
-
-
       <div class="row ContentPlay justify-content-center align-items-center" style="margin-top: 180px;">
         <div class="col-md-8 text-center">
           <h2 class="mb-4">Juego: Abre la caja.</h2>
@@ -186,9 +156,15 @@
         </div>
       </div>
 
+
+
+
+
+
       <div class="col-md-3" style="display: none;">
-        <div class="content-caja">
+        <div class="">
           <div class="img-caja" style="position: relative;">
+            <img src="img/caja-open.png" alt="">
             <img class="caja" src="img/caja.png" alt="">
             <img class="caja-black" src="img/caja-black.png" alt="">
             <span class="numCaja h2 ">1</span>
@@ -196,7 +172,9 @@
         </div>
       </div>
 
-      <div class="menu-footer" style="z-index: 100000;">
+
+
+      <div class="menu-footer" style="z-index: 90;">
         <div class="text-right">
           <div class="btn-group dropup">
             <button type="button" class="btn-menu iconsFooterGame btnOptions" data-toggle="dropdown"
@@ -209,7 +187,7 @@
               <button type="button" class="dropdown-item option-dropdown-item  btnReanudar">Reanudar</button>
               <!--  <a class="dropdown-item" href="#">Something else here</a> -->
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">Ir al inicio</a>
+              <a class="dropdown-item" href="index.html">Ir al inicio</a>
             </div>
 
             <div class="sonidoin" style="padding: 0px 10px;">
@@ -239,223 +217,159 @@
     </div>
   </div>
 
+  <div class="container mb-5">
+    <div class="card-body">
+      <div class="mb-3">
+        <h3>Tabla de Clasificación</h3>
+      </div>
 
-  <script>
+      <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nombre del Participante</th>
+            <th scope="col">Dificultad</th>
+            <th scope="col">Puntuación</th>
+            <th scope="col">Respuestas Correctas</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>Otto</td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Mark</td>
+            <td>Thornton</td>
+            <td>Otto</td>
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td>Larry</td>
+            <td>Mark</td>
+            <td>the Bird</td>
+            <td>Otto</td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
 
 
 
 
 
-  </script>
+  </div>
+
 
 
   <main>
     <div class="page-section">
       <div class="container">
-        <div class="row">
-          <div class="col-md-6 col-lg-4 py-3">
-            <div class="card-blog">
-              <div class="header">
-                <div class="avatar">
-                  <img src="assets/img/person/person_1.jpg" alt="">
-                </div>
-                <div class="entry-footer">
-                  <div class="post-author">Sam Newman</div>
-                  <a href="#" class="post-date">23 Apr 2020</a>
-                </div>
-              </div>
-              <div class="body">
-                <div class="post-title"><a href="blog-single.html">What is Business Management?</a></div>
-                <div class="post-excerpt">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</div>
-              </div>
-              <div class="footer">
-                <a href="blog-single.html">Read More <span class="mai-chevron-forward text-sm"></span></a>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4 py-3">
-            <div class="card-blog">
-              <div class="header">
-                <div class="avatar">
-                  <img src="assets/img/person/person_2.jpg" alt="">
-                </div>
-                <div class="entry-footer">
-                  <div class="post-author">Sam Newman</div>
-                  <a href="#" class="post-date">23 Apr 2020</a>
-                </div>
-              </div>
-              <div class="body">
-                <div class="post-title"><a href="blog-single.html">What is Assets Management?</a></div>
-                <div class="post-excerpt">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</div>
-              </div>
-              <div class="footer">
-                <a href="blog-single.html">Read More <span class="mai-chevron-forward text-sm"></span></a>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4 py-3">
-            <div class="card-blog">
-              <div class="header">
-                <div class="avatar">
-                  <img src="assets/img/person/person_3.jpg" alt="">
-                </div>
-                <div class="entry-footer">
-                  <div class="post-author">Sam Newman</div>
-                  <a href="#" class="post-date">23 Apr 2020</a>
-                </div>
-              </div>
-              <div class="body">
-                <div class="post-title"><a href="blog-single.html">What is Code of Conduct Business?</a></div>
-                <div class="post-excerpt">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</div>
-              </div>
-              <div class="footer">
-                <a href="blog-single.html">Read More <span class="mai-chevron-forward text-sm"></span></a>
-              </div>
-            </div>
+        <div class="card-body">
+          <div class="mb-0">
+            <h3>Más Juegos</h3>
           </div>
 
-          <div class="col-md-6 col-lg-4 py-3">
-            <div class="card-blog">
-              <div class="header">
-                <div class="avatar">
-                  <img src="assets/img/person/person_1.jpg" alt="">
-                </div>
-                <div class="entry-footer">
-                  <div class="post-author">Sam Newman</div>
-                  <a href="#" class="post-date">23 Apr 2020</a>
-                </div>
-              </div>
-              <div class="body">
-                <div class="post-title"><a href="blog-single.html">What is Business Management?</a></div>
-                <div class="post-excerpt">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</div>
-              </div>
-              <div class="footer">
-                <a href="blog-single.html">Read More <span class="mai-chevron-forward text-sm"></span></a>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4 py-3">
-            <div class="card-blog">
-              <div class="header">
-                <div class="avatar">
-                  <img src="assets/img/person/person_2.jpg" alt="">
-                </div>
-                <div class="entry-footer">
-                  <div class="post-author">Sam Newman</div>
-                  <a href="#" class="post-date">23 Apr 2020</a>
-                </div>
-              </div>
-              <div class="body">
-                <div class="post-title"><a href="blog-single.html">What is Assets Management?</a></div>
-                <div class="post-excerpt">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</div>
-              </div>
-              <div class="footer">
-                <a href="blog-single.html">Read More <span class="mai-chevron-forward text-sm"></span></a>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4 py-3">
-            <div class="card-blog">
-              <div class="header">
-                <div class="avatar">
-                  <img src="assets/img/person/person_3.jpg" alt="">
-                </div>
-                <div class="entry-footer">
-                  <div class="post-author">Sam Newman</div>
-                  <a href="#" class="post-date">23 Apr 2020</a>
-                </div>
-              </div>
-              <div class="body">
-                <div class="post-title"><a href="blog-single.html">What is Code of Conduct Business?</a></div>
-                <div class="post-excerpt">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</div>
-              </div>
-              <div class="footer">
-                <a href="blog-single.html">Read More <span class="mai-chevron-forward text-sm"></span></a>
-              </div>
-            </div>
-          </div>
+          <div class="row">
+            <div class="col-md-6 col-lg-4 py-3">
+              <a href="#" style="cursor: pointer; text-decoration: none;">
+                <div class="card-blog">
+                  <div class="header">
+                    <div class="img-card-game">
+                      <img src="img/juego-cajas.png" alt="">
+                    </div>
 
-          <div class="col-md-6 col-lg-4 py-3">
-            <div class="card-blog">
-              <div class="header">
-                <div class="avatar">
-                  <img src="assets/img/person/person_1.jpg" alt="">
+                  </div>
+                  <div class=" fluid-text">
+                    <div class="post-title">
+                      <div>Nombra del juego</div>
+                    </div>
+                    <div class="post-excerpt">Descripcion del juego Descripcion del juego Descripcion del juego</div>
+                    <div class="entry-footer mt-2">
+                      <span class="post-author">Fecha de Creación: </span>
+                      <span class="post-date">20 Jul 2022</span>
+                    </div>
+                  </div>
+                  <div style="position: relative;">
+                    <div class="footer">
+                      <span class="btn btn-primary"> Jugar </span>
+                    </div>
+                  </div>
                 </div>
-                <div class="entry-footer">
-                  <div class="post-author">Sam Newman</div>
-                  <a href="#" class="post-date">23 Apr 2020</a>
-                </div>
-              </div>
-              <div class="body">
-                <div class="post-title"><a href="blog-single.html">What is Business Management?</a></div>
-                <div class="post-excerpt">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</div>
-              </div>
-              <div class="footer">
-                <a href="blog-single.html">Read More <span class="mai-chevron-forward text-sm"></span></a>
-              </div>
+              </a>
             </div>
-          </div>
-          <div class="col-md-6 col-lg-4 py-3">
-            <div class="card-blog">
-              <div class="header">
-                <div class="avatar">
-                  <img src="assets/img/person/person_2.jpg" alt="">
-                </div>
-                <div class="entry-footer">
-                  <div class="post-author">Sam Newman</div>
-                  <a href="#" class="post-date">23 Apr 2020</a>
-                </div>
-              </div>
-              <div class="body">
-                <div class="post-title"><a href="blog-single.html">What is Assets Management?</a></div>
-                <div class="post-excerpt">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</div>
-              </div>
-              <div class="footer">
-                <a href="blog-single.html">Read More <span class="mai-chevron-forward text-sm"></span></a>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4 py-3">
-            <div class="card-blog">
-              <div class="header">
-                <div class="avatar">
-                  <img src="assets/img/person/person_3.jpg" alt="">
-                </div>
-                <div class="entry-footer">
-                  <div class="post-author">Sam Newman</div>
-                  <a href="#" class="post-date">23 Apr 2020</a>
-                </div>
-              </div>
-              <div class="body">
-                <div class="post-title"><a href="blog-single.html">What is Code of Conduct Business?</a></div>
-                <div class="post-excerpt">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</div>
-              </div>
-              <div class="footer">
-                <a href="blog-single.html">Read More <span class="mai-chevron-forward text-sm"></span></a>
-              </div>
-            </div>
-          </div>
 
-          <div class="col-12 mt-5">
-            <nav aria-label="Page Navigation">
-              <ul class="pagination justify-content-center">
-                <li class="page-item disabled">
-                  <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
-                </li>
-                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                <li class="page-item active" aria-current="page">
-                  <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item">
-                  <a class="page-link" href="#">Next</a>
-                </li>
-              </ul>
-            </nav>
-          </div>
+ <div class="col-md-6 col-lg-4 py-3">
+              <a href="#" style="cursor: pointer; text-decoration: none;">
+                <div class="card-blog">
+                  <div class="header">
+                    <div class="img-card-game">
+                      <img src="img/juego-cajas.png" alt="">
+                    </div>
 
+                  </div>
+                  <div class=" fluid-text">
+                    <div class="post-title">
+                      <div>Nombra del juego</div>
+                    </div>
+                    <div class="post-excerpt">Descripcion del juego Descripcion del juego Descripcion del juego</div>
+                    <div class="entry-footer mt-2">
+                      <span class="post-author">Fecha de Creación: </span>
+                      <span class="post-date">20 Jul 2022</span>
+                    </div>
+                  </div>
+                  <div style="position: relative;">
+                    <div class="footer">
+                      <span class="btn btn-primary"> Jugar </span>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+             <div class="col-md-6 col-lg-4 py-3">
+              <a href="#" style="cursor: pointer; text-decoration: none;">
+                <div class="card-blog">
+                  <div class="header">
+                    <div class="img-card-game">
+                      <img src="img/juego-cajas.png" alt="">
+                    </div>
+
+                  </div>
+                  <div class=" fluid-text">
+                    <div class="post-title">
+                      <div>Nombra del juego</div>
+                    </div>
+                    <div class="post-excerpt">Descripcion del juego Descripcion del juego Descripcion del juego</div>
+                    <div class="entry-footer mt-2">
+                      <span class="post-author">Fecha de Creación: </span>
+                      <span class="post-date">20 Jul 2022</span>
+                    </div>
+                  </div>
+                  <div style="position: relative;">
+                    <div class="footer">
+                      <span class="btn btn-primary"> Jugar </span>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+
+
+
+
+
+
+
+          </div>
         </div>
-
       </div>
     </div>
   </main>
@@ -463,33 +377,27 @@
   <footer class="page-footer">
     <div class="container">
       <div class="row justify-content-center mb-5">
-        <div class="col-lg-3 py-3">
-          <h3>Digi<span class="text-primary">Gram.</span></h3>
-          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+        <div class="col-lg-6 py-3">
+          <h3>Números<span class="text-primary">Romanos.</span></h3>
+          <p><span class="b">Los números romanos</span> son un grupo de símbolos formado por letras mayúsculas que idearon los antiguos romanos para representar valores y cantidades.</p>
 
-          <p><a href="#">digigram@mail.com</a></p>
-          <p><a href="#">+00 1122 3344 5566</a></p>
+          <div >
+            <p style="color: #007bff;">digigram@mail.com</p>
+            <p style="color: #007bff;">3143463507></p>
+          </div>
+          
         </div>
         <div class="col-lg-3 py-3">
-          <h5>Quick Links</h5>
+          <h5>Enlaces rápidos</h5>
           <ul class="footer-menu">
-            <li><a href="#">How it works</a></li>
-            <li><a href="#">Security</a></li>
-            <li><a href="#">Pricing</a></li>
+            <li><a href="index.html">Inicios</a></li>
+            <li><a href="#">Juegos</a></li>
+            <li><a href="#">Nuestro Equipo</a></li>
             <li><a href="#">Resources</a></li>
             <li><a href="#">Report a Bug</a></li>
           </ul>
         </div>
-        <div class="col-lg-3 py-3">
-          <h5>About Us</h5>
-          <ul class="footer-menu">
-            <li><a href="#">About Us</a></li>
-            <li><a href="#">Jobs</a></li>
-            <li><a href="#">Our Teams</a></li>
-            <li><a href="#">Testimonials</a></li>
-            <li><a href="#">News & Press</a></li>
-          </ul>
-        </div>
+       
         <div class="col-lg-3 py-3">
           <h5>Subscribe</h5>
           <form action="#">
@@ -506,17 +414,18 @@
       </div>
 
       <div class="row">
-        <div class="col-sm-6 py-2">
-          <p id="copyright">&copy; 2020 <a href="https://macodeid.com/">MACode ID</a>. All rights reserved</p>
+        <div class="col-sm-12 text-center py-2">
+          <p id="copyright">&copy; 2022 <span class="text-primary">Números Romanos</span>. Todas los derechos reservados.</p>
         </div>
-        <div class="col-sm-6 py-2 text-right">
+        
+        <!-- <div class="col-sm-6 py-2 text-right">
           <div class="d-inline-block px-3">
             <a href="#">Privacy</a>
           </div>
           <div class="d-inline-block px-3">
             <a href="#">Contact Us</a>
           </div>
-        </div>
+        </div> -->
       </div>
     </div> <!-- .container -->
   </footer> <!-- .page-footer -->

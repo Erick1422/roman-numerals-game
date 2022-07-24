@@ -10,6 +10,11 @@
 
 }
 
+.box-img-modal img {
+    width: 240px;
+    height: auto;
+}
+
 .img-caja {
     transition: 1s;
     cursor: pointer;
@@ -54,6 +59,13 @@
     padding: 40px 160px 50px 160px;
 }
 
+@media(max-width: 768px ) {
+    .padding-caja {
+        padding: 20px
+    }
+}
+
+
 .numCaja {
     position: absolute;
     display: flex;
@@ -64,6 +76,31 @@
     width: 100%;
     font-weight: 800;
 }
+
+.numCaja-open {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    top: 73%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    font-weight: 800;
+}
+
+.numCaja-number {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    left: 50%;
+    top: 40px;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    font-weight: 800;
+    color: #333333;
+    font-weight: 600;
+}
+
 
 .dropdown-menu .dropdown-item:hover {
     background-color: #e6e6e6;
@@ -113,12 +150,12 @@ input[type="color"]::-webkit-color-swatch {
     color: #333333;
 }
 
-.menu-footer i{
+.menu-footer i {
     color: #333333;
 }
 
 
-.btn-menu{
+.btn-menu {
     border: 0px;
     background-color: transparent;
     padding: 0px;
@@ -126,24 +163,26 @@ input[type="color"]::-webkit-color-swatch {
 }
 
 
-  .btn-menu:focus, .btn-menu.focus {
+.btn-menu:focus,
+.btn-menu.focus {
     outline: 0;
     box-shadow: 0 0 0 0rem transparent;
-  }
+}
 
-   .option-dropdown-item:focus, .option-dropdown-item.focus {
+.option-dropdown-item:focus,
+.option-dropdown-item.focus {
     outline: 0;
     box-shadow: 0 0 0 0rem transparent;
-  }
+}
 
-  .btn-menu i:hover{
-border-bottom: 3px solid #6C55F9;
-  }
+.btn-menu i:hover {
+    border-bottom: 3px solid #6C55F9;
+}
 
-  .btn-menu-desabled{
+.btn-menu-desabled {
     cursor: none;
     pointer-events: none;
-  }
+}
 
 /* tamaño de los iconos del footer Juego*/
 .iconsFooterGame {
@@ -185,52 +224,51 @@ border-bottom: 3px solid #6C55F9;
   } */
 
 
-  /* Error name */
-  .controlForm small {
+/* Error name */
+.controlForm small {
     width: 100%;
     color: #cc0000;
     display: none;
     align-items: center;
     font-weight: 400;
     position: relative;
-  }
+}
 
-  .controlForm.error small {
+.controlForm.error small {
     display: block;
-  }
+}
 
-  .controlForm small::before {
+.controlForm small::before {
     font-family: IcoFont;
     content: "\ef1a";
     font-size: 18px;
     right: 8px;
     margin-top: -3px;
     margin-right: 5px;
-  }
+}
 
-  .errorInput {
+.errorInput {
     border: 1px solid #cc0000;
-  }
+}
 
 /* fondo opaco */
-  
+
 .opaco {
     position: absolute;
     width: 100%;
     min-height: 100%;
     top: initial;
     background-color: rgba(0, 0, 0, 0.5);
-    z-index: 10;
+    z-index: 80;
     transition: all 0.4s ease;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
     border-bottom-left-radius: 12px;
     border-bottom-right-radius: 12px;
-  }
+}
 
-  .modal-shoppingCart {
+.modal-shoppingCart {
     position: fixed;
-    z-index: 10000;
     top: 0;
     left: 0;
     right: 0;
@@ -239,8 +277,126 @@ border-bottom: 3px solid #6C55F9;
     align-items: center;
     justify-content: center;
     padding: 1rem;
-/*     visibility: hidden;
+    /* 
+    visibility: hidden;
     opacity: 0; */
-    z-index: 100000;
+    z-index: 100;
     transition: .2s ease-in-out;
+
+}
+
+
+.opacity-modal {
+    position: absolute;
+    width: 100%;
+    min-height: 100%;
+    top: initial;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 100;
+    transition: all 0.4s ease;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    /* 
+    visibility: hidden;
+    opacity: 0; */
+    transition: .3s ease-in-out;
+    pointer-events: auto;
+}
+
+.modal-shoppingCart.is-visible,
+.opacity-modal.is-visible {
+    visibility: visible;
+    opacity: 1;
+
+}
+
+.modal-dialog {
+    z-index: 10000;
+    overflow: auto;
+    transform: scale(1);
+    transition: .3s ease-in-out;
+    min-width: 900px;
+    min-height: 400px;
+}
+
+.modal-dialog.is-visible-dialog {
+    transform: scale(1);
+    transition: .3s ease-in-out;
+}
+
+/* stylos de respuestas de los modelos */
+.option-modal-padre {
+    width: 100%;
+    /* height: 100%; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-shoppingCart.agrandar-modal {
+    transform: scale(1.4);
+}
+
+.option-modal-hijo {
+    width: 240px;
+    height: 100px;
+    background-color: #FFCD76;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 0px solid transparent;
+}
+
+.option-modal-letra {
+    padding: 10px 20px;
+    background-color: #fff;
+    border-radius: 6px;
+    color: #6C55F9;
+    font-weight: 600;
+    font-size: 25px;
+}
+
+.option-modal-respuesta {
+    padding: 10px 40px;
+    background-color: #fff;
+    border-radius: 6px;
+    color: #333333;
+    font-weight: 500;
+    font-size: 25px;
+}
+
+/* stylo para bloquear la caja ya seleccionada */
+
+.img-caja.desabledd {
+    cursor: none;
+    pointer-events: none;
+    filter: grayscale(1);
+}
+
+.icon-actualizar i {
+    font-size: 60px;
+}
+
+.posicion-icono-juego {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    padding-top: 25px;
+    padding-right: 25px;
+
+}
+
+.posicion-icono-juego.color-danger {
+    color: #cc0000;
+}
+
+.posicion-icono-juego.color-success {
+    color: #00940c;
+}
+
+.posicion-icono-juego i {
+    font-size: 25px;
 }
