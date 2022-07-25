@@ -31,18 +31,20 @@ inputColor.addEventListener("change", () => {
   pageBanner.style.backgroundColor = inputColor.value;
 });
 
-
 // evento que genera el número de cajas
 if (iniciarCaja) {
 
+  // Lista los datos en la tabla de clasificación
+  getDataLocalStorage('boxGame');
 
   iniciarCaja.addEventListener("click", () => {
-
-    let score = 0;
 
     if (inputUser.value == "") {
       errorSecondary(validateName, "Completa el campo");
     } else {
+
+      let score = 0;
+
       reiniciarJuego.style.display = "block";
       audioInicio.play();
       successSecondary(validateName);
@@ -96,10 +98,10 @@ if (iniciarCaja) {
         caja.addEventListener("click", () => {
 
           addModal(abrirModal[i]);
-
           let modal = document.querySelector('.modal-shoppingCart');
           let romanNum = modal.querySelector('.numCaja-number');
 
+          // Mandar una cantidad diferente dependiendo de la dificultad
           let answerNum = randomNumber(1, 100);
           romanNum.textContent = convertToRoman(answerNum);
 
@@ -107,20 +109,8 @@ if (iniciarCaja) {
           correcto.load();
 
           //eventos de cerrar modal
-          let btnCancelar = document.querySelector(".btn-cancelar");
+          /* let btnCancelar = document.querySelector(".btn-cancelar");
           btnCancelar.addEventListener("click", () => {
-            modal.remove();
-            audioCaja.load();
-          });
-
-          /* let closess = document.getElementById('closess');
-          closess.addEventListener("click", () => {
-            modal.remove();
-            audioCaja.load();
-          });
-          
-          let modalOpaco = document.querySelector(".opacity-modal");
-          modalOpaco.addEventListener("click", () => {
             modal.remove();
             audioCaja.load();
           }); */
@@ -139,6 +129,8 @@ if (iniciarCaja) {
             let option = buttonOption.querySelector('.option-modal-respuesta > span');
             if (j !== positionCorrectAnswer) {
               // Verificar que el número que se obtiene acá es diferente a la respuesta. Si algo sumarle una cantidad
+
+              // Mandar una cantidad diferente dependiendo de la dificultad
               option.textContent = randomNumber(1, 100);
             } else {
               option.textContent = answerNum;
@@ -170,7 +162,7 @@ if (iniciarCaja) {
                 audiofinal.play();
                 numberCajas.remove();
 
-                // Acá se debe escribir la puntuación en el localStorage
+                // Se guarda el usuario o se modifica en el localStorage
                 let objData = {
                   name: inputUser.value,
                   difficulty: valorDifficulty.textContent,
@@ -181,10 +173,20 @@ if (iniciarCaja) {
                 if (!gameData) {
                   window.localStorage.setItem('boxGame', JSON.stringify([objData]));
                 } else {
-                  let arrData = JSON.parse(gameData);
-                  let user = arrData.find((user) => inputUser.value === user.name);
-                  console.log(user);
+                  let arrData = JSON.parse(gameData),
+                    indexUser = arrData.findIndex((user) =>
+                      user.name.toLowerCase() === inputUser.value.toLowerCase());
+
+                  if (indexUser === -1) {
+                    arrData.push(objData);
+                  } else {
+                    arrData[indexUser] = objData;
+                  }
+                  window.localStorage.setItem('boxGame', JSON.stringify(arrData));
                 }
+
+                // Se agregan los datos a la tabla de clasificación;
+                getDataLocalStorage('boxGame');
 
                 // Se reemplazan los textos de la pantalla final
                 let str = score === Number(selectDifficulty.value)
@@ -246,13 +248,10 @@ if (iniciarCaja) {
           addOpaco.classList.remove("opaco");
 
         }
-      })
-
+      });
     }
 
-
   });
-
 }
 
 let sonidoin = document.querySelector(".sonidoin");
@@ -298,9 +297,7 @@ completePantalla.addEventListener("click", () => {
 
   if (scrollCompleta.requestFullscreen) {
     scrollCompleta.requestFullscreen();
-
   }
-
   completa.style.display = "none";
   contraer.style.display = "block";
 
@@ -330,11 +327,6 @@ btnOptions.addEventListener("click", () => {
   addOpaco.classList.add("opaco");
   console.log("opciones");
 })
-
-
-
-
-
 
 
 //evento de quitar la pantalla completa conn el boton esc
@@ -418,6 +410,32 @@ function closeModalShoppingCart() {
   dialog.classList.remove("is-visible-dialog");
 }
 
+function getDataLocalStorage(item) {
+
+  // DOs opciones al llamar esta función
+  /**
+   * 1. Se comprueba desde acá si existe item
+   * 2. Se llama en el archivo HTML de cada juego
+   */
+
+  let tableBody = document.querySelector('table > tbody');
+  tableBody.innerHTML = '';
+  let arrData = JSON.parse(window.localStorage.getItem(item));
+
+  arrData.forEach((user, i) => {
+
+    const { name, difficulty, score } = user;
+    let tableRow = document.createElement('tr');
+    let td = '';
+    td += `<td class="font-weight-bold">${i + 1}</td>
+    <td>${name}</td>
+    <td>${difficulty}</td>
+    <td>${score}</td>
+    `
+    tableRow.innerHTML = td;
+    tableBody.appendChild(tableRow);
+  });
+}
 
 function addModal(abrirModal, i) {
   abrirModal.insertAdjacentHTML("beforebegin", `      
@@ -488,16 +506,13 @@ function addModal(abrirModal, i) {
                     </button>
                   </div>
                 </div>
-
               </div>
-
             </div>
-
-            <div class="modal-footer">
+            <!--<div class="modal-footer">
               <div class="container text-center">
                 <button type="button" class="btn btn-primary btn-cancelar">Volver</button>
               </div>
-            </div>
+            </div>-->
         </div>
       </div>
     </div>`)
