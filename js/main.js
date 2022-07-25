@@ -33,39 +33,42 @@ inputColor.addEventListener("change", () => {
 
 
 // evento que genera el número de cajas
-iniciar.addEventListener("click", () => {
+if (iniciarCaja) {
 
-  let score = 0;
 
-  if (inputUser.value == "") {
-    errorSecondary(validateName, "Completa el campo");
-  } else {
-    reiniciarJuego.style.display = "block";
-    audioInicio.play();
-    successSecondary(validateName);
+  iniciarCaja.addEventListener("click", () => {
 
-    ContentPlay.style.display = ("none");
-    selectDifficulty.style.display = ("none");
-    containerValorDifficulty.style.display = "block";
-    nameUser.textContent = inputUser.value;
+    let score = 0;
 
-    if (selectDifficulty.value == 6) {
-      valorDifficulty.textContent = "Facil";
-    } else if (selectDifficulty.value == 8) {
-      valorDifficulty.textContent = "Madiana";
+    if (inputUser.value == "") {
+      errorSecondary(validateName, "Completa el campo");
     } else {
-      valorDifficulty.textContent = "Dificil";
-    }
+      reiniciarJuego.style.display = "block";
+      audioInicio.play();
+      successSecondary(validateName);
 
-    ContentPlay.insertAdjacentHTML("afterend", `<div class="row padding-caja numberCajas justify-content-center align-items-center h-100" style="margin-top:60px"></div>`);
+      ContentPlay.style.display = ("none");
+      selectDifficulty.style.display = ("none");
+      containerValorDifficulty.style.display = "block";
+      nameUser.textContent = inputUser.value;
 
-    let numberCajas = document.querySelector(".numberCajas");
-    numberCajas.insertAdjacentHTML("beforeend", ` <div class="col-md-12 text-center">
+      if (selectDifficulty.value == 6) {
+        valorDifficulty.textContent = "Facil";
+      } else if (selectDifficulty.value == 8) {
+        valorDifficulty.textContent = "Madiana";
+      } else {
+        valorDifficulty.textContent = "Dificil";
+      }
+
+      ContentPlay.insertAdjacentHTML("afterend", `<div class="row padding-caja numberCajas justify-content-center align-items-center h-100" style="margin-top:60px"></div>`);
+
+      let numberCajas = document.querySelector(".numberCajas");
+      numberCajas.insertAdjacentHTML("beforeend", ` <div class="col-md-12 text-center">
           <h2>Toca una caja para abrirla</h2>
         </div>`);
 
-    for (let i = 0; i < selectDifficulty.value; i++) {
-      numberCajas.insertAdjacentHTML("beforeend", ` <div class="col-md-3 col-6 abrirModal">
+      for (let i = 0; i < selectDifficulty.value; i++) {
+        numberCajas.insertAdjacentHTML("beforeend", ` <div class="col-md-3 col-6 abrirModal">
 
             <div class="content-caja">
               <div class="img-caja" style="position: relative;">
@@ -79,116 +82,116 @@ iniciar.addEventListener("click", () => {
             </div>
             </div>
           </div>`);
-    }
+      }
 
-    // Se obtienen todas las cajas
-    let abrirModal = document.querySelectorAll(".abrirModal");
+      // Se obtienen todas las cajas
+      let abrirModal = document.querySelectorAll(".abrirModal");
 
-    for (let i = 0; i < abrirModal.length; i++) {
-      let caja = abrirModal[i].querySelector(".img-caja");
-      let agreagrIcono = abrirModal[i].querySelector(".agreagrIcono");
-      let posicionIconoJuego = abrirModal[i].querySelector(".posicion-icono-juego");
+      for (let i = 0; i < abrirModal.length; i++) {
+        let caja = abrirModal[i].querySelector(".img-caja");
+        let agreagrIcono = abrirModal[i].querySelector(".agreagrIcono");
+        let posicionIconoJuego = abrirModal[i].querySelector(".posicion-icono-juego");
 
-      // evento de abrir caja modal y obciones de respuesta e la caja
-      caja.addEventListener("click", () => {
+        // evento de abrir caja modal y obciones de respuesta e la caja
+        caja.addEventListener("click", () => {
 
-        addModal(abrirModal[i]);
+          addModal(abrirModal[i]);
 
-        let modal = document.querySelector('.modal-shoppingCart');
-        let romanNum = modal.querySelector('.numCaja-number');
+          let modal = document.querySelector('.modal-shoppingCart');
+          let romanNum = modal.querySelector('.numCaja-number');
 
-        let answerNum = randomNumber(1, 100);
-        romanNum.textContent = convertToRoman(answerNum);
+          let answerNum = randomNumber(1, 100);
+          romanNum.textContent = convertToRoman(answerNum);
 
-        audioCaja.play();
-        correcto.load();
+          audioCaja.play();
+          correcto.load();
 
-        //eventos de cerrar modal
-        let btnCancelar = document.querySelector(".btn-cancelar");
-        btnCancelar.addEventListener("click", () => {
-          modal.remove();
-          audioCaja.load();
-        });
-
-        /* let closess = document.getElementById('closess');
-        closess.addEventListener("click", () => {
-          modal.remove();
-          audioCaja.load();
-        });
-        
-        let modalOpaco = document.querySelector(".opacity-modal");
-        modalOpaco.addEventListener("click", () => {
-          modal.remove();
-          audioCaja.load();
-        }); */
-
-        let positionCorrectAnswer = randomNumber(0, 4);
-
-        let optionModalHijo = modal.querySelectorAll(".option-modal-hijo");
-        for (let j = 0; j < optionModalHijo.length; j++) {
-
-          let buttonOption = optionModalHijo[j];
-          buttonOption.style.backgroundColor = inputColor.value;
-
-          // Comprobar que todos las opciones son siferentes. Hacerlo con find o some
-
-          // Se reemplaza el valor de la opción
-          let option = buttonOption.querySelector('.option-modal-respuesta > span');
-          if (j !== positionCorrectAnswer) {
-            // Verificar que el número que se obtiene acá es diferente a la respuesta. Si algo sumarle una cantidad
-            option.textContent = randomNumber(1, 100);
-          } else {
-            option.textContent = answerNum;
-          }
-
-          // Se agrega el evento al button
-          buttonOption.addEventListener("click", () => {
-
+          //eventos de cerrar modal
+          let btnCancelar = document.querySelector(".btn-cancelar");
+          btnCancelar.addEventListener("click", () => {
             modal.remove();
-            caja.classList.add("desabledd");
             audioCaja.load();
+          });
 
-            // Se comprueba si la respuesta fue correcta o no
-            if (Number(option.textContent) === answerNum) {
-              correcto.play();
-              agreagrIcono.classList.add("icofont-check-circled");
-              posicionIconoJuego.classList.add("color-success");
-              score++;
+          /* let closess = document.getElementById('closess');
+          closess.addEventListener("click", () => {
+            modal.remove();
+            audioCaja.load();
+          });
+          
+          let modalOpaco = document.querySelector(".opacity-modal");
+          modalOpaco.addEventListener("click", () => {
+            modal.remove();
+            audioCaja.load();
+          }); */
+
+          let positionCorrectAnswer = randomNumber(0, 4);
+
+          let optionModalHijo = modal.querySelectorAll(".option-modal-hijo");
+          for (let j = 0; j < optionModalHijo.length; j++) {
+
+            let buttonOption = optionModalHijo[j];
+            buttonOption.style.backgroundColor = inputColor.value;
+
+            // Comprobar que todos las opciones son siferentes. Hacerlo con find o some
+
+            // Se reemplaza el valor de la opción
+            let option = buttonOption.querySelector('.option-modal-respuesta > span');
+            if (j !== positionCorrectAnswer) {
+              // Verificar que el número que se obtiene acá es diferente a la respuesta. Si algo sumarle una cantidad
+              option.textContent = randomNumber(1, 100);
             } else {
-              incorrecto.play();
-              agreagrIcono.classList.add("icofont-close-circled");
-              posicionIconoJuego.classList.add("color-danger");
+              option.textContent = answerNum;
             }
 
-            // Comprueba si todos los botones están desactivados
-            let desabledd = document.querySelectorAll(".desabledd");
-            if (desabledd.length == abrirModal.length) {
+            // Se agrega el evento al button
+            buttonOption.addEventListener("click", () => {
 
-              audiofinal.play();
-              numberCajas.remove();
+              modal.remove();
+              caja.classList.add("desabledd");
+              audioCaja.load();
 
-              // Acá se debe escribir la puntuación en el localStorage
-              let objData = {
-                name: inputUser.value,
-                difficulty: valorDifficulty.textContent,
-                score
-              }
-
-              let gameData = window.localStorage.getItem('boxGame');
-              if (!gameData) {
-                window.localStorage.setItem('boxGame', JSON.stringify([objData]));
+              // Se comprueba si la respuesta fue correcta o no
+              if (Number(option.textContent) === answerNum) {
+                correcto.play();
+                agreagrIcono.classList.add("icofont-check-circled");
+                posicionIconoJuego.classList.add("color-success");
+                score++;
               } else {
-                let arrData = JSON.parse(gameData);
-                let user = arrData.find((user) => inputUser.value === user.name);
-                console.log(user);
+                incorrecto.play();
+                agreagrIcono.classList.add("icofont-close-circled");
+                posicionIconoJuego.classList.add("color-danger");
               }
 
-              // Se reemplazan los textos de la pantalla final
-              let str = score === Number(selectDifficulty.value)
-                ? '¡Felicitaciones!'
-                : 'Sigue participando';
+              // Comprueba si todos los botones están desactivados
+              let desabledd = document.querySelectorAll(".desabledd");
+              if (desabledd.length == abrirModal.length) {
 
-              ContentPlay.insertAdjacentHTML("afterend", `<div class="row containerFinich justify-content-center align-items-center h-100" style="margin-top:140px">
+                audiofinal.play();
+                numberCajas.remove();
+
+                // Acá se debe escribir la puntuación en el localStorage
+                let objData = {
+                  name: inputUser.value,
+                  difficulty: valorDifficulty.textContent,
+                  score
+                }
+
+                let gameData = window.localStorage.getItem('boxGame');
+                if (!gameData) {
+                  window.localStorage.setItem('boxGame', JSON.stringify([objData]));
+                } else {
+                  let arrData = JSON.parse(gameData);
+                  let user = arrData.find((user) => inputUser.value === user.name);
+                  console.log(user);
+                }
+
+                // Se reemplazan los textos de la pantalla final
+                let str = score === Number(selectDifficulty.value)
+                  ? '¡Felicitaciones!'
+                  : 'Sigue participando';
+
+                ContentPlay.insertAdjacentHTML("afterend", `<div class="row containerFinich justify-content-center align-items-center h-100" style="margin-top:140px">
                                 <div class="col-md-12 text-center">
                                   <h2 class="mb-4">${str}</h2>
                                   <h5><span class="nameFinich" style="color: #333;font-weight: 600;"></span><span> tu puntaje es:</span></h5>
@@ -198,54 +201,59 @@ iniciar.addEventListener("click", () => {
                                       <i class="icofont-refresh"></i>
                                     </button>
                                   </div>
-                                  
                                 </div>
                               </div>`);
 
-              let nameFinich = document.querySelector(".nameFinich");
-              nameFinich.textContent = inputUser.value;
-
-              let iconActualizar = document.querySelector(".icon-actualizar");
-              iconActualizar.addEventListener("click", () => {
-                audiofinal.load();
-                if (numberCajas) {
-                  numberCajas.remove();
-                  ContentPlay.style.display = ("flex");
-                  selectDifficulty.style.display = ("flex");
-                  containerValorDifficulty.style.display = "none";
-                  reiniciarJuego.style.display = "none";
-                  addOpaco.classList.remove("opaco");
-
-                }
+                let nameFinich = document.querySelector(".nameFinich");
+                nameFinich.textContent = inputUser.value;
                 let containerFinich = document.querySelector(".containerFinich");
-                containerFinich.remove();
+                let iconActualizar = document.querySelector(".icon-actualizar");
+                iconActualizar.addEventListener("click", () => {
+                  audiofinal.load();
+                  if (numberCajas) {
+                    numberCajas.remove();
+                    ContentPlay.style.display = ("flex");
+                    selectDifficulty.style.display = ("flex");
+                    containerValorDifficulty.style.display = "none";
+                    reiniciarJuego.style.display = "none";
+                    addOpaco.classList.remove("opaco");
 
-              });
-            }
+                  }
 
-          });
+                  containerFinich.remove();
+
+                });
+                reiniciarJuego.addEventListener("click", () => {
+                  containerFinich.remove();
+                });
+
+              }
+
+            });
+          }
+        });
+      }
+
+      //eventos de reiniciar juegos
+      reiniciarJuego.addEventListener("click", () => {
+
+        if (numberCajas) {
+          numberCajas.remove();
+          ContentPlay.style.display = ("flex");
+          selectDifficulty.style.display = ("flex");
+          containerValorDifficulty.style.display = "none";
+          reiniciarJuego.style.display = "none";
+          addOpaco.classList.remove("opaco");
+
         }
-      });
+      })
+
     }
 
-    //eventos de reiniciar juegos
-    reiniciarJuego.addEventListener("click", () => {
 
-      if (numberCajas) {
-        numberCajas.remove();
-        ContentPlay.style.display = ("flex");
-        selectDifficulty.style.display = ("flex");
-        containerValorDifficulty.style.display = "none";
-        reiniciarJuego.style.display = "none";
-        addOpaco.classList.remove("opaco");
+  });
 
-      }
-    })
-
-  }
-
-
-});
+}
 
 let sonidoin = document.querySelector(".sonidoin");
 let sonidooff = document.querySelector(".sonidooff");
@@ -320,6 +328,7 @@ addOpaco.addEventListener("click", () => {
 //evento de opciones del juego
 btnOptions.addEventListener("click", () => {
   addOpaco.classList.add("opaco");
+  console.log("opciones");
 })
 
 
@@ -375,7 +384,7 @@ function addactualizarJuego() {
 
 function reiniciaJuegos(evento, sonido) {
   reiniciarJuego.addEventListener("click", () => {
-    if(sonido){
+    if (sonido) {
       sonido.load();
     }
     evento.remove();
