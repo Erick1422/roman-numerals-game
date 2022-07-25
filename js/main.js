@@ -1,5 +1,4 @@
-
-
+"use strict";
 
 let iniciarCaja = document.querySelector(".iniciarCaja");
 let iniciarMayor = document.querySelector(".iniciarMayor");
@@ -33,14 +32,220 @@ inputColor.addEventListener("change", () => {
 });
 
 
+// evento que genera el número de cajas
+iniciar.addEventListener("click", () => {
+
+  let score = 0;
+
+  if (inputUser.value == "") {
+    errorSecondary(validateName, "Completa el campo");
+  } else {
+    reiniciarJuego.style.display = "block";
+    audioInicio.play();
+    successSecondary(validateName);
+
+    ContentPlay.style.display = ("none");
+    selectDifficulty.style.display = ("none");
+    containerValorDifficulty.style.display = "block";
+    nameUser.textContent = inputUser.value;
+
+    if (selectDifficulty.value == 6) {
+      valorDifficulty.textContent = "Facil";
+    } else if (selectDifficulty.value == 8) {
+      valorDifficulty.textContent = "Madiana";
+    } else {
+      valorDifficulty.textContent = "Dificil";
+    }
+
+    ContentPlay.insertAdjacentHTML("afterend", `<div class="row padding-caja numberCajas justify-content-center align-items-center h-100" style="margin-top:60px"></div>`);
+
+    let numberCajas = document.querySelector(".numberCajas");
+    numberCajas.insertAdjacentHTML("beforeend", ` <div class="col-md-12 text-center">
+          <h2>Toca una caja para abrirla</h2>
+        </div>`);
+
+    for (let i = 0; i < selectDifficulty.value; i++) {
+      numberCajas.insertAdjacentHTML("beforeend", ` <div class="col-md-3 col-6 abrirModal">
+
+            <div class="content-caja">
+              <div class="img-caja" style="position: relative;">
+                <img class="caja" src="img/caja.png" alt="">
+                <img class="caja-black" src="img/caja-black.png" alt="">
+                <span class="numCaja h2 ">`+ [i + 1] + `</span>
+               
+              </div>
+              <div class="posicion-icono-juego">
+              <i class="agreagrIcono"></i>
+            </div>
+            </div>
+          </div>`);
+    }
+
+    // Se obtienen todas las cajas
+    let abrirModal = document.querySelectorAll(".abrirModal");
+
+    for (let i = 0; i < abrirModal.length; i++) {
+      let caja = abrirModal[i].querySelector(".img-caja");
+      let agreagrIcono = abrirModal[i].querySelector(".agreagrIcono");
+      let posicionIconoJuego = abrirModal[i].querySelector(".posicion-icono-juego");
+
+      // evento de abrir caja modal y obciones de respuesta e la caja
+      caja.addEventListener("click", () => {
+
+        addModal(abrirModal[i]);
+
+        let modal = document.querySelector('.modal-shoppingCart');
+        let romanNum = modal.querySelector('.numCaja-number');
+
+        let answerNum = randomNumber(1, 100);
+        romanNum.textContent = convertToRoman(answerNum);
+
+        audioCaja.play();
+        correcto.load();
+
+        //eventos de cerrar modal
+        let btnCancelar = document.querySelector(".btn-cancelar");
+        btnCancelar.addEventListener("click", () => {
+          modal.remove();
+          audioCaja.load();
+        });
+
+        /* let closess = document.getElementById('closess');
+        closess.addEventListener("click", () => {
+          modal.remove();
+          audioCaja.load();
+        });
+        
+        let modalOpaco = document.querySelector(".opacity-modal");
+        modalOpaco.addEventListener("click", () => {
+          modal.remove();
+          audioCaja.load();
+        }); */
+
+        let positionCorrectAnswer = randomNumber(0, 4);
+
+        let optionModalHijo = modal.querySelectorAll(".option-modal-hijo");
+        for (let j = 0; j < optionModalHijo.length; j++) {
+
+          let buttonOption = optionModalHijo[j];
+          buttonOption.style.backgroundColor = inputColor.value;
+
+          // Comprobar que todos las opciones son siferentes. Hacerlo con find o some
+
+          // Se reemplaza el valor de la opción
+          let option = buttonOption.querySelector('.option-modal-respuesta > span');
+          if (j !== positionCorrectAnswer) {
+            // Verificar que el número que se obtiene acá es diferente a la respuesta. Si algo sumarle una cantidad
+            option.textContent = randomNumber(1, 100);
+          } else {
+            option.textContent = answerNum;
+          }
+
+          // Se agrega el evento al button
+          buttonOption.addEventListener("click", () => {
+
+            modal.remove();
+            caja.classList.add("desabledd");
+            audioCaja.load();
+
+            // Se comprueba si la respuesta fue correcta o no
+            if (Number(option.textContent) === answerNum) {
+              correcto.play();
+              agreagrIcono.classList.add("icofont-check-circled");
+              posicionIconoJuego.classList.add("color-success");
+              score++;
+            } else {
+              incorrecto.play();
+              agreagrIcono.classList.add("icofont-close-circled");
+              posicionIconoJuego.classList.add("color-danger");
+            }
+
+            // Comprueba si todos los botones están desactivados
+            let desabledd = document.querySelectorAll(".desabledd");
+            if (desabledd.length == abrirModal.length) {
+
+              audiofinal.play();
+              numberCajas.remove();
+
+              // Acá se debe escribir la puntuación en el localStorage
+              let objData = {
+                name: inputUser.value,
+                difficulty: valorDifficulty.textContent,
+                score
+              }
+
+              let gameData = window.localStorage.getItem('boxGame');
+              if (!gameData) {
+                window.localStorage.setItem('boxGame', JSON.stringify([objData]));
+              } else {
+                let arrData = JSON.parse(gameData);
+                let user = arrData.find((user) => inputUser.value === user.name);
+                console.log(user);
+              }
+
+              // Se reemplazan los textos de la pantalla final
+              let str = score === Number(selectDifficulty.value)
+                ? '¡Felicitaciones!'
+                : 'Sigue participando';
+
+              ContentPlay.insertAdjacentHTML("afterend", `<div class="row containerFinich justify-content-center align-items-center h-100" style="margin-top:140px">
+                                <div class="col-md-12 text-center">
+                                  <h2 class="mb-4">${str}</h2>
+                                  <h5><span class="nameFinich" style="color: #333;font-weight: 600;"></span><span> tu puntaje es:</span></h5>
+                                  <h1 style="color: #6C55F9;">${score}</h1><span> Puntos</span>
+                                  <div>
+                                    <button type="button" class="mt-5 btn-menu icon-actualizar">
+                                      <i class="icofont-refresh"></i>
+                                    </button>
+                                  </div>
+                                  
+                                </div>
+                              </div>`);
+
+              let nameFinich = document.querySelector(".nameFinich");
+              nameFinich.textContent = inputUser.value;
+
+              let iconActualizar = document.querySelector(".icon-actualizar");
+              iconActualizar.addEventListener("click", () => {
+                audiofinal.load();
+                if (numberCajas) {
+                  numberCajas.remove();
+                  ContentPlay.style.display = ("flex");
+                  selectDifficulty.style.display = ("flex");
+                  containerValorDifficulty.style.display = "none";
+                  reiniciarJuego.style.display = "none";
+                  addOpaco.classList.remove("opaco");
+
+                }
+                let containerFinich = document.querySelector(".containerFinich");
+                containerFinich.remove();
+
+              });
+            }
+
+          });
+        }
+      });
+    }
+
+    //eventos de reiniciar juegos
+    reiniciarJuego.addEventListener("click", () => {
+
+      if (numberCajas) {
+        numberCajas.remove();
+        ContentPlay.style.display = ("flex");
+        selectDifficulty.style.display = ("flex");
+        containerValorDifficulty.style.display = "none";
+        reiniciarJuego.style.display = "none";
+        addOpaco.classList.remove("opaco");
+
+      }
+    })
+
+  }
 
 
-
-
-
-
-
-
+});
 
 let sonidoin = document.querySelector(".sonidoin");
 let sonidooff = document.querySelector(".sonidooff");
@@ -108,17 +313,11 @@ contraerPantalla.addEventListener("click", () => {
 });
 
 //evento de quitar lo opaco del juego
-
-let menuPrueva = document.querySelector(".menuPrueva");
-
 addOpaco.addEventListener("click", () => {
   addOpaco.classList.remove("opaco");
 });
 
-
-
 //evento de opciones del juego
-
 btnOptions.addEventListener("click", () => {
   addOpaco.classList.add("opaco");
 })
@@ -130,7 +329,6 @@ btnOptions.addEventListener("click", () => {
 
 
 //evento de quitar la pantalla completa conn el boton esc
-
 document.addEventListener('keydown', (event) => {
   const keyName = event.key;
   if (keyName == "Escape") {
@@ -140,18 +338,10 @@ document.addEventListener('keydown', (event) => {
 
 });
 
-
 //evento de reaunar el juego
-
-
 btnReanudar.addEventListener("click", () => {
   addOpaco.classList.remove("opaco");
 });
-
-
-
-
-
 
 // funciones
 //successSecondary(validateName);
@@ -231,12 +421,9 @@ function addModal(abrirModal, i) {
         <div class="modal-content">
           <div class="modal-header align-middle">
             <h5 class="modal-title" title="text-center">Seleccione la opcion correcta</h5>
-            <a id="closess" type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></a>
+            <!--<a id="closess" type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></a>-->
           </div>
 
-
-          <form id="formDataSubscription" action="/user/user-profile-data/photoProfile" method="POST"
-            enctype="multipart/form-data">
             <div class="modal-body">
               <div class="row">
                 <div class="col-md-4 text-center">
@@ -263,7 +450,6 @@ function addModal(abrirModal, i) {
                 </div>
 
                 <div class="col-md-4 text-center">
-                  <!-- <h2 style="font-weight: 600;">1234</h2> -->
                   <div class="box-img-modal">
                     <span class="numCaja-number h1">XXII</span>
                     <img src="img/caja-open.png" alt="">
@@ -303,7 +489,6 @@ function addModal(abrirModal, i) {
                 <button type="button" class="btn btn-primary btn-cancelar">Volver</button>
               </div>
             </div>
-          </form>
         </div>
       </div>
     </div>`)
@@ -523,3 +708,32 @@ function addMessageFinich(ContentPlay) {
 </div>`);
 }
 
+const map = {
+  M: 1000,
+  CM: 900,
+  D: 500,
+  CD: 400,
+  C: 100,
+  XC: 90,
+  L: 50,
+  XL: 40,
+  X: 10,
+  IX: 9,
+  V: 5,
+  IV: 4,
+  I: 1
+}
+
+function convertToRoman(num) {
+  let result = '';
+  for (const key in map) {
+    result += key.repeat(Math.floor(num / map[key]));
+    // Se va disminuyendo por cada iteración hasta llegar a 0
+    num = num % map[key];
+  }
+  return result;
+}
+
+function randomNumber(minNum, maxNum) {
+  return Math.floor(Math.random() * (maxNum - minNum) + minNum);
+}

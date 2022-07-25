@@ -1,36 +1,29 @@
-
 // link de la página de juegos: https://wordwall.net/es-ar/community/n%C3%BAmeros-romanos
 
 /**
  * All posible Roman Integer Pairs
- * Una caracteristica de estos números es que se escirben del número mayor al menor
+ * Una característica de estos números es que se escriben del número mayor al menor
  * exceptuando algunos casos como: 4, 9, 40, 90, 400, 900
  */
-const map = {
-    M: 1000,
-    CM: 900,
-    D: 500,
-    CD: 400,
-    C: 100,
-    XC: 90,
-    L: 50,
-    XL: 40,
-    X: 10,
-    IX: 9,
-    V: 5,
-    IV: 4,
-    I: 1
+
+
+
+
+console.log(randomNumber(200));
+
+const getCorrectAnswer = () => {
+    
 }
 
-const convertToRoman = (num) => {
-    let result = '';
-    for (const key in map) {
-        result += key.repeat(Math.floor(num / map[key]));
-        num %= map[key];
-        console.log(num);
-    }
-    return result;
-}
+const replaceQuestions = () => {
+    // Aquí se van a reemplazar a y b en el modal
+    // 1. Se llama el número aleatorio y se guarda en una variable
 
-// console.log(convertToRoman(9));
-convertToRoman(9);
+    // 2. Se agregan las opciones en el modal de forma aleaatoria, junto con el número aleatorio
+
+    // 3. Se comprueba si la respuesta fue correcta y se almacena en una variable
+
+    // 4. Se cierra el modal al seleccionar una
+
+    // 5. Se bloquea el botón al terminar de responder
+}
