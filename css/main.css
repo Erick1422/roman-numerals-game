@@ -1,3 +1,155 @@
+/* tamaño de los textos p */
+
+.p1 {
+    font-size: 22px;
+}
+
+.p11 {
+    font-size: 20px;
+}
+
+/* estilos para mayor y menor que */
+
+.evento-mayor {
+    cursor: pointer;
+    transition: .05s;
+}
+
+.content-respuesta-padre-mayor {
+    padding: 20px;
+    border-radius: 8px;
+
+}
+
+.content-respuesta-padre-mayor:hover {
+    opacity: .9;
+}
+
+
+.content-respuesta-text-mayor {
+    display: flex;
+    padding: 15px 20px;
+    align-items: center;
+    position: relative;
+    color: #333333;
+}
+
+.evento-mayor :active {
+    transform: scale(0.95);
+    transition: .05s;
+}
+
+.simbolo-mayor {
+    position: absolute;
+    color: #6C55F9;
+    border-radius: 50%;
+    background-color: #fff;
+    width: 56px;
+    height: 56px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 0px;
+    font-size: 2rem;
+}
+
+.respuesta-mayor {
+    width: 100%;
+    justify-content: center;
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+.textRespuesta {
+    color: #333333;
+    font-weight: 600;
+}
+
+.iconMayorCorrecta {
+    font-size: 100px;
+    color: #00940c;
+}
+
+.iconMayorIncorrecta {
+    font-size: 100px;
+    color: #cc0000;
+}
+
+/* end estilos para mayor y menor que */
+
+/* estilos para Kahoot que */
+#Kahoot .evento-kahoot {
+    cursor: pointer;
+    transition: .05s;
+}
+
+#Kahoot .content-respuesta-padre-kahoot {
+    padding: 0px;
+    border-radius: 8px;
+    height: 88px;
+    display: flex;
+    align-items: center;
+
+}
+
+#Kahoot .content-respuesta-padre-kahoot:hover {
+    opacity: .9;
+}
+
+#Kahoot .content-respuesta-text-kahoot {
+    padding: 20px 10px;
+    position: relative;
+    color: #333333;
+    display: flex;
+    align-items: center;
+}
+
+#Kahoot .evento-kahoot :active {
+    transform: scale(0.95);
+    transition: .05s;
+}
+
+#Kahoot .simbolo-kahoot {
+    position: absolute;
+    color: #6C55F9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 0px;
+    font-size: 2rem;
+}
+
+#Kahoot .simbolo-kahoot img {
+    width: 56px;
+    height: auto;
+}
+
+#Kahoot .respuesta-kahoot {
+    width: 100%;
+    margin-left: 80px;
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+#Kahoot .textRespuesta {
+    color: #333333;
+    font-weight: 600;
+}
+
+#Kahoot .iconMayorCorrecta {
+    font-size: 100px;
+    color: #00940c;
+}
+
+#Kahoot .iconMayorIncorrecta {
+    font-size: 100px;
+    color: #cc0000;
+}
+
+
+/* end estilos para mayor y menor que */
+
+
 /* tamaño de las cajas del juego de cajas */
 .content-caja {
     padding: 20px;
@@ -59,7 +211,7 @@
     padding: 40px 160px 50px 160px;
 }
 
-@media(max-width: 768px ) {
+@media(max-width: 768px) {
     .padding-caja {
         padding: 20px
     }

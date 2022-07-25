@@ -4783,6 +4783,13 @@ input[type="button"].btn-block {
   padding: 1.25rem;
 }
 
+.card-body-juego{
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  min-height: 1px;
+  padding: 1rem 1.25rem 0rem 1.25rem;
+}
+
 .card-title {
   margin-bottom: 0.75rem;
 }

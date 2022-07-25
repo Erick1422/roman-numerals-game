@@ -445,7 +445,7 @@ a.text-dark:hover, a.text-dark:focus {
 
 .btn-primary.disabled, .btn-primary:disabled {
   color: #fff;
-  background-color: #5d47eb;
+  background-color: #a1a1a1;
   border-color: transparent;
 }
 
@@ -1405,7 +1405,6 @@ a.text-dark:hover, a.text-dark:focus {
   margin-bottom: 16px;
   min-height: 555px;
  /*  height: 320px; */
-  background-color: #c5e3ff;
   color: #645F88;
   border-radius: 12px;
   border: 1px solid #c0c0c0;
