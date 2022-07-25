@@ -1422,7 +1422,7 @@ a.text-dark:hover, a.text-dark:focus {
 }
 
 .page-banner.home-banner .img-place {
-  max-width: 400px;
+  width: 100%;
   margin: 0 auto;
 }
 
@@ -1478,10 +1478,10 @@ a.text-dark:hover, a.text-dark:focus {
   font-size: 14px;
 }
 
-.home-banner .row > *:first-child {
+/* .home-banner .row > *:first-child {
   padding-left: 8%;
 }
-
+ */
 .subhead {
   display: block;
   text-transform: uppercase;
