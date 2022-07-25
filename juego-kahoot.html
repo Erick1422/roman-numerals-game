@@ -336,7 +336,9 @@
         <h3>Como Jugar</h3>
       </div>
       <div>
-        <p class="p11 text-muted"> Este juego consiste en responder las preguntas de forma correcta al seleccionar una de las opciones de respuesta. Ganara la persona que obtenga la mayor cantidad de respuestas correctas a mayor dificultad.</p>
+        <p class="p11 text-muted"> Este juego consiste en responder las preguntas de forma correcta al seleccionar una
+          de las opciones de respuesta. Ganara la persona que obtenga la mayor cantidad de respuestas correctas a mayor
+          dificultad.</p>
       </div>
     </div>
   </div>
@@ -418,97 +420,228 @@
 
   <script src="js/main.js"></script>
 
-<script>
-  if (iniciarKahoot) {
-  iniciarKahoot.addEventListener("click", () => {
+  <script>
+    if (iniciarKahoot) {
 
-    if (inputUser.value == "") {
-      console.log("vacio")
-      errorSecondary(validateName, "Completa el campo");
-    } else {
-      reiniciarJuego.style.display = "block";
-      audioInicio.play();
-      console.log("no vacio")
-      successSecondary(validateName);
+      const questions = [
+        {
+          question: 'El símbolo V se puede escribir al menos:',
+          answers: [
+            { text: 'Una vez', correct: false },
+            { text: 'Dos veces', correct: false },
+            { text: 'Tres veces', correct: false },
+            { text: 'Ninguna de las anteriores', correct: false }
+          ]
+        },
+        {
+          question: 'El sistema de numeración romano es:',
+          answers: [
+            { text: 'Posicional', correct: false },
+            { text: 'Aditivo', correct: false },
+            { text: 'Posicional adictivo', correct: false },
+            { text: 'Ninguna de las anteriores', correct: false }
+          ]
+        },
+        {
+          question: 'Al colocar el símbolo I a la izquierda de V o X, éste le:',
+          answers: [
+            { text: 'Resta su valor', correct: false },
+            { text: 'Suma su valor', correct: false },
+            { text: 'Multiplica la expresión por mil', correct: false },
+            { text: 'Ninguna de las anteriores', correct: false }
+          ]
+        },
+        {
+          question: 'Entre los símbolos utilizados en el sistema romano está la D, y su equivalencia es:',
+          answers: [
+            { text: '5', correct: false },
+            { text: '100', correct: false },
+            { text: '500', correct: false },
+            { text: '10', correct: false }
+          ]
+        }, {
+          question: 'Si a la expresión XLI se le coloca un segmento arriba, el resultado sería:',
+          answers: [
+            { text: '41', correct: false },
+            { text: '410', correct: false },
+            { text: '4100', correct: false },
+            { text: '41000', correct: false }
+          ]
+        },
+        {
+          question: '¿Cuál de los siguientes números romanos es falso?',
+          answers: [
+            { text: 'DVD', correct: false },
+            { text: 'CD', correct: false },
+            { text: 'MMX', correct: false },
+            { text: '', correct: false }
+          ]
+        },
+        {
+          question: '¿Cuál de los siguientes números romanos es verdadero?',
+          answers: [
+            { text: 'XXXX', correct: false },
+            { text: 'XL', correct: false },
+            { text: 'VVL', correct: false },
+            { text: '', correct: false }
+          ]
+        },
+        {
+          question: 'El número 15 corresponde a:',
+          answers: [
+            { text: 'VVV', correct: false },
+            { text: 'XV', correct: true },
+            { text: 'VX', correct: false },
+            { text: 'VII', correct: false }
+          ]
+        },
+        {
+          question: 'El número romano MCCXLIV corresponde a:',
+          answers: [
+            { text: '1.244', correct: false },
+            { text: '1.264', correct: true },
+            { text: '1.266', correct: false },
+            { text: '1.589', correct: false }
+          ]
+        },
+        {
+          question: '¿Qué serie de números romanos es correcta?',
+          answers: [
+            { text: 'XI, XII, XIII, XIV, XV', correct: false },
+            { text: 'XI, XII, XIII, XIIII, XV', correct: true },
+            { text: 'XI, XII, XIIV, XIV, VX', correct: false },
+            { text: '', correct: false },
+          ]
+        },
+        {
+          question: '¿Qué serie de números romanos es falsa?',
+          answers: [
+            { text: 'X, XV, XX, XXV, XXX, XXXV, XL, XLV, L', correct: false },
+            { text: 'X, XV, XX, XXV, XXX, XXXV, XXXX, XXXXV, L', correct: true },
+            { text: 'X, XX, XXX, XL, L, LX, LXX, LXXX, XC, C', correct: false },
+            { text: '', correct: false },
+          ]
+        },
+        {
+          question: 'El número 4 corresponde a:',
+          answers: [
+            { text: 'IIII', correct: false },
+            { text: 'IV', correct: true },
+            { text: 'VI', correct: false },
+            { text: '', correct: false },
+          ]
+        }
+      ]
 
+      iniciarKahoot.addEventListener("click", () => {
 
+        if (inputUser.value == "") {
+          errorSecondary(validateName, "Completa el campo");
+        } else {
 
-      ContentPlay.style.display = ("none");
-      selectDifficulty.style.display = ("none");
-      containerValorDifficulty.style.display = "block";
-      nameUser.textContent = inputUser.value;
+          reiniciarJuego.style.display = "block";
+          audioInicio.play();
+          successSecondary(validateName);
 
-      if (selectDifficulty.value == 6) {
-        valorDifficulty.textContent = "Fácil";
-      } else if (selectDifficulty.value == 8) {
-        valorDifficulty.textContent = "Madiana";
-      } else {
-        valorDifficulty.textContent = "Dificil";
-      }
+          ContentPlay.style.display = ("none");
+          selectDifficulty.style.display = ("none");
+          containerValorDifficulty.style.display = "block";
+          nameUser.textContent = inputUser.value;
 
-      addKahoot(ContentPlay);
-
-      let items = document.querySelector(".items");
-      let eventoMayor = document.querySelectorAll(".evento-mayor");
-      let juegoKahoot = document.querySelector(".juego-kahoot");
-
-      items.textContent = selectDifficulty.value;
-      let contadorPreguntas = 0;
-
-      for (let i = 0; i < eventoMayor.length; i++) {
-        eventoMayor[i].addEventListener("click", () => {
-
-          console.log("evento mayor");
-          // incorrecto.play();
-          //correcto.play();
-          juegoKahoot.style.display = "none";
-
-
-          if (2 == 2) {
-            correcto.play();
-            addResultCorrecto(juegoKahoot);
-
-            let itemsRespuestas = document.querySelector(".itemsRespuestas");
-            let btnSiguiente = document.querySelector(".btn-siguiente");
-            let respuestaCorrecta = document.querySelector(".respuestaCorrecta");
-
-            itemsRespuestas.textContent = selectDifficulty.value;
-            btnSiguiente.addEventListener("click", () => {
-              respuestaCorrecta.remove();
-              juegoKahoot.style.display = "block";
-              correcto.load();
-              messageFinich(respuestaCorrecta, juegoKahoot);
-            });
-
-            reiniciarJuego.addEventListener("click", () => {
-              respuestaCorrecta.remove();
-            });
-
+          if (selectDifficulty.value == 6) {
+            valorDifficulty.textContent = "Fácil";
+          } else if (selectDifficulty.value == 8) {
+            valorDifficulty.textContent = "Mediena";
           } else {
-            incorrecto.play();
-            addResultIncorrecto(juegoKahoot);
-
-            let itemsRespuestas = document.querySelector(".itemsRespuestas");
-            let btnSiguiente = document.querySelector(".btn-siguiente");
-            let respuestaIncorrecta = document.querySelector(".respuestaIncorrecta");
-
-            itemsRespuestas.textContent = selectDifficulty.value;
-            btnSiguiente.addEventListener("click", () => {
-              respuestaIncorrecta.remove();
-              juegoKahoot.style.display = "block";
-              incorrecto.load();
-              messageFinich(respuestaIncorrecta, juegoKahoot);
-            });
-
-            reiniciarJuego.addEventListener("click", () => {
-              respuestaIncorrecta.remove();
-            });
-
+            valorDifficulty.textContent = "Dificil";
           }
+
+          // Agrega el código con la pregunta y sus opciones
+          addKahoot(ContentPlay);
+
+          let elementTotalQuestions = document.querySelector(".items");
+          let allQuestions = document.querySelectorAll(".evento-mayor");
+          let juegoKahoot = document.querySelector(".juego-kahoot");
+
+          elementTotalQuestions.textContent = selectDifficulty.value;
+          let contadorPreguntas = 0;
+
+          let answers = addQuestions(contadorPreguntas);
+
+          // Agrega los eventos a las opciones de respuesta
+          /*
+            El problema: Al ser cargado dinámicamente el boton de siguiente
+            no va a existir, por lo que al cargar la página con las nuevas preguntas es dificil capturar esos datos.
+            Veo un problema de recursión
+          */
+          for (let i = 0; i < answers.length; i++) {
+
+            allQuestions[i].addEventListener('click', () => {
+              juegoKahoot.style.display = "none";
+
+              if (answers[i].correct) {
+                addResultCorrecto(juegoKahoot);
+                correcto.play();
+              } else {
+                addResultIncorrecto(juegoKahoot);
+                incorrecto.play();
+              }
+              // Muestra la respuesta que escogió
+              document.querySelector('.textRespuesta').textContent = answers[i].text;
+
+              // Muestra la respuesta correcta en la pantalla de error
+              let correctAnswerElement = document.querySelector('#correctAnswer');
+              if (correctAnswerElement) {
+                correctAnswerElement.textContent = correctAnswer.text;
+              }
+
+              // Se agrega el evento al botón siguiente para que muestre las nuevas opciones
+              let respuestaCorrecta = document.querySelector(".respuestaCorrecta");
+              let respuestaIncorrecta = document.querySelector(".respuestaIncorrecta");
+              let btnSiguiente = document.querySelector(".btn-siguiente");
+
+              btnSiguiente.addEventListener("click", () => {
+                if (respuestaIncorrecta) {
+                  respuestaIncorrecta.remove();
+                  incorrecto.load();
+                  messageFinich(respuestaIncorrecta, juegoKahoot);
+                }
+                else if (respuestaCorrecta) {
+                  respuestaCorrecta.remove();
+                  correcto.load();
+                  messageFinich(respuestaCorrecta, juegoKahoot);
+                }
+                juegoKahoot.style.display = "block";
+                addQuestions(contadorPreguntas)
+              });
+
+            });
+          }
+
+          /* let itemsRespuestas = document.querySelector(".itemsRespuestas");
+          itemsRespuestas.textContent = selectDifficulty.value; */
+
+          function addQuestions(position) {
+            const { question, answers } = questions[position];
+
+            let correctAnswer = answers.find((answer) => answer.correct === true);
+            let questionElement = juegoKahoot.querySelector('#question');
+            questionElement.textContent = question;
+
+            for (let i = 0; i < answers.length; i++) {
+              let answerOption = allQuestions[i].querySelector('.respuesta-kahoot > span');
+              answerOption.textContent = answers[i].text;
+            }
+            return answers;
+          }
+
+          reiniciarJuego.addEventListener("click", () => {
+            if (respuestaCorrecta) respuestaCorrecta.remove();
+            else if (respuestaIncorrecta) respuestaIncorrecta.remove();
+          });
 
           function messageFinich(respuestaCorrecta, juegoKahoot) {
             contadorPreguntas++;
-            console.log(contadorPreguntas);
             if (contadorPreguntas == selectDifficulty.value) {
               respuestaCorrecta.remove();
               juegoKahoot.remove();
@@ -517,15 +650,13 @@
               addactualizarJuego();
             }
           }
-        });
-      }
-      //eventos de reiniciar juegos
-      reiniciaJuegos(juegoKahoot, audioJazz);
-    }
+          //eventos de reiniciar juegos
+          reiniciaJuegos(juegoKahoot, audioJazz);
+        }
 
-  });
-}
-</script>
+      });
+    }
+  </script>
 
 </body>
 

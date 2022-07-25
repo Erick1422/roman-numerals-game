@@ -57,7 +57,7 @@ if (iniciarCaja) {
       if (selectDifficulty.value == 6) {
         valorDifficulty.textContent = "Facil";
       } else if (selectDifficulty.value == 8) {
-        valorDifficulty.textContent = "Madiana";
+        valorDifficulty.textContent = "Mediana";
       } else {
         valorDifficulty.textContent = "Dificil";
       }
@@ -97,7 +97,7 @@ if (iniciarCaja) {
         // evento de abrir caja modal y obciones de respuesta e la caja
         caja.addEventListener("click", () => {
 
-          addModal(abrirModal[i]);
+          addModal(abrirModal[i], i);
           let modal = document.querySelector('.modal-shoppingCart');
           let romanNum = modal.querySelector('.numCaja-number');
 
@@ -412,7 +412,7 @@ function closeModalShoppingCart() {
 
 function getDataLocalStorage(item) {
 
-  // DOs opciones al llamar esta función
+  // Dos opciones al llamar esta función
   /**
    * 1. Se comprueba desde acá si existe item
    * 2. Se llama en el archivo HTML de cada juego
@@ -422,6 +422,7 @@ function getDataLocalStorage(item) {
   tableBody.innerHTML = '';
   let arrData = JSON.parse(window.localStorage.getItem(item));
 
+  arrData = arrData.sort((a, b) => b.score - a.score);
   arrData.forEach((user, i) => {
 
     const { name, difficulty, score } = user;
@@ -528,7 +529,7 @@ function addKahoot(ContentPlay) {
     </div>
 
     <div class="col-md-12 text-center">
-      <h3>Al colocar el símbolo I a la izquierda de V o X, éste le:</h3>
+      <h3 id="question">Al colocar el símbolo I a la izquierda de V o X, éste le:</h3>
     </div>
   </div>
 
@@ -704,7 +705,7 @@ function addResultIncorrecto(juegoMayor) {
       <i class="icofont-close-circled iconMayorIncorrecta"></i>
       <h1>Respuesta Incorrecta</h4>
         <h4>Tu Respuesta es: <span class="textRespuesta">XII</span></h4>
-        <h4>La respuesta correcta es: <span class="textRespuesta">V</span></h4>
+        <h4>La respuesta correcta es: <span class="textRespuesta" id="correctAnswer">V</span></h4>
     </div>
 
     <div class="col-md-12 text-center">
