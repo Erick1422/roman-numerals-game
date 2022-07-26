@@ -169,22 +169,7 @@ if (iniciarCaja) {
                   score
                 }
 
-                let gameData = window.localStorage.getItem('boxGame');
-                if (!gameData) {
-                  window.localStorage.setItem('boxGame', JSON.stringify([objData]));
-                } else {
-                  let arrData = JSON.parse(gameData),
-                    indexUser = arrData.findIndex((user) =>
-                      user.name.toLowerCase() === inputUser.value.toLowerCase());
-
-                  if (indexUser === -1) {
-                    arrData.push(objData);
-                  } else {
-                    arrData[indexUser] = objData;
-                  }
-                  window.localStorage.setItem('boxGame', JSON.stringify(arrData));
-                }
-
+                saveToLocalStorage('boxGame', objData);
                 // Se agregan los datos a la tabla de clasificación;
                 getDataLocalStorage('boxGame');
 
@@ -410,6 +395,25 @@ function closeModalShoppingCart() {
   dialog.classList.remove("is-visible-dialog");
 }
 
+function saveToLocalStorage(itemName, objData) {
+
+  let gameData = window.localStorage.getItem(itemName);
+  if (!gameData) {
+    window.localStorage.setItem(itemName, JSON.stringify([objData]));
+  } else {
+    let arrData = JSON.parse(gameData),
+      indexUser = arrData.findIndex((user) =>
+        user.name.toLowerCase() === objData.name.toLowerCase());
+
+    if (indexUser === -1) {
+      arrData.push(objData);
+    } else {
+      arrData[indexUser] = objData;
+    }
+    window.localStorage.setItem(itemName, JSON.stringify(arrData));
+  }
+}
+
 function getDataLocalStorage(item) {
 
   // Dos opciones al llamar esta función
@@ -525,7 +529,7 @@ function addKahoot(ContentPlay) {
   <div class="card-body-juego juego-kahoot">
   <div class="row numberCajas justify-content-center align-items-center h-100" style="margin-top:60px">
     <div class="col-md-12 text-right">
-      <P class="p1"><span class="text-primary b">1</span> de <span class="items"></span></P>
+      <P class="p1"><span class="text-primary b" id="counterAnswers" >1</span> de <span class="items"></span></P>
     </div>
 
     <div class="col-md-12 text-center">
@@ -704,8 +708,8 @@ function addResultIncorrecto(juegoMayor) {
     <div class="col-md-12 text-center mb-4">
       <i class="icofont-close-circled iconMayorIncorrecta"></i>
       <h1>Respuesta Incorrecta</h4>
-        <h4>Tu Respuesta es: <span class="textRespuesta">XII</span></h4>
-        <h4>La respuesta correcta es: <span class="textRespuesta" id="correctAnswer">V</span></h4>
+        <h4>Tu Respuesta es: <span class="textRespuesta"></span></h4>
+        <h4>La respuesta correcta es: <span class="textRespuesta" id="correctAnswer"></span></h4>
     </div>
 
     <div class="col-md-12 text-center">

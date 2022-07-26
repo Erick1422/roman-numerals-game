@@ -1,25 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  
-    <meta name="copyright" content="MACode ID, https://macodeid.com">
-  
-    <title>Números Romanos.</title>
-  
-    <link rel="stylesheet" href="assets/vendor/animate/animate.css">
-    <link rel="stylesheet" href="assets/css/bootstrap.css">
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="assets/css/maicons.css">
-    <link rel="stylesheet" href="assets/vendor/owl-carousel/css/owl.carousel.css">
-    <link rel="stylesheet" href="assets/css/theme.css">
-    <link rel="stylesheet" href="icons/icofont/icofont.min.css">
-    <link rel="shortcut icon" href="img/favicon.png" style="background-color: bisque;">
-  </head>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <meta name="copyright" content="MACode ID, https://macodeid.com">
+
+  <title>Números Romanos.</title>
+
+  <link rel="stylesheet" href="assets/vendor/animate/animate.css">
+  <link rel="stylesheet" href="assets/css/bootstrap.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="assets/css/maicons.css">
+  <link rel="stylesheet" href="assets/vendor/owl-carousel/css/owl.carousel.css">
+  <link rel="stylesheet" href="assets/css/theme.css">
+  <link rel="stylesheet" href="icons/icofont/icofont.min.css">
+  <link rel="shortcut icon" href="img/favicon.png" style="background-color: bisque;">
+</head>
 
 <body class="text-code">
 
@@ -127,12 +127,46 @@
           <div class="mb-3 validation" style="display: flex; justify-content: center;">
             <input type="text" class="form-control inputUser text-center input-lg" placeholder="Nombres" maxlength="19"
               required>
-
           </div>
           <div class="controlForm validateName" id="iddColor">
             <small class="mb-4">message error</small>
           </div>
           <button type="button" class="btn btn-primary iniciarKahoot">Iniciar</button>
+        </div>
+      </div>
+
+      <div class="card-body-juego respuestaCorrecta" style="display: none;">
+        <div class="row numberCajas justify-content-center align-items-center h-100" style="margin-top:60px">
+          <div class="col-md-12 text-right">
+            <P class="p1"><span class="text-primary b" id="counterAnswers">1</span> de <span
+                class="itemsRespuestas"></span></P>
+          </div>
+          <div class="col-md-12 text-center mb-4">
+            <i class="icofont-check-circled iconMayorCorrecta"></i>
+            <h1>Respuesta Correcta</h4>
+              <h4>Tu Respuesta es: <span class="textRespuesta"></span></h4>
+          </div>
+          <div class="col-md-12 text-center">
+            <button type="button" class="btn btn-secondary btn-siguiente"> Siguiente </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-body-juego respuestaIncorrecta" style="display: none;">
+        <div class="row numberCajas justify-content-center align-items-center h-100" style="margin-top:60px">
+          <div class="col-md-12 text-right">
+            <P class="p1"><span class="text-primary b" id="counterAnswers">1</span> de <span
+                class="itemsRespuestas"></span></P>
+          </div>
+          <div class="col-md-12 text-center mb-4">
+            <i class="icofont-close-circled iconMayorIncorrecta"></i>
+            <h1>Respuesta Incorrecta</h4>
+              <h4>Tu Respuesta es: <span class="textRespuesta"></span></h4>
+              <h4>La respuesta correcta es: <span class="textRespuesta" id="correctAnswer"></span></h4>
+          </div>
+          <div class="col-md-12 text-center">
+            <button type="button" class="btn btn-secondary btn-siguiente"> Siguiente </button>
+          </div>
         </div>
       </div>
 
@@ -192,31 +226,10 @@
             <th scope="col">Nombre del Participante</th>
             <th scope="col">Dificultad</th>
             <th scope="col">Puntuación</th>
-            <th scope="col">Respuestas Correctas</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>Otto</td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Mark</td>
-            <td>Thornton</td>
-            <td>Otto</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td>Larry</td>
-            <td>Mark</td>
-            <td>the Bird</td>
-            <td>Otto</td>
-          </tr>
+          <!-- Se carga la data dinámicamente -->
         </tbody>
       </table>
     </div>
@@ -407,7 +420,7 @@
         {
           question: 'El símbolo V se puede escribir al menos:',
           answers: [
-            { text: 'Una vez', correct: false },
+            { text: 'Una vez', correct: true },
             { text: 'Dos veces', correct: false },
             { text: 'Tres veces', correct: false },
             { text: 'Ninguna de las anteriores', correct: false }
@@ -419,13 +432,13 @@
             { text: 'Posicional', correct: false },
             { text: 'Aditivo', correct: false },
             { text: 'Posicional adictivo', correct: false },
-            { text: 'Ninguna de las anteriores', correct: false }
+            { text: 'Ninguna de las anteriores', correct: true }
           ]
         },
         {
           question: 'Al colocar el símbolo I a la izquierda de V o X, éste le:',
           answers: [
-            { text: 'Resta su valor', correct: false },
+            { text: 'Resta su valor', correct: true },
             { text: 'Suma su valor', correct: false },
             { text: 'Multiplica la expresión por mil', correct: false },
             { text: 'Ninguna de las anteriores', correct: false }
@@ -436,7 +449,7 @@
           answers: [
             { text: '5', correct: false },
             { text: '100', correct: false },
-            { text: '500', correct: false },
+            { text: '500', correct: true },
             { text: '10', correct: false }
           ]
         }, {
@@ -445,25 +458,25 @@
             { text: '41', correct: false },
             { text: '410', correct: false },
             { text: '4100', correct: false },
-            { text: '41000', correct: false }
+            { text: '41000', correct: true }
           ]
         },
         {
           question: '¿Cuál de los siguientes números romanos es falso?',
           answers: [
-            { text: 'DVD', correct: false },
+            { text: 'DVD', correct: true },
             { text: 'CD', correct: false },
             { text: 'MMX', correct: false },
-            { text: '', correct: false }
+            { text: 'XIX', correct: false }
           ]
         },
         {
           question: '¿Cuál de los siguientes números romanos es verdadero?',
           answers: [
             { text: 'XXXX', correct: false },
-            { text: 'XL', correct: false },
+            { text: 'XL', correct: true },
             { text: 'VVL', correct: false },
-            { text: '', correct: false }
+            { text: 'LLX', correct: false }
           ]
         },
         {
@@ -478,8 +491,8 @@
         {
           question: 'El número romano MCCXLIV corresponde a:',
           answers: [
-            { text: '1.244', correct: false },
-            { text: '1.264', correct: true },
+            { text: '1.244', correct: true },
+            { text: '1.264', correct: false },
             { text: '1.266', correct: false },
             { text: '1.589', correct: false }
           ]
@@ -487,19 +500,19 @@
         {
           question: '¿Qué serie de números romanos es correcta?',
           answers: [
-            { text: 'XI, XII, XIII, XIV, XV', correct: false },
-            { text: 'XI, XII, XIII, XIIII, XV', correct: true },
+            { text: 'XI, XII, XIII, XIV, XV', correct: true },
+            { text: 'XI, XII, XIII, XIIII, XV', correct: false },
             { text: 'XI, XII, XIIV, XIV, VX', correct: false },
-            { text: '', correct: false },
+            { text: 'XI, XII, XIII, XVI, VX', correct: false },
           ]
         },
         {
           question: '¿Qué serie de números romanos es falsa?',
           answers: [
             { text: 'X, XV, XX, XXV, XXX, XXXV, XL, XLV, L', correct: false },
-            { text: 'X, XV, XX, XXV, XXX, XXXV, XXXX, XXXXV, L', correct: true },
-            { text: 'X, XX, XXX, XL, L, LX, LXX, LXXX, XC, C', correct: false },
-            { text: '', correct: false },
+            { text: 'X, XV, XX, XXV, XXX, XXXV, XXXX, XXXXV, L', correct: false },
+            { text: 'X, XX, XXX, XL, L, LX, LXX, LXXX, XC, C', correct: true },
+            { text: 'Ninguna de las anteriores', correct: false },
           ]
         },
         {
@@ -508,11 +521,12 @@
             { text: 'IIII', correct: false },
             { text: 'IV', correct: true },
             { text: 'VI', correct: false },
-            { text: '', correct: false },
+            { text: 'IX', correct: false },
           ]
         }
       ]
-
+      
+      getDataLocalStorage('kahootGame');
       iniciarKahoot.addEventListener("click", () => {
 
         if (inputUser.value == "") {
@@ -520,7 +534,7 @@
         } else {
 
           reiniciarJuego.style.display = "block";
-          audioInicio.play();
+          // audioInicio.play();
           successSecondary(validateName);
 
           ContentPlay.style.display = ("none");
@@ -531,7 +545,7 @@
           if (selectDifficulty.value == 6) {
             valorDifficulty.textContent = "Fácil";
           } else if (selectDifficulty.value == 8) {
-            valorDifficulty.textContent = "Mediena";
+            valorDifficulty.textContent = "Mediana";
           } else {
             valorDifficulty.textContent = "Dificil";
           }
@@ -542,64 +556,82 @@
           let elementTotalQuestions = document.querySelector(".items");
           let allQuestions = document.querySelectorAll(".evento-mayor");
           let juegoKahoot = document.querySelector(".juego-kahoot");
+          let counterKahoot = juegoKahoot.querySelector('#counterAnswers');
 
           elementTotalQuestions.textContent = selectDifficulty.value;
-          let contadorPreguntas = 0;
+          let contadorPreguntas = 0, score = 0;
 
-          let answers = addQuestions(contadorPreguntas);
-
-          // Agrega los eventos a las opciones de respuesta
           /*
-            El problema: Al ser cargado dinámicamente el boton de siguiente
-            no va a existir, por lo que al cargar la página con las nuevas preguntas es dificil capturar esos datos.
-            Veo un problema de recursión
+            EL problema está en que por cada itereación vuelve a registrar un evento y a medida
+            que se llama la función, registrar esa cantidad de eventos
           */
-          for (let i = 0; i < answers.length; i++) {
+          addQuestions(contadorPreguntas);
 
-            allQuestions[i].addEventListener('click', () => {
-              juegoKahoot.style.display = "none";
+          // Se agrega el evento al botón siguiente para que muestre las nuevas opciones
+          let respuestaCorrecta = document.querySelector(".respuestaCorrecta");
+          let totalQuestionsCorrecto = respuestaCorrecta.querySelector(".itemsRespuestas");
+          let btnSiguienteCorrecta = respuestaCorrecta.querySelector(".btn-siguiente");
 
-              if (answers[i].correct) {
-                addResultCorrecto(juegoKahoot);
-                correcto.play();
-              } else {
-                addResultIncorrecto(juegoKahoot);
-                incorrecto.play();
-              }
-              // Muestra la respuesta que escogió
-              document.querySelector('.textRespuesta').textContent = answers[i].text;
+          totalQuestionsCorrecto.textContent = selectDifficulty.value;
+          btnSiguienteCorrecta.addEventListener("click", () => {
 
-              // Muestra la respuesta correcta en la pantalla de error
-              let correctAnswerElement = document.querySelector('#correctAnswer');
-              if (correctAnswerElement) {
-                correctAnswerElement.textContent = correctAnswer.text;
-              }
+            contadorPreguntas++;
+            counterKahoot.textContent = contadorPreguntas;
+            juegoKahoot.style.display = "block";
+            respuestaCorrecta.style.display = "none";
+            respuestaIncorrecta.style.display = "none";
 
-              // Se agrega el evento al botón siguiente para que muestre las nuevas opciones
-              let respuestaCorrecta = document.querySelector(".respuestaCorrecta");
-              let respuestaIncorrecta = document.querySelector(".respuestaIncorrecta");
-              let btnSiguiente = document.querySelector(".btn-siguiente");
+            correcto.load();
+            messageFinich(respuestaCorrecta, juegoKahoot);
+            addQuestions(contadorPreguntas);
+          });
 
-              btnSiguiente.addEventListener("click", () => {
-                if (respuestaIncorrecta) {
-                  respuestaIncorrecta.remove();
-                  incorrecto.load();
-                  messageFinich(respuestaIncorrecta, juegoKahoot);
-                }
-                else if (respuestaCorrecta) {
-                  respuestaCorrecta.remove();
-                  correcto.load();
-                  messageFinich(respuestaCorrecta, juegoKahoot);
-                }
-                juegoKahoot.style.display = "block";
-                addQuestions(contadorPreguntas)
-              });
+          let respuestaIncorrecta = document.querySelector(".respuestaIncorrecta");
+          let totalQuestionsIncorrecto = respuestaIncorrecta.querySelector(".itemsRespuestas");
+          let btnSiguienteIncorrecta = respuestaIncorrecta.querySelector(".btn-siguiente");
 
-            });
+          totalQuestionsIncorrecto.textContent = selectDifficulty.value;
+          btnSiguienteIncorrecta.addEventListener("click", () => {
+
+            contadorPreguntas++;
+            counterKahoot.textContent = contadorPreguntas;
+            juegoKahoot.style.display = "block";
+            respuestaIncorrecta.style.display = "none";
+            respuestaCorrecta.style.display = "none";
+
+            incorrecto.load();
+            messageFinich(respuestaIncorrecta, juegoKahoot);
+            addQuestions(contadorPreguntas);
+          });
+
+          // answer es la respuesta que seleccionó
+          function selectAnswer(e, answer, correctAnswer) {
+
+            console.log('ocurrió evento');
+            let isCorrect = e.currentTarget.dataset.correct;
+            juegoKahoot.style.display = "none";
+
+            if (isCorrect === "true") {
+              score++;
+              let counterCorrect = respuestaCorrecta.querySelector('#counterAnswers');
+              respuestaCorrecta.style.display = "block";
+              respuestaCorrecta.querySelector('.textRespuesta').textContent = answer;
+              counterCorrect.textContent = contadorPreguntas;
+              // correcto.play();
+            } else {
+              let counterIncorrect = respuestaCorrecta.querySelector('#counterAnswers');
+              respuestaIncorrecta.style.display = "block";
+              respuestaIncorrecta.querySelector('.textRespuesta').textContent = answer;
+              counterIncorrect.textContent = contadorPreguntas;
+              // incorrecto.play();
+            }
+
+            // Muestra la respuesta correcta en la pantalla de error
+            let correctAnswerElement = document.querySelector('#correctAnswer');
+            if (correctAnswerElement) {
+              correctAnswerElement.textContent = correctAnswer;
+            }
           }
-
-          /* let itemsRespuestas = document.querySelector(".itemsRespuestas");
-          itemsRespuestas.textContent = selectDifficulty.value; */
 
           function addQuestions(position) {
             const { question, answers } = questions[position];
@@ -609,21 +641,39 @@
             questionElement.textContent = question;
 
             for (let i = 0; i < answers.length; i++) {
+              // Agrega las opciones
               let answerOption = allQuestions[i].querySelector('.respuesta-kahoot > span');
               answerOption.textContent = answers[i].text;
+
+              if (answers[i].correct) {
+                allQuestions[i].dataset.correct = true;
+              } else {
+                allQuestions[i].dataset.correct = false;
+              }
+              allQuestions[i].addEventListener('click', (e) => {
+                selectAnswer(e, answers[i].text, correctAnswer.text);
+              });
             }
-            return answers;
           }
 
           reiniciarJuego.addEventListener("click", () => {
-            if (respuestaCorrecta) respuestaCorrecta.remove();
-            else if (respuestaIncorrecta) respuestaIncorrecta.remove();
+            if (respuestaCorrecta) respuestaCorrecta.style.display = "none";
+            else if (respuestaIncorrecta) respuestaIncorrecta.style.display = "none";
           });
 
           function messageFinich(respuestaCorrecta, juegoKahoot) {
-            contadorPreguntas++;
+            console.log(score);
             if (contadorPreguntas == selectDifficulty.value) {
-              respuestaCorrecta.remove();
+              // Acá se tiene que guardar en el localstorage y listarlo
+              let objData = {
+                name: inputUser.value,
+                difficulty: valorDifficulty.textContent,
+                score: (score + 3) / 4
+              }
+              saveToLocalStorage('kahootGame', objData);
+              getDataLocalStorage('kahootGame');
+
+              respuestaCorrecta.style.display = "none";
               juegoKahoot.remove();
               audioInicio.load();
               addMessageFinich(ContentPlay);
