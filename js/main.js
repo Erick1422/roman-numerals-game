@@ -416,12 +416,6 @@ function saveToLocalStorage(itemName, objData) {
 
 function getDataLocalStorage(item) {
 
-  // Dos opciones al llamar esta función
-  /**
-   * 1. Se comprueba desde acá si existe item
-   * 2. Se llama en el archivo HTML de cada juego
-   */
-
   let tableBody = document.querySelector('table > tbody');
   tableBody.innerHTML = '';
   let arrData = JSON.parse(window.localStorage.getItem(item));
@@ -646,7 +640,7 @@ function addMayor(ContentPlay) {
               <span>A</span>
             </div>
             <div class="text-center respuesta-mayor">
-             <span>XVIII</span>
+             <span id="optionA">XVIII</span>
             </div>
           </div>
           <div class="posicion-icono-juego">
@@ -663,7 +657,7 @@ function addMayor(ContentPlay) {
               <span>B</span>
             </div>
             <div class="text-center respuesta-mayor">
-             <span>V</span>
+             <span id="optionB">V</span>
             </div>
           </div>
           <div class="posicion-icono-juego">
@@ -672,51 +666,6 @@ function addMayor(ContentPlay) {
         </div>
       </div>
     </div>
-  </div>
-</div>`);
-
-}
-
-function addResultCorrecto(juegoMayor) {
-
-  juegoMayor.insertAdjacentHTML("afterend", `<div class="card-body-juego respuestaCorrecta">
-  <div class="row numberCajas justify-content-center align-items-center h-100" style="margin-top:60px">
-    <div class="col-md-12 text-right">
-      <P class="p1"><span class="text-primary b">1</span> de <span class="itemsRespuestas"></span></P>
-    </div>
-    <div class="col-md-12 text-center mb-4">
-      <i class="icofont-check-circled iconMayorCorrecta"></i>
-      <h1>Respuesta Correcta</h4>
-        <h4>Tu Respuesta es: <span class="textRespuesta">XII</span></h4>
-    </div>
-
-    <div class="col-md-12 text-center">
-      <button type="button" class="btn btn-secondary btn-siguiente"> Siguiente </button>
-    </div>
-
-  </div>
-</div>`);
-
-}
-
-function addResultIncorrecto(juegoMayor) {
-
-  juegoMayor.insertAdjacentHTML("afterend", `<div class="card-body-juego respuestaIncorrecta">
-  <div class="row numberCajas justify-content-center align-items-center h-100" style="margin-top:60px">
-    <div class="col-md-12 text-right">
-      <P class="p1"><span class="text-primary b">1</span> de <span class="itemsRespuestas"></span></P>
-    </div>
-    <div class="col-md-12 text-center mb-4">
-      <i class="icofont-close-circled iconMayorIncorrecta"></i>
-      <h1>Respuesta Incorrecta</h4>
-        <h4>Tu Respuesta es: <span class="textRespuesta"></span></h4>
-        <h4>La respuesta correcta es: <span class="textRespuesta" id="correctAnswer"></span></h4>
-    </div>
-
-    <div class="col-md-12 text-center">
-      <button type="button" class="btn btn-secondary btn-siguiente"> Siguiente </button>
-    </div>
-
   </div>
 </div>`);
 

@@ -561,11 +561,13 @@
           elementTotalQuestions.textContent = selectDifficulty.value;
           let contadorPreguntas = 0, score = 0;
 
-          /*
-            EL problema está en que por cada itereación vuelve a registrar un evento y a medida
-            que se llama la función, registrar esa cantidad de eventos
-          */
+          // Reemplaza los valores con la primera pregunta y sus respuestas
           addQuestions(contadorPreguntas);
+
+          // De esta manera se agrega un solo evento a los botones al momento de cargar la página
+          for (let i = 0; i < allQuestions.length; i++) {
+            allQuestions[i].addEventListener('click', selectAnswer);
+          }
 
           // Se agrega el evento al botón siguiente para que muestre las nuevas opciones
           let respuestaCorrecta = document.querySelector(".respuestaCorrecta");
@@ -605,10 +607,11 @@
           });
 
           // answer es la respuesta que seleccionó
-          function selectAnswer(e, answer, correctAnswer) {
+          function selectAnswer(e) {
 
-            console.log('ocurrió evento');
             let isCorrect = e.currentTarget.dataset.correct;
+            let answer = e.currentTarget.dataset.answer;
+            let correctAnswer = e.currentTarget.dataset.correctAnswer;
             juegoKahoot.style.display = "none";
 
             if (isCorrect === "true") {
@@ -619,7 +622,7 @@
               counterCorrect.textContent = contadorPreguntas;
               correcto.play();
             } else {
-              let counterIncorrect = respuestaCorrecta.querySelector('#counterAnswers');
+              let counterIncorrect = respuestaIncorrecta.querySelector('#counterAnswers');
               respuestaIncorrecta.style.display = "block";
               respuestaIncorrecta.querySelector('.textRespuesta').textContent = answer;
               counterIncorrect.textContent = contadorPreguntas;
@@ -645,14 +648,14 @@
               let answerOption = allQuestions[i].querySelector('.respuesta-kahoot > span');
               answerOption.textContent = answers[i].text;
 
+              allQuestions[i].dataset.answer = answers[i].text;
+              allQuestions[i].dataset.correctAnswer = correctAnswer.text;
+
               if (answers[i].correct) {
                 allQuestions[i].dataset.correct = true;
               } else {
                 allQuestions[i].dataset.correct = false;
               }
-              allQuestions[i].addEventListener('click', (e) => {
-                selectAnswer(e, answers[i].text, correctAnswer.text);
-              });
             }
           }
 
@@ -664,11 +667,11 @@
           function messageFinich(respuestaCorrecta, juegoKahoot) {
             console.log(score);
             if (contadorPreguntas == selectDifficulty.value) {
-              // Acá se tiene que guardar en el localstorage y listarlo
+              // Se guarda la información en localStorage y se lista
               let objData = {
                 name: inputUser.value,
                 difficulty: valorDifficulty.textContent,
-                score: (score + 3) / 4
+                score
               }
               saveToLocalStorage('kahootGame', objData);
               getDataLocalStorage('kahootGame');
@@ -679,11 +682,10 @@
               addMessageFinich(ContentPlay);
               addactualizarJuego();
               reiniciarJuego.addEventListener("click", () => {
-            respuestaCorrecta.style.display = "none";
-          });
+                respuestaCorrecta.style.display = "none";
+              });
 
             }
-
           }
           //eventos de reiniciar juegos
           reiniciaJuegos(juegoKahoot, audioJazz);

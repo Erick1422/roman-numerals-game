@@ -1,25 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  
-    <meta name="copyright" content="MACode ID, https://macodeid.com">
-  
-    <title>Números Romanos.</title>
-  
-    <link rel="stylesheet" href="assets/vendor/animate/animate.css">
-    <link rel="stylesheet" href="assets/css/bootstrap.css">
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="assets/css/maicons.css">
-    <link rel="stylesheet" href="assets/vendor/owl-carousel/css/owl.carousel.css">
-    <link rel="stylesheet" href="assets/css/theme.css">
-    <link rel="stylesheet" href="icons/icofont/icofont.min.css">
-    <link rel="shortcut icon" href="img/favicon.png" style="background-color: bisque;">
-  </head>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <meta name="copyright" content="MACode ID, https://macodeid.com">
+
+  <title>Números Romanos.</title>
+
+  <link rel="stylesheet" href="assets/vendor/animate/animate.css">
+  <link rel="stylesheet" href="assets/css/bootstrap.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="assets/css/maicons.css">
+  <link rel="stylesheet" href="assets/vendor/owl-carousel/css/owl.carousel.css">
+  <link rel="stylesheet" href="assets/css/theme.css">
+  <link rel="stylesheet" href="icons/icofont/icofont.min.css">
+  <link rel="shortcut icon" href="img/favicon.png" style="background-color: bisque;">
+</head>
 
 <body class="text-code">
 
@@ -139,6 +139,41 @@
         </div>
       </div>
 
+      <div class="card-body-juego respuestaCorrecta" style="display: none">
+        <div class="row numberCajas justify-content-center align-items-center h-100" style="margin-top:60px">
+          <div class="col-md-12 text-right">
+            <P class="p1"><span class="text-primary b" id="counterAnswers">1</span> de <span
+                class="itemsRespuestas"></span></P>
+          </div>
+          <div class="col-md-12 text-center mb-4">
+            <i class="icofont-check-circled iconMayorCorrecta"></i>
+            <h1>Respuesta Correcta</h4>
+              <h4>Tu Respuesta es: <span class="textRespuesta"></span></h4>
+          </div>
+          <div class="col-md-12 text-center">
+            <button type="button" class="btn btn-secondary btn-siguiente"> Siguiente </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-body-juego respuestaIncorrecta" style="display: none;">
+        <div class="row numberCajas justify-content-center align-items-center h-100" style="margin-top:60px">
+          <div class="col-md-12 text-right">
+            <P class="p1"><span class="text-primary b" id="counterAnswers">1</span> de <span
+                class="itemsRespuestas"></span></P>
+          </div>
+          <div class="col-md-12 text-center mb-4">
+            <i class="icofont-close-circled iconMayorIncorrecta"></i>
+            <h1>Respuesta Incorrecta</h4>
+              <h4>Tu Respuesta es: <span class="textRespuesta"></span></h4>
+              <h4>La respuesta correcta es: <span class="textRespuesta" id="correctAnswer"></span></h4>
+          </div>
+          <div class="col-md-12 text-center">
+            <button type="button" class="btn btn-secondary btn-siguiente"> Siguiente </button>
+          </div>
+        </div>
+      </div>
+
       <div class="menu-footer" style="z-index: 90;">
         <div class="text-right">
           <div class="btn-group dropup">
@@ -195,31 +230,10 @@
             <th scope="col">Nombre del Participante</th>
             <th scope="col">Dificultad</th>
             <th scope="col">Puntuación</th>
-            <th scope="col">Respuestas Correctas</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>Otto</td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Mark</td>
-            <td>Thornton</td>
-            <td>Otto</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td>Larry</td>
-            <td>Mark</td>
-            <td>the Bird</td>
-            <td>Otto</td>
-          </tr>
+          <!-- Se agrega dinámicamente -->
         </tbody>
       </table>
     </div>
@@ -408,15 +422,11 @@
       iniciarMayor.addEventListener("click", () => {
 
         if (inputUser.value == "") {
-          console.log("vacio")
           errorSecondary(validateName, "Completa el campo");
         } else {
           reiniciarJuego.style.display = "block";
-          audioJazz.play();
-          console.log("no vacio")
+          // audioJazz.play();
           successSecondary(validateName);
-
-
 
           ContentPlay.style.display = ("none");
           selectDifficulty.style.display = ("none");
@@ -426,7 +436,7 @@
           if (selectDifficulty.value == 6) {
             valorDifficulty.textContent = "Fácil";
           } else if (selectDifficulty.value == 8) {
-            valorDifficulty.textContent = "Madiana";
+            valorDifficulty.textContent = "Mediana";
           } else {
             valorDifficulty.textContent = "Dificil";
           }
@@ -441,69 +451,101 @@
           let contadorPreguntas = 0;
 
           for (let i = 0; i < eventoMayor.length; i++) {
-            eventoMayor[i].addEventListener("click", () => {
-
-              console.log("evento mayor");
-              // incorrecto.play();
-              //correcto.play();
-              juegoMayor.style.display = "none";
-
-
-              if (2 == 2) {
-                correcto.play();
-                addResultCorrecto(juegoMayor);
-
-                let itemsRespuestas = document.querySelector(".itemsRespuestas");
-                let btnSiguiente = document.querySelector(".btn-siguiente");
-                let respuestaCorrecta = document.querySelector(".respuestaCorrecta");
-
-                itemsRespuestas.textContent = selectDifficulty.value;
-                btnSiguiente.addEventListener("click", () => {
-                  respuestaCorrecta.remove();
-                  juegoMayor.style.display = "block";
-                  correcto.load();
-                  messageFinich(respuestaCorrecta, juegoMayor);
-
-                });
-
-                reiniciarJuego.addEventListener("click", () => {
-                  respuestaCorrecta.remove();
-                });
-
-              } else {
-                incorrecto.play();
-                addResultIncorrecto(juegoMayor);
-
-                let itemsRespuestas = document.querySelector(".itemsRespuestas");
-                let btnSiguiente = document.querySelector(".btn-siguiente");
-                let respuestaIncorrecta = document.querySelector(".respuestaIncorrecta");
-
-                itemsRespuestas.textContent = selectDifficulty.value;
-                btnSiguiente.addEventListener("click", () => {
-                  respuestaIncorrecta.remove();
-                  juegoMayor.style.display = "block";
-                  incorrecto.load();
-                  messageFinich(respuestaIncorrecta, juegoMayor);
-                });
-
-                reiniciarJuego.addEventListener("click", () => {
-                  respuestaIncorrecta.remove();
-                });
-
-              }
-
-              function messageFinich(respuestaCorrecta, juegoMayor) {
-                contadorPreguntas++;
-                console.log(contadorPreguntas);
-                if (contadorPreguntas == selectDifficulty.value) {
-                  respuestaCorrecta.remove();
-                  juegoMayor.remove();
-                  audioJazz.load();
-                  addMessageFinich(ContentPlay);
-                  addactualizarJuego();
-                }
-              }
+            eventoMayor[i].addEventListener("click", (e) => {
+              selectAnswer(e);
             });
+          }
+
+          /* let itemsRespuestas = document.querySelector(".itemsRespuestas");
+          let btnSiguiente = document.querySelector(".btn-siguiente");
+          let respuestaCorrecta = document.querySelector(".respuestaCorrecta");
+
+          itemsRespuestas.textContent = selectDifficulty.value;
+          btnSiguiente.addEventListener("click", () => {
+            respuestaCorrecta.remove();
+            juegoMayor.style.display = "block";
+            correcto.load();
+            messageFinich(respuestaCorrecta, juegoMayor);
+
+          }); */
+
+          /* let itemsRespuestas = document.querySelector(".itemsRespuestas");
+          let btnSiguiente = document.querySelector(".btn-siguiente");
+          let respuestaIncorrecta = document.querySelector(".respuestaIncorrecta");
+
+          itemsRespuestas.textContent = selectDifficulty.value;
+          btnSiguiente.addEventListener("click", () => {
+            respuestaIncorrecta.remove();
+            juegoMayor.style.display = "block";
+            incorrecto.load();
+            messageFinich(respuestaIncorrecta, juegoMayor);
+          }); */
+
+          /* reiniciarJuego.addEventListener("click", () => {
+            respuestaCorrecta.remove();
+          }); */
+
+          /* reiniciarJuego.addEventListener("click", () => {
+            respuestaIncorrecta.remove();
+          }); */
+
+          let respuestaCorrecta = document.querySelector(".respuestaCorrecta");
+          let totalQuestionsCorrecto = respuestaCorrecta.querySelector(".itemsRespuestas");
+          let btnSiguienteCorrecta = respuestaCorrecta.querySelector(".btn-siguiente");
+
+          let respuestaIncorrecta = document.querySelector(".respuestaIncorrecta");
+          let totalQuestionsIncorrecto = respuestaIncorrecta.querySelector(".itemsRespuestas");
+          let btnSiguienteIncorrecta = respuestaIncorrecta.querySelector(".btn-siguiente");
+
+          //Acá se reemplazan los valores de los dos botones (efe)
+          let optionA = juegoMayor.querySelector('#optionA');
+          let optionB = juegoMayor.querySelector('#optionB');
+
+          function addNumbers() {
+            let number1 = randomNumber(1, 100);
+            let number2 = randomNumber(1, 100);
+            optionA.textContent = convertToRoman(number1);
+            optionB.textContent = convertToRoman(number2);
+            optionA.dataset.number = number1;
+            optionB.dataset.number = number2;
+          }
+
+          function selectAnswer(e) {
+            juegoMayor.style.display = "none";
+
+            let numberA = Number(optionA.dataset.number);
+            let numberB = Number(optionB.dataset.number);
+
+            // Hacer una condicional
+            if (e) {
+              // si e.currentarget tiene el botón A o B asignarlos a una variable
+            }
+
+            // Encontrar la manera de conocer en cual se dió click y comparar sus valores
+            if (e.currentTarget.dataset.value > '?') {
+              
+            }
+
+            if (1 == 2) {
+              // correcto.play();
+              respuestaCorrecta.style.display = "block"
+
+            } else {
+              // incorrecto.play();
+              respuestaIncorrecta.style.display = "block";
+            }
+          }
+
+          function messageFinich(respuestaCorrecta, juegoMayor) {
+            contadorPreguntas++;
+            console.log(contadorPreguntas);
+            if (contadorPreguntas == selectDifficulty.value) {
+              respuestaCorrecta.remove();
+              juegoMayor.remove();
+              audioJazz.load();
+              addMessageFinich(ContentPlay);
+              addactualizarJuego();
+            }
           }
           //eventos de reiniciar juegos
           reiniciaJuegos(juegoMayor, audioJazz);
