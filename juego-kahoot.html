@@ -525,7 +525,7 @@
           ]
         }
       ]
-      
+
       getDataLocalStorage('kahootGame');
       iniciarKahoot.addEventListener("click", () => {
 
@@ -534,7 +534,7 @@
         } else {
 
           reiniciarJuego.style.display = "block";
-          // audioInicio.play();
+          audioInicio.play();
           successSecondary(validateName);
 
           ContentPlay.style.display = ("none");
@@ -617,13 +617,13 @@
               respuestaCorrecta.style.display = "block";
               respuestaCorrecta.querySelector('.textRespuesta').textContent = answer;
               counterCorrect.textContent = contadorPreguntas;
-              // correcto.play();
+              correcto.play();
             } else {
               let counterIncorrect = respuestaCorrecta.querySelector('#counterAnswers');
               respuestaIncorrecta.style.display = "block";
               respuestaIncorrecta.querySelector('.textRespuesta').textContent = answer;
               counterIncorrect.textContent = contadorPreguntas;
-              // incorrecto.play();
+              incorrecto.play();
             }
 
             // Muestra la respuesta correcta en la pantalla de error
@@ -678,10 +678,18 @@
               audioInicio.load();
               addMessageFinich(ContentPlay);
               addactualizarJuego();
+              reiniciarJuego.addEventListener("click", () => {
+            respuestaCorrecta.style.display = "none";
+          });
+
             }
+
           }
           //eventos de reiniciar juegos
           reiniciaJuegos(juegoKahoot, audioJazz);
+          reiniciarJuego.addEventListener("click", () => {
+            respuestaCorrecta.style.display = "none";
+          });
         }
 
       });

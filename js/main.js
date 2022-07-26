@@ -425,21 +425,22 @@ function getDataLocalStorage(item) {
   let tableBody = document.querySelector('table > tbody');
   tableBody.innerHTML = '';
   let arrData = JSON.parse(window.localStorage.getItem(item));
+  if (arrData) {
+    arrData = arrData.sort((a, b) => b.score - a.score);
+    arrData.forEach((user, i) => {
 
-  arrData = arrData.sort((a, b) => b.score - a.score);
-  arrData.forEach((user, i) => {
-
-    const { name, difficulty, score } = user;
-    let tableRow = document.createElement('tr');
-    let td = '';
-    td += `<td class="font-weight-bold">${i + 1}</td>
+      const { name, difficulty, score } = user;
+      let tableRow = document.createElement('tr');
+      let td = '';
+      td += `<td class="font-weight-bold">${i + 1}</td>
     <td>${name}</td>
     <td>${difficulty}</td>
     <td>${score}</td>
     `
-    tableRow.innerHTML = td;
-    tableBody.appendChild(tableRow);
-  });
+      tableRow.innerHTML = td;
+      tableBody.appendChild(tableRow);
+    });
+  }
 }
 
 function addModal(abrirModal, i) {
