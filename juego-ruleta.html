@@ -391,18 +391,15 @@
       iniciarRuleta.addEventListener("click", () => {
 
         if (inputUser.value == "") {
-          console.log("vacio")
           errorSecondary(validateName, "Completa el campo");
         } else {
           let juegoRuleta = document.querySelector(".juego-ruleta");
           reiniciarJuego.style.display = "block";
           audioJazz.play();
-          console.log("no vacio")
           successSecondary(validateName);
 
           ContentPlay.style.display = ("none");
           nameUser.textContent = inputUser.value;
-
 
           juegoRuleta.style.display = "block";
           let spin1 = document.getElementById("spin1");

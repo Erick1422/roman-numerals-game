@@ -381,8 +381,10 @@
           </form>
 
           <div class="sosmed-button mt-4">
-            <a href="https://www.facebook.com/profile.php?id=100083688257696" target="_blank"><span class="mai-logo-facebook-f"></span></a>
-            <a href="https://instagram.com/numerosromanos_6?igshid=YmMyMTA2M2Y=" target="_blank"><span class="mai-logo-instagram"></span></a>
+            <a href="https://www.facebook.com/profile.php?id=100083688257696" target="_blank"><span
+                class="mai-logo-facebook-f"></span></a>
+            <a href="https://instagram.com/numerosromanos_6?igshid=YmMyMTA2M2Y=" target="_blank"><span
+                class="mai-logo-instagram"></span></a>
           </div>
           <div class="text-right img-logo">
             <img src="img/logoWeb.png" alt="">
@@ -421,6 +423,9 @@
 
   <script>
     if (iniciarMayor) {
+
+      getDataLocalStorage('greaterThanGame');
+
       iniciarMayor.addEventListener("click", () => {
 
         if (inputUser.value == "") {
@@ -450,7 +455,7 @@
           let juegoMayor = document.querySelector(".juego-mayor");
 
           items.textContent = selectDifficulty.value;
-          let contadorPreguntas = 0;
+          let contadorPreguntas = 0, score = 0;
 
           for (let i = 0; i < eventoMayor.length; i++) {
             eventoMayor[i].addEventListener("click", (e) => {
@@ -458,51 +463,45 @@
             });
           }
 
-          /* let itemsRespuestas = document.querySelector(".itemsRespuestas");
-          let btnSiguiente = document.querySelector(".btn-siguiente");
-          let respuestaCorrecta = document.querySelector(".respuestaCorrecta");
-
-          itemsRespuestas.textContent = selectDifficulty.value;
-          btnSiguiente.addEventListener("click", () => {
-            respuestaCorrecta.remove();
-            juegoMayor.style.display = "block";
-            correcto.load();
-            messageFinich(respuestaCorrecta, juegoMayor);
-
-          }); */
-
-          /* let itemsRespuestas = document.querySelector(".itemsRespuestas");
-          let btnSiguiente = document.querySelector(".btn-siguiente");
-          let respuestaIncorrecta = document.querySelector(".respuestaIncorrecta");
-
-          itemsRespuestas.textContent = selectDifficulty.value;
-          btnSiguiente.addEventListener("click", () => {
-            respuestaIncorrecta.remove();
-            juegoMayor.style.display = "block";
-            incorrecto.load();
-            messageFinich(respuestaIncorrecta, juegoMayor);
-          }); */
-
-          /* reiniciarJuego.addEventListener("click", () => {
-            respuestaCorrecta.remove();
-          }); */
-
-          /* reiniciarJuego.addEventListener("click", () => {
-            respuestaIncorrecta.remove();
-          }); */
-
-          let respuestaCorrecta = document.querySelector(".respuestaCorrecta");
-          let totalQuestionsCorrecto = respuestaCorrecta.querySelector(".itemsRespuestas");
-          let btnSiguienteCorrecta = respuestaCorrecta.querySelector(".btn-siguiente");
-
-          let respuestaIncorrecta = document.querySelector(".respuestaIncorrecta");
-          let totalQuestionsIncorrecto = respuestaIncorrecta.querySelector(".itemsRespuestas");
-          let btnSiguienteIncorrecta = respuestaIncorrecta.querySelector(".btn-siguiente");
-
-          //Acá se reemplazan los valores de los dos botones (efe)
+          let itemsRespuestas = document.querySelector(".itemsRespuestas");
           let optionA = juegoMayor.querySelector('#optionA');
           let optionB = juegoMayor.querySelector('#optionB');
 
+          // Carga los primeros valores de los elementos
+          addNumbers();
+          itemsRespuestas.textContent = selectDifficulty.value;
+
+          let respuestaCorrecta = document.querySelector(".respuestaCorrecta");
+          let btnSiguienteCorrecta = respuestaCorrecta.querySelector(".btn-siguiente");
+          let currentQuestionCorrect = respuestaCorrecta.querySelector('#counterAnswers');
+          let totalQuestionsCorrecto = respuestaCorrecta.querySelector(".itemsRespuestas");
+          totalQuestionsCorrecto.textContent = selectDifficulty.value;
+
+          btnSiguienteCorrecta.addEventListener("click", () => {
+            addNumbers();
+            currentQuestionCorrect.textContent = contadorPreguntas + 1;
+            respuestaCorrecta.style.display = "none";
+            juegoMayor.style.display = "block";
+            correcto.load();
+            messageFinich(respuestaCorrecta, juegoMayor);
+          });
+
+          let respuestaIncorrecta = document.querySelector(".respuestaIncorrecta");
+          let btnSiguienteIncorrecta = respuestaIncorrecta.querySelector(".btn-siguiente");
+          let currentQuestionIncorrect = respuestaIncorrecta.querySelector('#counterAnswers');
+          let totalQuestionsIncorrecto = respuestaIncorrecta.querySelector(".itemsRespuestas");
+          totalQuestionsIncorrecto.textContent = selectDifficulty.value;
+
+          btnSiguienteIncorrecta.addEventListener("click", () => {
+            addNumbers();
+            currentQuestionIncorrect.textContent = contadorPreguntas + 1;
+            respuestaIncorrecta.style.display = "none";
+            juegoMayor.style.display = "block";
+            incorrecto.load();
+            messageFinich(respuestaIncorrecta, juegoMayor);
+          });
+
+          //Reemplaza los valores de los dos botones
           function addNumbers() {
             let number1 = randomNumber(1, 100);
             let number2 = randomNumber(1, 100);
@@ -510,45 +509,64 @@
             optionB.textContent = convertToRoman(number2);
             optionA.dataset.number = number1;
             optionB.dataset.number = number2;
+            console.log(optionA);
+            console.log(optionB);
           }
 
+          // Verifica si la selección es correcta
           function selectAnswer(e) {
+            contadorPreguntas++;
+            // Reemplazar acá también el número de la pregunta actual
+
             juegoMayor.style.display = "none";
 
             let numberA = Number(optionA.dataset.number);
             let numberB = Number(optionB.dataset.number);
 
-            // Hacer una condicional
-            if (e) {
-              // si e.currentarget tiene el botón A o B asignarlos a una variable
-            }
-
-            // Encontrar la manera de conocer en cual se dió click y comparar sus valores
-            if (e.currentTarget.dataset.value > '?') {
-              
-            }
-
-            if (1 == 2) {
-              // correcto.play();
-              respuestaCorrecta.style.display = "block"
-
-            } else {
-              // incorrecto.play();
-              respuestaIncorrecta.style.display = "block";
+            if (numberA > numberB) {
+              if (e.currentTarget.querySelector('#optionA')) {
+                score++;
+                respuestaCorrecta.style.display = "block"
+              } else {
+                respuestaIncorrecta.style.display = "block";
+              }
+            } else if (numberB > numberA) {
+              if (e.currentTarget.querySelector('#optionB')) {
+                score++;
+                respuestaCorrecta.style.display = "block"
+              } else {
+                respuestaIncorrecta.style.display = "block";
+              }
             }
           }
 
           function messageFinich(respuestaCorrecta, juegoMayor) {
-            contadorPreguntas++;
-            console.log(contadorPreguntas);
             if (contadorPreguntas == selectDifficulty.value) {
-              respuestaCorrecta.remove();
+              // Se guarda la información en localStorage y se lista
+              let objData = {
+                name: inputUser.value,
+                difficulty: valorDifficulty.textContent,
+                score
+              }
+              saveToLocalStorage('greaterThanGame', objData);
+              getDataLocalStorage('greaterThanGame');
+
+              respuestaCorrecta.style.display = "none";
               juegoMayor.remove();
               audioJazz.load();
               addMessageFinich(ContentPlay);
               addactualizarJuego();
             }
           }
+
+          /* reiniciarJuego.addEventListener("click", () => {
+            respuestaCorrecta.remove();
+          }); */
+
+          /* reiniciarJuego.addEventListener("click", () => {
+            respuestaIncorrecta.remove();
+          }); */
+
           //eventos de reiniciar juegos
           reiniciaJuegos(juegoMayor, audioJazz);
         }
