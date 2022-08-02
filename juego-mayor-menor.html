@@ -432,7 +432,7 @@
           errorSecondary(validateName, "Completa el campo");
         } else {
           reiniciarJuego.style.display = "block";
-          // audioJazz.play();
+          audioJazz.play();
           successSecondary(validateName);
 
           ContentPlay.style.display = ("none");
@@ -527,15 +527,19 @@
               if (e.currentTarget.querySelector('#optionA')) {
                 score++;
                 respuestaCorrecta.style.display = "block"
+                correcto.play();
               } else {
                 respuestaIncorrecta.style.display = "block";
+                incorrecto.play();
               }
             } else if (numberB > numberA) {
               if (e.currentTarget.querySelector('#optionB')) {
                 score++;
                 respuestaCorrecta.style.display = "block"
+                correcto.play();
               } else {
                 respuestaIncorrecta.style.display = "block";
+                incorrecto.play();
               }
             }
           }
