@@ -579,7 +579,7 @@
           btnSiguienteCorrecta.addEventListener("click", () => {
 
             contadorPreguntas++;
-            counterKahoot.textContent = contadorPreguntas;
+            counterKahoot.textContent = contadorPreguntas + 1;
             juegoKahoot.style.display = "block";
             respuestaCorrecta.style.display = "none";
             respuestaIncorrecta.style.display = "none";
@@ -597,7 +597,7 @@
           btnSiguienteIncorrecta.addEventListener("click", () => {
 
             contadorPreguntas++;
-            counterKahoot.textContent = contadorPreguntas;
+            counterKahoot.textContent = contadorPreguntas + 1;
             juegoKahoot.style.display = "block";
             respuestaIncorrecta.style.display = "none";
             respuestaCorrecta.style.display = "none";
@@ -620,13 +620,13 @@
               let counterCorrect = respuestaCorrecta.querySelector('#counterAnswers');
               respuestaCorrecta.style.display = "block";
               respuestaCorrecta.querySelector('.textRespuesta').textContent = answer;
-              counterCorrect.textContent = contadorPreguntas;
+              counterCorrect.textContent = contadorPreguntas + 1;
               correcto.play();
             } else {
               let counterIncorrect = respuestaIncorrecta.querySelector('#counterAnswers');
               respuestaIncorrecta.style.display = "block";
               respuestaIncorrecta.querySelector('.textRespuesta').textContent = answer;
-              counterIncorrect.textContent = contadorPreguntas;
+              counterIncorrect.textContent = contadorPreguntas + 1;
               incorrecto.play();
             }
 
@@ -638,6 +638,9 @@
           }
 
           function addQuestions(position) {
+            if (position > Number(selectDifficulty.value)) {
+              return;
+            }
             const { question, answers } = questions[position];
 
             let correctAnswer = answers.find((answer) => answer.correct === true);
@@ -666,7 +669,6 @@
           });
 
           function messageFinich(respuestaCorrecta, juegoKahoot) {
-            console.log(score);
             if (contadorPreguntas == selectDifficulty.value) {
               // Se guarda la información en localStorage y se lista
               let objData = {
