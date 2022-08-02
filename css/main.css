@@ -1,3 +1,10 @@
+/* Tamaño de la imagen logo */
+
+.img-log img {
+    width: 55px;
+    height: auto;
+}
+
 /* tamaño de los textos p */
 
 .p1 {
@@ -19,8 +26,8 @@
 
 .foto-page-juegos {
     background-color: #F6F5FC;
-    padding-top: 50px;
-    padding-bottom: 50px;
+    /* padding-top: 50px;
+    padding-bottom: 50px; */
 }
 
 .img-logo img:hover {
