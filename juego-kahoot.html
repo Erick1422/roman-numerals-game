@@ -377,8 +377,10 @@
           </form>
 
           <div class="sosmed-button mt-4">
-            <a href="https://www.facebook.com/profile.php?id=100083688257696" target="_blank"><span class="mai-logo-facebook-f"></span></a>
-            <a href="https://instagram.com/numerosromanos_6?igshid=YmMyMTA2M2Y=" target="_blank"><span class="mai-logo-instagram"></span></a>
+            <a href="https://www.facebook.com/profile.php?id=100083688257696" target="_blank"><span
+                class="mai-logo-facebook-f"></span></a>
+            <a href="https://instagram.com/numerosromanos_6?igshid=YmMyMTA2M2Y=" target="_blank"><span
+                class="mai-logo-instagram"></span></a>
           </div>
           <div class="text-right img-logo">
             <img src="img/logoWeb.png" alt="">
@@ -679,10 +681,15 @@
               saveToLocalStorage('kahootGame', objData);
               getDataLocalStorage('kahootGame');
 
+              // reemplazo de valores
+              let str = score === Number(selectDifficulty.value)
+                ? 'Felicitaciones'
+                : 'Sigue participando';
+
               respuestaCorrecta.style.display = "none";
               juegoKahoot.remove();
               audioInicio.load();
-              addMessageFinich(ContentPlay);
+              addMessageFinich(ContentPlay, str, score);
               addactualizarJuego();
               reiniciarJuego.addEventListener("click", () => {
                 respuestaCorrecta.style.display = "none";

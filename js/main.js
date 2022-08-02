@@ -108,13 +108,6 @@ if (iniciarCaja) {
           audioCaja.play();
           correcto.load();
 
-          //eventos de cerrar modal
-          /* let btnCancelar = document.querySelector(".btn-cancelar");
-          btnCancelar.addEventListener("click", () => {
-            modal.remove();
-            audioCaja.load();
-          }); */
-
           let positionCorrectAnswer = randomNumber(0, 4);
 
           let optionModalHijo = modal.querySelectorAll(".option-modal-hijo");
@@ -123,7 +116,7 @@ if (iniciarCaja) {
             let buttonOption = optionModalHijo[j];
             buttonOption.style.backgroundColor = inputColor.value;
 
-            // Comprobar que todos las opciones son siferentes. Hacerlo con find o some
+            // Comprobar que todos las opciones son diferentes. Hacerlo con find o some
 
             // Se reemplaza el valor de la opción
             let option = buttonOption.querySelector('.option-modal-respuesta > span');
@@ -334,9 +327,7 @@ btnReanudar.addEventListener("click", () => {
 
 
 function addactualizarJuego() {
-  console.log("listos");
   audiofinal.play();
-
 
   let containerFinich = document.querySelector(".containerFinich");
   let nameFinich = document.querySelector(".nameFinich");
@@ -621,7 +612,7 @@ function addMayor(ContentPlay) {
   ContentPlay.insertAdjacentHTML("afterend", `        <div class="card-body-juego juego-mayor">
   <div class="row numberCajas justify-content-center align-items-center h-100" style="margin-top:60px">
     <div class="col-md-12 text-right">
-      <P class="p1"><span class="text-primary b">1</span> de <span class="items"></span></P>
+      <p class="p1"><span class="text-primary b" id="currentQuestion">1</span> de <span class="items"></span></p>
     </div>
 
     <div class="col-md-12 text-center">
@@ -671,12 +662,12 @@ function addMayor(ContentPlay) {
 
 }
 
-function addMessageFinich(ContentPlay) {
+function addMessageFinich(ContentPlay, str, score) {
   ContentPlay.insertAdjacentHTML("afterend", `         <div class="row containerFinich justify-content-center align-items-center h-100" style="margin-top:140px">
   <div class="col-md-12 text-center">
-    <h2 class="mb-4">Felicitaciones o <br> sigue participando</h2>
+    <h2 class="mb-4">${str}</h2>
     <h5><span class="nameFinich" style="color: #333;font-weight: 600;"></span><span> tu puntaje es:</span></h5>
-    <h1 style="color: #6C55F9;">5.3</h1><span> Puntos</span>
+    <h1 style="color: #6C55F9;">${score}</h1><span> Puntos</span>
     <div>
       <button type="button" class="mt-5 btn-menu icon-actualizar">
         <i class="icofont-refresh"></i>

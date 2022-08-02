@@ -459,11 +459,13 @@
 
           for (let i = 0; i < eventoMayor.length; i++) {
             eventoMayor[i].addEventListener("click", (e) => {
+              contadorPreguntas++;
               selectAnswer(e);
             });
           }
 
           let itemsRespuestas = document.querySelector(".itemsRespuestas");
+          let currentQuestion = juegoMayor.querySelector('#currentQuestion');
           let optionA = juegoMayor.querySelector('#optionA');
           let optionB = juegoMayor.querySelector('#optionB');
 
@@ -480,6 +482,7 @@
           btnSiguienteCorrecta.addEventListener("click", () => {
             addNumbers();
             currentQuestionCorrect.textContent = contadorPreguntas + 1;
+            currentQuestion.textContent = contadorPreguntas + 1;
             respuestaCorrecta.style.display = "none";
             juegoMayor.style.display = "block";
             correcto.load();
@@ -495,6 +498,7 @@
           btnSiguienteIncorrecta.addEventListener("click", () => {
             addNumbers();
             currentQuestionIncorrect.textContent = contadorPreguntas + 1;
+            currentQuestion.textContent = contadorPreguntas + 1;
             respuestaIncorrecta.style.display = "none";
             juegoMayor.style.display = "block";
             incorrecto.load();
@@ -515,7 +519,6 @@
 
           // Verifica si la selección es correcta
           function selectAnswer(e) {
-            contadorPreguntas++;
             // Reemplazar acá también el número de la pregunta actual
 
             juegoMayor.style.display = "none";
@@ -555,10 +558,15 @@
               saveToLocalStorage('greaterThanGame', objData);
               getDataLocalStorage('greaterThanGame');
 
+              // reemplazo de valores
+              let str = score === Number(selectDifficulty.value)
+                ? 'Felicitaciones'
+                : 'Sigue participando';
+
               respuestaCorrecta.style.display = "none";
               juegoMayor.remove();
               audioJazz.load();
-              addMessageFinich(ContentPlay);
+              addMessageFinich(ContentPlay, str, score);
               addactualizarJuego();
             }
           }
