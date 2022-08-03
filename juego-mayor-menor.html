@@ -476,13 +476,12 @@
           let respuestaCorrecta = document.querySelector(".respuestaCorrecta");
           let btnSiguienteCorrecta = respuestaCorrecta.querySelector(".btn-siguiente");
           let currentQuestionCorrect = respuestaCorrecta.querySelector('#counterAnswers');
+          let optionSelectedCorrect = respuestaCorrecta.querySelector('.textRespuesta');
           let totalQuestionsCorrecto = respuestaCorrecta.querySelector(".itemsRespuestas");
           totalQuestionsCorrecto.textContent = selectDifficulty.value;
 
           btnSiguienteCorrecta.addEventListener("click", () => {
             addNumbers();
-            currentQuestionCorrect.textContent = contadorPreguntas + 1;
-            currentQuestion.textContent = contadorPreguntas + 1;
             respuestaCorrecta.style.display = "none";
             juegoMayor.style.display = "block";
             correcto.load();
@@ -492,13 +491,13 @@
           let respuestaIncorrecta = document.querySelector(".respuestaIncorrecta");
           let btnSiguienteIncorrecta = respuestaIncorrecta.querySelector(".btn-siguiente");
           let currentQuestionIncorrect = respuestaIncorrecta.querySelector('#counterAnswers');
+          let optionSelectedIncorrect = respuestaIncorrecta.querySelector('.textRespuesta');
+          let correctOption = respuestaIncorrecta.querySelector('#correctAnswer');
           let totalQuestionsIncorrecto = respuestaIncorrecta.querySelector(".itemsRespuestas");
           totalQuestionsIncorrecto.textContent = selectDifficulty.value;
 
           btnSiguienteIncorrecta.addEventListener("click", () => {
             addNumbers();
-            currentQuestionIncorrect.textContent = contadorPreguntas + 1;
-            currentQuestion.textContent = contadorPreguntas + 1;
             respuestaIncorrecta.style.display = "none";
             juegoMayor.style.display = "block";
             incorrecto.load();
@@ -513,34 +512,39 @@
             optionB.textContent = convertToRoman(number2);
             optionA.dataset.number = number1;
             optionB.dataset.number = number2;
-            console.log(optionA);
-            console.log(optionB);
           }
 
           // Verifica si la selección es correcta
           function selectAnswer(e) {
-            // Reemplazar acá también el número de la pregunta actual
-
+            currentQuestion.textContent = contadorPreguntas + 1;
+            currentQuestionIncorrect.textContent = contadorPreguntas;
+            currentQuestionCorrect.textContent = contadorPreguntas;
             juegoMayor.style.display = "none";
 
             let numberA = Number(optionA.dataset.number);
             let numberB = Number(optionB.dataset.number);
 
             if (numberA > numberB) {
+              correctOption.textContent = convertToRoman(numberA);
               if (e.currentTarget.querySelector('#optionA')) {
+                optionSelectedCorrect.textContent = convertToRoman(numberA);
                 score++;
                 respuestaCorrecta.style.display = "block"
                 correcto.play();
               } else {
+                optionSelectedIncorrect.textContent = convertToRoman(numberB);
                 respuestaIncorrecta.style.display = "block";
                 incorrecto.play();
               }
             } else if (numberB > numberA) {
+              correctOption.textContent = convertToRoman(numberB);
               if (e.currentTarget.querySelector('#optionB')) {
+                optionSelectedCorrect.textContent = convertToRoman(numberB);
                 score++;
                 respuestaCorrecta.style.display = "block"
                 correcto.play();
               } else {
+                optionSelectedIncorrect.textContent = convertToRoman(numberA);
                 respuestaIncorrecta.style.display = "block";
                 incorrecto.play();
               }
