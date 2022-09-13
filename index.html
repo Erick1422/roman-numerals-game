@@ -138,69 +138,7 @@
           </div>
 
 
-          <script>
-
-            let btnPlay = document.querySelectorAll(".audio-size");
-            let titleAudio = document.querySelector(".title-audio");
-            let backTop = document.querySelector(".back-to-top1");
-            let btnCerrar = document.querySelector(".btn-cerrar");
-            let iconoPlayAll = document.querySelectorAll(".iconoPlay");
-            const audioHnr = new Audio("sounds/hnr.mp3");
-            const audioPdnrnd = new Audio("sounds/pdnrnd.mp3");
-            const audioQnr = new Audio("sounds/qnr.mp3");
-
-            for (let i = 0; i < btnPlay.length; i++) {
-              let titulo = btnPlay[i].querySelector("span");
-              let iconoPlay = btnPlay[i].querySelector(".iconoPlay");
-              iconoPlay.addEventListener("click", () => {
-
-                if (iconoPlay.classList.contains("icofont-play-alt-1")) {
-                  console.log("abreeee")
-                  loadAudio();
-                  titleAudio.textContent = titulo.textContent;
-                  iconoPlay.classList.replace("icofont-play-alt-1", "icofont-stop");
-                  backTop.style.width = "400px";
-                  backTop.style.visibility = "visible";
-
-                  if (i == 0) {
-                    audioHnr.play();
-                  } else if (i == 1) {
-                    audioPdnrnd.play();
-                  } else if (i == 2) {
-                    audioQnr.play();
-                  } else {
-                    console.log("ningun audio encontrado")
-                  }
-                } else {
-                  console.log("abreswswswswswsweee")
-                  loadAudio();
-                  backTop.style.width = "0px";
-                  backTop.style.visibility = "hidden";
-                }
-
-
-
-              })
-            }
-
-            btnCerrar.addEventListener("click", () => {
-              backTop.style.width = "0px";
-              backTop.style.visibility = "hidden";
-              loadAudio();
-            });
-
-            function loadAudio() {
-
-              for (let j = 0; j < iconoPlayAll.length; j++) {
-                iconoPlayAll[j].classList.replace("icofont-stop", "icofont-play-alt-1");
-                audioHnr.load();
-                audioPdnrnd.load();
-                audioQnr.load();
-              }
-
-            }
-
-          </script>
+         
 
 
           <a href="https://api.whatsapp.com/send?phone=34695685920&text=hola,%0AEn que te podemos ayudar?"
@@ -617,6 +555,70 @@
 <script>
   let ruta = document.querySelector(".ruta");
   ruta.href = `http://web.whatsapp.com/send?text=${window.location.href}`
+</script>
+
+<script>
+
+  let btnPlay = document.querySelectorAll(".audio-size");
+  let titleAudio = document.querySelector(".title-audio");
+  let backTop = document.querySelector(".back-to-top1");
+  let btnCerrar = document.querySelector(".btn-cerrar");
+  let iconoPlayAll = document.querySelectorAll(".iconoPlay");
+  const audioHnr = new Audio("sounds/hnr.mp3");
+  const audioPdnrnd = new Audio("sounds/pdnrnd.mp3");
+  const audioQnr = new Audio("sounds/qnr.mp3");
+
+  for (let i = 0; i < btnPlay.length; i++) {
+    let titulo = btnPlay[i].querySelector("span");
+    let iconoPlay = btnPlay[i].querySelector(".iconoPlay");
+    iconoPlay.addEventListener("click", () => {
+
+      if (iconoPlay.classList.contains("icofont-play-alt-1")) {
+        console.log("abreeee")
+        loadAudio();
+        titleAudio.textContent = titulo.textContent;
+        iconoPlay.classList.replace("icofont-play-alt-1", "icofont-stop");
+        backTop.style.width = "400px";
+        backTop.style.visibility = "visible";
+
+        if (i == 0) {
+          audioHnr.play();
+        } else if (i == 1) {
+          audioPdnrnd.play();
+        } else if (i == 2) {
+          audioQnr.play();
+        } else {
+          console.log("ningun audio encontrado")
+        }
+      } else {
+        console.log("abreswswswswswsweee")
+        loadAudio();
+        backTop.style.width = "0px";
+        backTop.style.visibility = "hidden";
+      }
+
+
+
+    })
+  }
+
+  btnCerrar.addEventListener("click", () => {
+    backTop.style.width = "0px";
+    backTop.style.visibility = "hidden";
+    loadAudio();
+  });
+
+  function loadAudio() {
+
+    for (let j = 0; j < iconoPlayAll.length; j++) {
+      iconoPlayAll[j].classList.replace("icofont-stop", "icofont-play-alt-1");
+      audioHnr.load();
+      audioPdnrnd.load();
+      audioQnr.load();
+    }
+
+  }
+
 </script>
 
 
