@@ -25,6 +25,24 @@
 
   <!-- Back to top button -->
   <div class="back-to-top"></div>
+
+  <!-- Reproductor de mp3 -->
+  <div class="back-to-top1">
+
+
+    <div class="loader">
+      <span class="stroke"></span>
+      <span class="stroke"></span>
+      <span class="stroke"></span>
+      <span class="stroke"></span>
+      <span class="stroke"></span>
+    </div>
+    <span class="ml-2 title-audio" style="margin-right: 45px;">Diferencias e</span>
+    <span class="btn-cerrar"><i class="icofont-close" style="font-size: 25px; color: #00dbd0;"></i></span>
+  </div>
+
+
+
   <header>
     <nav class="navbar navbar-expand-lg navbar-light shadow-sm">
       <div class="container">
@@ -81,7 +99,7 @@
 
         <div class="col-lg-6 py-3 wow fadeInUp">
           <h1 class="mb-4">Numeración Romana</h1>
-          <p class="text-lg mb-5"><a
+          <p class="text-lg mb-2"><a
               href="https://www.superprof.es/diccionario/matematicas/aritmetica/numeros-romanos.html#:~:text=La%20numeraci%C3%B3n%20romana%20es%20el,%3D%20500%20y%20M%20%3D%201.000."
               class="tooltip-bottom1" data-toggle="tooltip" data-container=".tooltip-bottom1" data-placement="bottom"
               title="La numeración romana es el sistema que usaban los romanos, actualmente se emplea en fechas, capítulos, etc.
@@ -104,6 +122,87 @@
               target="_blank">símbolos</a> siempre es el mismo,
             sin que influye el lugar que ocupan.</p>
 
+          <h5 style="color: #333333;">Audios Sobre los números romanos</h5>
+
+          <div class="audio-size mb-2">
+            <i class="icofont-play-alt-1 iconoPlay"></i>
+            <span>Historia de los números romanos</span>
+          </div>
+          <div class="audio-size mb-2">
+            <i class="icofont-play-alt-1 iconoPlay"></i>
+            <span>Diferencias entre los números romanos y los decimales</span>
+          </div>
+          <div class="audio-size mb-4">
+            <i class="icofont-play-alt-1 iconoPlay"></i>
+            <span>¿Qué son los números romanos?</span>
+          </div>
+
+
+          <script>
+
+            let btnPlay = document.querySelectorAll(".audio-size");
+            let titleAudio = document.querySelector(".title-audio");
+            let backTop = document.querySelector(".back-to-top1");
+            let btnCerrar = document.querySelector(".btn-cerrar");
+            let iconoPlayAll = document.querySelectorAll(".iconoPlay");
+            const audioHnr = new Audio("sounds/hnr.mp3");
+            const audioPdnrnd = new Audio("sounds/pdnrnd.mp3");
+            const audioQnr = new Audio("sounds/qnr.mp3");
+
+            for (let i = 0; i < btnPlay.length; i++) {
+              let titulo = btnPlay[i].querySelector("span");
+              let iconoPlay = btnPlay[i].querySelector(".iconoPlay");
+              iconoPlay.addEventListener("click", () => {
+
+                if (iconoPlay.classList.contains("icofont-play-alt-1")) {
+                  console.log("abreeee")
+                  loadAudio();
+                  titleAudio.textContent = titulo.textContent;
+                  iconoPlay.classList.replace("icofont-play-alt-1", "icofont-stop");
+                  backTop.style.width = "400px";
+                  backTop.style.visibility = "visible";
+
+                  if (i == 0) {
+                    audioHnr.play();
+                  } else if (i == 1) {
+                    audioPdnrnd.play();
+                  } else if (i == 2) {
+                    audioQnr.play();
+                  } else {
+                    console.log("ningun audio encontrado")
+                  }
+                } else {
+                  console.log("abreswswswswswsweee")
+                  loadAudio();
+                  backTop.style.width = "0px";
+                  backTop.style.visibility = "hidden";
+                }
+
+
+
+              })
+            }
+
+            btnCerrar.addEventListener("click", () => {
+              backTop.style.width = "0px";
+              backTop.style.visibility = "hidden";
+              loadAudio();
+            });
+
+            function loadAudio() {
+
+              for (let j = 0; j < iconoPlayAll.length; j++) {
+                iconoPlayAll[j].classList.replace("icofont-stop", "icofont-play-alt-1");
+                audioHnr.load();
+                audioPdnrnd.load();
+                audioQnr.load();
+              }
+
+            }
+
+          </script>
+
+
           <a href="https://api.whatsapp.com/send?phone=34695685920&text=hola,%0AEn que te podemos ayudar?"
             class="btn btn-primary">Contactar</a>
 
@@ -119,7 +218,8 @@
 
 
   <main>
-    <div class="page-section" style="border-top: 1px solid #e9e8f5; border-bottom: 1px solid #e9e8f5; background-color: #c3e0ff;">
+    <div class="page-section"
+      style="border-top: 1px solid #e9e8f5; border-bottom: 1px solid #e9e8f5; background-color: #c3e0ff;">
       <div class="container">
         <div class="row mb-6">
           <div class="col-lg-6 py-3 wow zoomIn">
@@ -310,7 +410,7 @@
 
 
     <div class="page-section" id="about" style="background-color: rgb(223, 225, 255);">
-      <div class="container" >
+      <div class="container">
         <div class="text-center wow fadeInUp">
           <div class="subhead">Nuestros Equipos</div>
           <h2 class="title-section">Equipo de <span class="marked">Trabajo</span></h2>
