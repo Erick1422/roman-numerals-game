@@ -665,7 +665,9 @@
             }
           }
 
+
           reiniciarJuego.addEventListener("click", () => {
+            location.reload();
             if (respuestaCorrecta) respuestaCorrecta.style.display = "none";
             else if (respuestaIncorrecta) respuestaIncorrecta.style.display = "none";
           });

@@ -572,12 +572,18 @@
               audioJazz.load();
               addMessageFinich(ContentPlay, str, score);
               addactualizarJuego();
+              let iconActualizar = document.querySelector(".icon-actualizar");
+              iconActualizar.addEventListener("click", () => {
+                location.reload();
+              });
             }
           }
 
-          /* reiniciarJuego.addEventListener("click", () => {
-            respuestaCorrecta.remove();
-          }); */
+          reiniciarJuego.addEventListener("click", () => {
+            location.reload();
+          });
+
+
 
           /* reiniciarJuego.addEventListener("click", () => {
             respuestaIncorrecta.remove();
