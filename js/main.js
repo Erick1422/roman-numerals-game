@@ -707,3 +707,4 @@ function convertToRoman(num) {
 function randomNumber(minNum, maxNum) {
   return Math.floor(Math.random() * (maxNum - minNum) + minNum);
 }
+

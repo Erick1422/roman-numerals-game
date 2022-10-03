@@ -579,3 +579,66 @@ input[type="color"]::-webkit-color-swatch {
 .posicion-icono-juego i {
     font-size: 25px;
 }
+
+/* Stylos para el quiz de la pagia */
+
+.container-title {
+    background-color: #333;
+    height: 130px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-title .title {
+    color: #fff;
+}
+
+
+#quiz section {
+    border: 1px solid #6b55f9bb;
+    margin: 20px 0px;
+    border-radius: 8px;
+}
+
+#quiz h5 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+#quiz label {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    gap: 10px;
+    font-size: 18px;
+    color: #333;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    border-radius: 6px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+#quiz label:hover {
+    background-color: #6b55f9bb;
+}
+
+.container-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-button button {
+    border-radius: 20px;
+}
+
+.result i {
+    font-size: 60px;
+    color: #333;
+}
+
+.num-result {
+    color: #6C55F9;
+}
