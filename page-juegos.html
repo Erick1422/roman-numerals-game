@@ -152,7 +152,7 @@
                       <div class="post-title">
                         <div>Mayor y Menor que.</div>
                       </div>
-                      <div class="post-excerpt">¿Cual es el mayor número de los dos?</div>
+                      <div class="post-excerpt">¿Cuál es el mayor número de los dos?</div>
                       <div class="entry-footer mt-2">
                         <span class="post-author">Fecha de Creación: </span>
                         <span class="post-date">20 Jul 2022</span>
@@ -200,53 +200,55 @@
       </div>
     </main>
 
-  <footer class="page-footer">
-    <div class="container">
-      <div class="row justify-content-center mb-5">
-        <div class="col-lg-6 py-3">
-          <h3>Números<span class="text-primary">Romanos.</span></h3>
-          <p><span class="b">Los números romanos</span> son un grupo de símbolos formado por letras mayúsculas que
-            idearon los antiguos romanos para representar valores y cantidades.</p>
-
-          <div>
-            <p style="color: #007bff;">digigram@mail.com</p>
-            <p style="color: #007bff;">+57 320 215 87 42</p>
+    <footer class="page-footer" style="background-color: rgb(255, 231, 209);">
+      <div class="container">
+        <div class="row justify-content-center mb-5">
+          <div class="col-lg-6 py-3">
+            <h3>Números<span class="text-primary">Romanos.</span></h3>
+            <p><span class="b">Los números romanos</span> son un grupo de símbolos formado por letras mayúsculas que
+              idearon los antiguos romanos para representar valores y cantidades.</p>
+  
+            <div>
+              <p style="color: #007bff;">maguilarcuadrado@gmail.com</p>
+              <p style="color: #007bff;">+57 320 215 87 42</p>
+            </div>
+          </div>
+          <div class="col-lg-3 py-3">
+            <h5>Enlaces rápidos</h5>
+            <ul class="footer-menu">
+              <li><a href="index.html">Inicios</a></li>
+              <li><a href="page-juegos.html">Juegos</a></li>
+              <li><a href="index.html#about">Nuestros Equipos</a></li>
+              <li><a href="index.html#contact">Contactos</a></li>
+            </ul>
+          </div>
+  
+          <div class="col-lg-3 py-3">
+            <h5>Suscríbete</h5>
+            <form action="#">
+              <input type="text" class="form-control" placeholder="Envíanos tu Email">
+            </form>
+  
+            <div class="sosmed-button mt-4">
+              <a href="https://www.facebook.com/profile.php?id=100083688257696" target="_blank"><span
+                  class="mai-logo-facebook-f"></span></a>
+              <a href="https://instagram.com/numerosromanos_6?igshid=YmMyMTA2M2Y=" target="_blank"><span
+                  class="mai-logo-instagram"></span></a>
+            </div>
+            <div class="text-right img-logo">
+              <img src="img/logoWeb.png" alt="">
+            </div>
           </div>
         </div>
-        <div class="col-lg-3 py-3">
-          <h5>Enlaces rápidos</h5>
-          <ul class="footer-menu">
-            <li><a href="index.html">Inicios</a></li>
-            <li><a href="page-juegos.html">Juegos</a></li>
-            <li><a href="index.html#about">Nuestros Equipos</a></li>
-            <li><a href="index.html#contact">Contactos</a></li>
-          </ul>
-        </div>
-
-        <div class="col-lg-3 py-3">
-          <h5>Subscribe</h5>
-          <form action="#">
-            <input type="text" class="form-control" placeholder="Envianos tu Email">
-          </form>
-
-          <div class="sosmed-button mt-4">
-            <a href="https://www.facebook.com/profile.php?id=100083688257696" target="_blank"><span class="mai-logo-facebook-f"></span></a>
-            <a href="https://instagram.com/numerosromanos_6?igshid=YmMyMTA2M2Y=" target="_blank"><span class="mai-logo-instagram"></span></a>
-          </div>
-          <div class="text-right img-logo">
-            <img src="img/logoWeb.png" alt="">
+  
+        <div class="row">
+          <div class="col-sm-12 text-center py-2">
+            <p id="copyright">&copy; 2022 <span class="text-primary">Números Romanos</span>. Todas los derechos
+              reservados.</p>
           </div>
         </div>
-      </div>
-
-      <div class="row">
-        <div class="col-sm-12 text-center py-2">
-          <p id="copyright">&copy; 2022 <span class="text-primary">Números Romanos</span>. Todas los derechos
-            reservados.</p>
-        </div>
-      </div>
-    </div> <!-- .container -->
-  </footer> <!-- .page-footer -->
+      </div> <!-- .container -->
+    </footer> <!-- .page-footer -->
 
   <style>
       @media (min-width: 1200px) {
@@ -275,7 +277,10 @@
 
   <!-- <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAIA_zqjFMsJM_sxP9-6Pde5vVCTyJmUHM&callback=initMap"></script> -->
 
-  
+  <script>
+    let ruta = document.querySelector(".ruta");
+    ruta.href = `http://web.whatsapp.com/send?text=${window.location.href}`
+  </script>
 
 </body>
 

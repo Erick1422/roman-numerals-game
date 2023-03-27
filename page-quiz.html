@@ -267,7 +267,7 @@
     </div>
   </main>
 
-  <footer class="page-footer">
+  <footer class="page-footer" style="background-color: rgb(255, 231, 209);">
     <div class="container">
       <div class="row justify-content-center mb-5">
         <div class="col-lg-6 py-3">
@@ -276,7 +276,7 @@
             idearon los antiguos romanos para representar valores y cantidades.</p>
 
           <div>
-            <p style="color: #007bff;">digigram@mail.com</p>
+            <p style="color: #007bff;">maguilarcuadrado@gmail.com</p>
             <p style="color: #007bff;">+57 320 215 87 42</p>
           </div>
         </div>
@@ -291,9 +291,9 @@
         </div>
 
         <div class="col-lg-3 py-3">
-          <h5>Subscribe</h5>
+          <h5>Suscríbete</h5>
           <form action="#">
-            <input type="text" class="form-control" placeholder="Envianos tu Email">
+            <input type="text" class="form-control" placeholder="Envíanos tu Email">
           </form>
 
           <div class="sosmed-button mt-4">
@@ -316,6 +316,11 @@
       </div>
     </div> <!-- .container -->
   </footer> <!-- .page-footer -->
+
+  <script>
+    let ruta = document.querySelector(".ruta");
+    ruta.href = `http://web.whatsapp.com/send?text=${window.location.href}`
+  </script>
 
   <style>
     @media (min-width: 1200px) {
